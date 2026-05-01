@@ -729,16 +729,11 @@
     transform: scale(1.3);
   }
 
-  @media (max-width: 900px) {
-    .carousel-block { padding: 0 2.5rem; }
-    .carousel-slide { flex: 0 0 calc(50% - 4px); }
-    .carousel-btn.prev { left: -14px; }
-    .carousel-btn.next { right: -14px; }
-  }
-
-  @media (max-width: 500px) {
-    .carousel-block { padding: 0 2rem; }
-    .carousel-slide { flex: 0 0 calc(100% - 4px); }
+   @media (max-width: 500px) {
+  .carousel-block { padding: 0 2rem; }
+  .carousel-slide { flex: 0 0 calc(100% - 80px); }
+  .carousel-btn.prev { left: 5px; }
+  .carousel-btn.next { right: 5px; }
   }
 
 
@@ -1510,26 +1505,33 @@
         <div class="carousel-slide" onclick="openLightbox(this)">
           <img src="lais.jpg" alt="Tatuagem delicada" loading="lazy">
         </div>
-        <div class="carousel-slide placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <span>Em breve</span>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="namefinalkatsa.jpg" alt="Tatuagem delicada" loading="lazy">
         </div>
-        <div class="carousel-slide placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <span>Em breve</span>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="retocado.jpg" alt="Tatuagem delicada" loading="lazy">
         </div>
-        <div class="carousel-slide placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <span>Em breve</span>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="31.jpg" alt="Tatuagem delicada" loading="lazy">
         </div>
-        <div class="carousel-slide placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><rect x="3" y="3" width="18" height="18" rx="1"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-          <span>Em breve</span>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="32.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+		<div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="leoas.jpg" alt="Tatuagem delicada" loading="lazy">
         </div>
       </div>
       <button class="carousel-btn next" onclick="moveCarousel('car2',1)">›</button>
     </div>
-    <div class="carousel-dots" id="car2-dots"><div class="carousel-dot active" onclick="goTo('car2',0)"></div><div class="carousel-dot " onclick="goTo('car2',1)"></div></div>
+   <div class="carousel-dots" id="car2-dots">
+  <div class="carousel-dot active" onclick="goTo('car2',0)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',1)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',2)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',3)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',4)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',5)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',6)"></div>
+</div>
   </div>
   <div class="carousel-block reveal">
     <div class="carousel-label">Em Destaque</div>
