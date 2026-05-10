@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Moacir Almeida | Arte corporal</title>
+<title>Tatuagem em Recife | Studio Moacir Almeida — Realismo, Blackwork e Fineline</title>
+<meta name="description" content="Studio de tatuagem em Recife com mais de 10 anos de experiência. Especialista em Realismo, Blackwork, Fineline e Anime. Agende pelo WhatsApp. Casa Amarela, Recife-PE." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -813,7 +814,113 @@
     letter-spacing: 0.1em;
   }
 
-  /* ── CONTACT / BOOKING ── */
+  /* ── CONTACT WA BOX ── */
+  .contact-wa-box {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+  }
+
+  .contact-wa-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-wa-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-wa-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.1rem 1.4rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .contact-wa-btn:hover {
+    border-color: #25d366;
+    background: rgba(37,211,102,0.04);
+    transform: translateX(4px);
+  }
+
+  .contact-wa-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+  }
+
+  .contact-wa-btn-title {
+    font-size: 0.88rem;
+    color: var(--cream);
+    font-weight: 400;
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-wa-btn-sub {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .contact-wa-arrow {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 1rem;
+    transition: color 0.3s;
+    flex-shrink: 0;
+  }
+
+  .contact-wa-btn:hover .contact-wa-arrow {
+    color: #25d366;
+  }
+
+  .contact-wa-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-wa-note strong {
+    color: var(--gold);
+  }
+
+  /* ── CONTACT INFO WHATSAPP LINK ── */
+  .contact-info-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .contact-info-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  }
+
+  /* ── CONTACT ── */
   #contact {
     background: var(--black);
     border-top: 1px solid var(--border);
@@ -1053,7 +1160,93 @@
 
   .footer-legal a:hover { color: var(--gold); }
 
-  /* ── ANIMATIONS ── */
+  /* ── HERO TRUST BAR ── */
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 3rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba(201,169,110,0.15);
+    opacity: 0;
+    animation: fadeUp 1s 1s forwards;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .hero-trust-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-trust-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-trust-sep {
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+
+  /* ── WHATSAPP FLUTUANTE ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.4rem 0.75rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: waBounce 2s 3s ease-in-out;
+  }
+
+  .whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+  }
+
+  .whatsapp-float svg {
+    flex-shrink: 0;
+  }
+
+  @keyframes waBounce {
+    0%,100% { transform: translateY(0); }
+    30% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+  }
+
+  @media (max-width: 600px) {
+    .whatsapp-float span { display: none; }
+    .whatsapp-float { padding: 0.9rem; border-radius: 50%; }
+    .hero-trust { gap: 1.2rem; }
+    .hero-trust-sep { display: none; }
+  }
+
+
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(28px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -1320,6 +1513,12 @@
 </head>
 <body>
 
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5581995103420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20tatuagem.%20Poderia%20me%20ajudar%3F" target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Agendar agora</span>
+</a>
+
 <!-- NAV -->
 <nav id="navbar">
   <a href="#" class="nav-logo">Tatuagem em <em>Recife</em></a>
@@ -1350,12 +1549,19 @@
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="hero-content">
-    <p class="hero-eyebrow">Studio de Tatuagem</p>
-    <h1 class="hero-title">Arte que <em>transforma</em><br>a sua pele</h1>
-    <p class="hero-subtitle">Tatuagens realizadas com maestria e cuidado em cada detalhe.</p>
+    <p class="hero-eyebrow">Studio de Tatuagem em Recife</p>
+    <h1 class="hero-title">Realismo, Blackwork<br>e <em>Fineline</em> em Recife</h1>
+    <p class="hero-subtitle">Mais de 10 anos de experiência. Atendimento personalizado, ambiente seguro e arte que dura a vida toda.</p>
     <div class="hero-actions">
-      <a href="https://wa.me/5581995103420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20tatuagem.%20Poderia%20me%20ajudar%3F" target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar</a>
-      <a href="#services" class="btn-secondary">Ver Serviços</a>
+      <a href="https://wa.me/5581995103420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20tatuagem.%20Poderia%20me%20ajudar%3F" target="_blank" class="btn-primary">Agendar pelo WhatsApp</a>
+      <a href="#gallery" class="btn-secondary">Ver Trabalhos</a>
+    </div>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span class="hero-trust-num">10+</span><span class="hero-trust-label">Anos de experiência</span></div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item"><span class="hero-trust-num">★★★★★</span><span class="hero-trust-label">Avaliação dos clientes</span></div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item"><span class="hero-trust-num">Casa Amarela</span><span class="hero-trust-label">Recife, PE</span></div>
     </div>
   </div>
   <div class="scroll-hint">
@@ -1743,8 +1949,12 @@
     <div class="contact-info reveal">
       <span class="section-tag">Fale conosco</span>
       <h2>Agende sua <em>sessão</em></h2>
-      <p>Entre em contato para tirar dúvidas, solicitar orçamento ou marcar seu horário. Resposta em até 24 horas.</p>
-      <div class="contact-details">
+      <p>Entre em contato para tirar dúvidas, solicitar orçamento ou marcar seu horário. Resposta em até 1 hora em horário comercial.</p>
+      <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20tatuagem." target="_blank" class="contact-info-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp agora
+      </a>
+      <div class="contact-details" style="margin-top:1.8rem;">
         <div class="contact-item">
           <div class="contact-icon">📍</div>
           <div>
@@ -1760,52 +1970,53 @@
           </div>
         </div>
         <div class="contact-item">
-          <div class="contact-icon">✉️</div>
-          <div>
-            <div class="contact-item-title">E-mail</div>
-            <div class="contact-item-text">moacirtattoostudio</div>
-          </div>
-        </div>
-        <div class="contact-item">
           <div class="contact-icon">🕐</div>
           <div>
             <div class="contact-item-title">Horário de Funcionamento</div>
-            <div class="contact-item-text">Todos os dias (somente por agendamento)<br>----------------------------</div>
+            <div class="contact-item-text">Todos os dias (somente por agendamento)<br>Fale pelo WhatsApp para verificar disponibilidade</div>
           </div>
         </div>
       </div>
     </div>
     <div class="reveal">
-      <form class="contact-form" onsubmit="handleSubmit(event)">
-        <div class="form-row">
-          <div class="form-group">
-            <label>Nome</label>
-            <input type="text" placeholder="Seu nome completo" required>
-          </div>
-          <div class="form-group">
-            <label>WhatsApp</label>
-            <input type="tel" placeholder="(81) 99510-3420">
-          </div>
+      <div class="contact-wa-box">
+        <div class="contact-wa-title">Escolha como prefere falar:</div>
+        <div class="contact-wa-options">
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Quero%20fazer%20uma%20tatuagem%20nova.%20Pode%20me%20passar%20as%20informações%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">🎨</span>
+            <div>
+              <div class="contact-wa-btn-title">Tatuagem Nova</div>
+              <div class="contact-wa-btn-sub">Quero fazer minha primeira tattoo ou uma nova</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Tenho%20uma%20tatuagem%20antiga%20e%20quero%20fazer%20uma%20cobertura.%20Pode%20me%20ajudar%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">🔄</span>
+            <div>
+              <div class="contact-wa-btn-title">Cobertura</div>
+              <div class="contact-wa-btn-sub">Quero cobrir ou transformar uma tattoo antiga</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Tenho%20uma%20tatuagem%20que%20precisa%20de%20reforma%20ou%20retoque.%20Pode%20me%20ajudar%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">✏️</span>
+            <div>
+              <div class="contact-wa-btn-title">Reforma / Retoque</div>
+              <div class="contact-wa-btn-sub">Minha tattoo precisa de retoque ou ajuste</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Tenho%20uma%20dúvida%20sobre%20tatuagem.%20Pode%20me%20ajudar%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">💬</span>
+            <div>
+              <div class="contact-wa-btn-title">Tirar uma dúvida</div>
+              <div class="contact-wa-btn-sub">Quero saber preço, estilo ou outras informações</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
         </div>
-        <div class="form-group">
-          <label>E-mail</label>
-          <input type="email" placeholder="seu@email.com" required>
-        </div>
-        <div class="form-group">
-          <label>Serviço de interesse</label>
-          <select>
-            <option value="">Selecione um serviço</option>
-            <option>Tatuagem Nova</option>
-            <option>Cobertura</option>
-            <option>Reforma</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Mensagem</label>
-          <textarea rows="4" placeholder="Conte-nos sobre o que você tem em mente…"></textarea>
-        </div>
-        <button type="submit" class="form-submit">Enviar Mensagem</button>
-      </form>
+        <p class="contact-wa-note">Tempo médio de resposta: <strong>menos de 1 hora</strong> em horário comercial</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1847,7 +2058,7 @@
     </div>
   </div>
   <div class="footer-bottom">
-    <p class="footer-copy">© 2025 Studio Moacir Almeida Tattoo. Todos os direitos reservados.</p>
+    <p class="footer-copy">© 2026 Studio Moacir Almeida Tattoo — Recife, PE. Todos os direitos reservados.</p>
     <div class="footer-legal">
       <a href="#">Política de Privacidade</a>
       <a href="#">Termos de Uso</a>
