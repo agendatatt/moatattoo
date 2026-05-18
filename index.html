@@ -1141,11 +1141,13 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-    margin-top: 3rem;
-    padding-top: 2.5rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.8rem 0;
     border-top: 1px solid rgba(201,169,110,0.15);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
     opacity: 0;
-    animation: fadeUp 1s 1s forwards;
+    animation: fadeUp 1s 0.6s forwards;
     flex-wrap: wrap;
   }
 
@@ -1216,9 +1218,20 @@
 
   @media (max-width: 600px) {
     .whatsapp-float span { display: none; }
-    .whatsapp-float { padding: 0.9rem; border-radius: 50%; }
+    .whatsapp-float { padding: 0.9rem; border-radius: 50%; bottom: 1.2rem; right: 1.2rem; }
     .hero-trust { gap: 1.2rem; }
     .hero-trust-sep { display: none; }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      gap: 0.75rem;
+    }
+    .btn-primary, .btn-secondary {
+      text-align: center;
+      width: 100%;
+      padding: 1rem 1rem;
+    }
   }
 
 
@@ -1520,17 +1533,17 @@
   <div class="hero-content">
     <p class="hero-eyebrow">Studio de Tatuagem em Recife</p>
     <h1 class="hero-title">Realismo, Blackwork<br>e <em>Fineline</em> em Recife</h1>
-    <p class="hero-subtitle">Mais de 10 anos de experiência. Atendimento personalizado, ambiente seguro e arte que dura a vida toda.</p>
-    <div class="hero-actions">
-      <a href="https://wa.me/5581995103420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20tatuagem.%20Poderia%20me%20ajudar%3F" target="_blank" class="btn-primary">Agendar pelo WhatsApp</a>
-      <a href="#gallery" class="btn-secondary">Ver Trabalhos</a>
-    </div>
+    <p class="hero-subtitle">Você merece uma tatuagem feita por quem leva arte a sério.<br>Há 10 anos transformando ideias em obra — com precisão, cuidado e respeito pela sua pele.</p>
     <div class="hero-trust">
       <div class="hero-trust-item"><span class="hero-trust-num">10+</span><span class="hero-trust-label">Anos de experiência</span></div>
       <div class="hero-trust-sep"></div>
       <div class="hero-trust-item"><span class="hero-trust-num">★★★★★</span><span class="hero-trust-label">Avaliação dos clientes</span></div>
       <div class="hero-trust-sep"></div>
       <div class="hero-trust-item"><span class="hero-trust-num">Casa Amarela</span><span class="hero-trust-label">Recife, PE</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://wa.me/5581995103420?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20orçamento%20para%20uma%20tatuagem.%20Poderia%20me%20ajudar%3F" target="_blank" class="btn-primary">Agendar pelo WhatsApp</a>
+      <a href="#gallery" class="btn-secondary">Ver Trabalhos</a>
     </div>
   </div>
 
