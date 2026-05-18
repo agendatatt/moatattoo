@@ -164,9 +164,19 @@
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(ellipse 80% 60% at 50% 40%, rgba(201,169,110,0.06) 0%, transparent 70%),
-      radial-gradient(ellipse 40% 50% at 20% 70%, rgba(201,169,110,0.03) 0%, transparent 60%),
-      linear-gradient(180deg, #0a0a0a 0%, #0f0d0a 100%);
+      linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.45) 100%),
+      linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 40%);
+  }
+
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url('luffy2.jpg');
+    background-size: cover;
+    background-position: center 20%;
+    background-repeat: no-repeat;
+    z-index: -1;
   }
 
   /* decorative lines */
