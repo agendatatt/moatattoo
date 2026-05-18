@@ -164,19 +164,9 @@
     position: absolute;
     inset: 0;
     background:
-      linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.75) 50%, rgba(10,10,10,0.45) 100%),
-      linear-gradient(to top, rgba(10,10,10,0.85) 0%, transparent 40%);
-  }
-
-  .hero-bg::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-image: url('luffy2.jpg');
-    background-size: cover;
-    background-position: center 20%;
-    background-repeat: no-repeat;
-    z-index: -1;
+      linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.72) 45%, rgba(10,10,10,0.35) 100%),
+      linear-gradient(to top, rgba(10,10,10,0.90) 0%, transparent 35%),
+      url('luffy2.jpg') center 20% / cover no-repeat;
   }
 
   /* decorative lines */
@@ -272,32 +262,7 @@
     color: var(--gold);
   }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 2.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-    opacity: 0;
-    animation: fadeIn 1s 1.4s forwards;
-  }
 
-  .scroll-hint span {
-    font-size: 0.6rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 50px;
-    background: linear-gradient(180deg, var(--gold), transparent);
-    animation: scrollAnim 2s infinite;
-  }
 
   /* ── SECTION COMMON ── */
   section { padding: 7rem 3rem; }
@@ -1267,12 +1232,6 @@
     to   { opacity: 1; }
   }
 
-  @keyframes scrollAnim {
-    0%   { transform: scaleY(0); transform-origin: top; }
-    50%  { transform: scaleY(1); transform-origin: top; }
-    51%  { transform: scaleY(1); transform-origin: bottom; }
-    100% { transform: scaleY(0); transform-origin: bottom; }
-  }
 
   .reveal {
     opacity: 0;
@@ -1574,10 +1533,7 @@
       <div class="hero-trust-item"><span class="hero-trust-num">Casa Amarela</span><span class="hero-trust-label">Recife, PE</span></div>
     </div>
   </div>
-  <div class="scroll-hint">
-    <span>Scroll</span>
-    <div class="scroll-line"></div>
-  </div>
+
 </section>
 
 <!-- ABOUT -->
