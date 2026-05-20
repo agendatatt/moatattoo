@@ -277,6 +277,52 @@
     color: var(--gold);
   }
 
+  .btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border: 1px solid rgba(225,48,108,0.45);
+    color: rgba(255,255,255,0.75);
+    padding: 0.9rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-instagram:hover {
+    border-color: #e1306c;
+    color: #fff;
+    background: rgba(225,48,108,0.08);
+  }
+
+  .btn-instagram svg { flex-shrink: 0; }
+
+  /* Footer Instagram CTA */
+  .footer-ig-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.2rem;
+    padding: 0.65rem 1.3rem;
+    border: 1px solid rgba(225,48,108,0.4);
+    color: rgba(255,255,255,0.7);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .footer-ig-cta:hover {
+    border-color: #e1306c;
+    color: #fff;
+    background: rgba(225,48,108,0.08);
+  }
+
 
 
   /* ── SECTION COMMON ── */
@@ -1266,10 +1312,11 @@
       width: 100%;
       gap: 0.75rem;
     }
-    .btn-primary, .btn-secondary {
+    .btn-primary, .btn-secondary, .btn-instagram {
       text-align: center;
       width: 100%;
       padding: 1rem 1rem;
+      justify-content: center;
     }
   }
 
@@ -1583,6 +1630,10 @@
     <div class="hero-actions">
       <a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="btn-primary">Agendar pelo WhatsApp</a>
       <a href="#gallery" class="btn-secondary">Ver Trabalhos</a>
+      <a href="https://www.instagram.com/moatattooo?igsh=cXh1dmFwb3prZzlm&utm_source=qr" target="_blank" rel="noopener" class="btn-instagram">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Ver portfólio no Instagram
+      </a>
     </div>
     <p class="hero-scarcity">⚡ Apenas <strong>3 vagas</strong> disponíveis em <span id="mes-agenda"></span> — agenda fechando rápido.</p>
   </div>
@@ -1762,6 +1813,9 @@
       <button class="carousel-btn prev" onclick="moveCarousel('car3',-1)">‹</button>
       <div class="carousel-track" id="car3">
         <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="luffy2.jpg" alt="Tatuagem anime - Luffy Wanted" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
           <img src="Luffy_presets1.jpg" alt="Tatuagem anime - Luffy Gear 5" loading="lazy">
         </div>
         <div class="carousel-slide" onclick="openLightbox(this)">
@@ -1791,7 +1845,7 @@
       </div>
       <button class="carousel-btn next" onclick="moveCarousel('car3',1)">›</button>
     </div>
-    <div class="carousel-dots" id="car3-dots"><div class="carousel-dot active" onclick="goTo('car3',0)"></div><div class="carousel-dot" onclick="goTo('car3',1)"></div><div class="carousel-dot" onclick="goTo('car3',2)"></div><div class="carousel-dot" onclick="goTo('car3',3)"></div><div class="carousel-dot" onclick="goTo('car3',4)"></div><div class="carousel-dot" onclick="goTo('car3',5)"></div><div class="carousel-dot" onclick="goTo('car3',6)"></div><div class="carousel-dot" onclick="goTo('car3',7)"></div><div class="carousel-dot" onclick="goTo('car3',8)"></div></div>
+    <div class="carousel-dots" id="car3-dots"><div class="carousel-dot active" onclick="goTo('car3',0)"></div><div class="carousel-dot" onclick="goTo('car3',1)"></div><div class="carousel-dot" onclick="goTo('car3',2)"></div><div class="carousel-dot" onclick="goTo('car3',3)"></div><div class="carousel-dot" onclick="goTo('car3',4)"></div><div class="carousel-dot" onclick="goTo('car3',5)"></div><div class="carousel-dot" onclick="goTo('car3',6)"></div><div class="carousel-dot" onclick="goTo('car3',7)"></div><div class="carousel-dot" onclick="goTo('car3',8)"></div><div class="carousel-dot" onclick="goTo('car3',9)"></div></div>
   </div>
   <div class="carousel-block reveal">
     <div class="carousel-label">Coloridas</div>
@@ -1829,95 +1883,6 @@
   <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:#c9a96e;font-size:2.2rem;cursor:pointer;line-height:1;z-index:9999;">✕</button>
 </div>
 
-
-<!-- ARTIGOS -->
-<section id="artigos">
-  <div class="section-header reveal">
-    <span class="section-tag">Blog & Conteúdo</span>
-    <h2 class="section-title">Artigos sobre <em>Tatuagem</em></h2>
-    <div class="divider"></div>
-    <p style="color:var(--muted);font-size:0.82rem;max-width:480px;margin:1rem auto 0;">Conteúdo exclusivo sobre tatuagem, cuidados, estilos e tudo que você precisa saber antes de marcar sua sessão.</p>
-  </div>
-  <div class="artigos-grid" id="artigos-grid">
-
-    <div class="artigo-card reveal" onclick="window.open('cuidados-tatuagem-15-dias.html', '_blank')">
-      <div class="artigo-tag-bar"></div>
-      <div class="artigo-body">
-        <div class="artigo-meta">
-          <span class="artigo-categoria">Cuidados</span>
-          <span class="artigo-data">Abr 2025</span>
-        </div>
-        <h3 class="artigo-titulo">Como cuidar da tatuagem nos primeiros 15 dias</h3>
-        <p class="artigo-resumo">A cicatrização correta define a qualidade final do seu trabalho. Veja o passo a passo completo para não perder nenhum detalhe da sua tattoo.</p>
-        <span class="artigo-ler">Ler artigo →</span>
-      </div>
-    </div>
-
-    <div class="artigo-card reveal" onclick="window.open('realismo-em-tatuagem.html', '_blank')">
-      <div class="artigo-tag-bar"></div>
-      <div class="artigo-body">
-        <div class="artigo-meta">
-          <span class="artigo-categoria">Estilos</span>
-          <span class="artigo-data">Abr 2025</span>
-        </div>
-        <h3 class="artigo-titulo">Realismo em tatuagem: o estilo que desafia os limites da arte</h3>
-        <p class="artigo-resumo">Entenda o que é o realismo, por que é um dos estilos mais exigentes do mercado e como escolher o tatuador certo para esse tipo de trabalho.</p>
-        <span class="artigo-ler">Ler artigo →</span>
-      </div>
-    </div>
-
-    <div class="artigo-card reveal" onclick="window.open('o-que-perguntar-ao-tatuador.html', '_blank')">
-      <div class="artigo-tag-bar"></div>
-      <div class="artigo-body">
-        <div class="artigo-meta">
-          <span class="artigo-categoria">Planejamento</span>
-          <span class="artigo-data">Abr 2025</span>
-        </div>
-        <h3 class="artigo-titulo">O que perguntar ao tatuador antes de marcar sua sessão</h3>
-        <p class="artigo-resumo">Primeira tatuagem ou não, sempre há dúvidas importantes antes de sentar na cadeira. Veja as perguntas essenciais que todo cliente deveria fazer.</p>
-        <span class="artigo-ler">Ler artigo →</span>
-      </div>
-    </div>
-
-
-    <div class="artigo-card reveal" onclick="window.open('primeira-tatuagem-guia-completo.html', '_blank')">
-      <div class="artigo-tag-bar"></div>
-      <div class="artigo-body">
-        <div class="artigo-meta">
-          <span class="artigo-categoria">Primeira Tattoo</span>
-          <span class="artigo-data">Abr 2025</span>
-        </div>
-        <h3 class="artigo-titulo">Primeira tatuagem: tudo que você precisa saber antes de marcar</h3>
-        <p class="artigo-resumo">Dúvidas, medos e curiosidades sobre a primeira tatuagem são normais. Este guia completo responde as perguntas mais comuns e te ajuda a chegar preparado na cadeira.</p>
-        <span class="artigo-ler">Ler artigo →</span>
-      </div>
-    </div>
-
-    <div class="artigo-card reveal" onclick="window.open('quanto-doi-tatuagem.html', '_blank')">
-      <div class="artigo-tag-bar"></div>
-      <div class="artigo-body">
-        <div class="artigo-meta">
-          <span class="artigo-categoria">Dor &amp; Preparo</span>
-          <span class="artigo-data">Abr 2025</span>
-        </div>
-        <h3 class="artigo-titulo">Quanto dói fazer tatuagem? Ranking das regiões do corpo por nível de dor</h3>
-        <p class="artigo-resumo">Descubra quais regiões doem mais na hora de tatuar. Ranking completo com mapa ilustrativo, explicação anatômica e dicas para aguentar melhor a sessão.</p>
-        <span class="artigo-ler">Ler artigo →</span>
-      </div>
-    </div>
-
-  </div>
-
-  <div style="text-align:center;margin-top:3rem;">
-    <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">Novos artigos toda semana</p>
-  </div>
-</section>
-    <div class="artigo-modal-cta">
-      <p>Gostou do conteúdo? Que tal dar o próximo passo?</p>
-  <a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar minha sessão</a>
-    </div>
-  </div>
-</div>
 
 <!-- TESTIMONIALS -->
 <section id="testimonials">
@@ -2081,6 +2046,95 @@
   </div>
 </section>
 
+<!-- ARTIGOS -->
+<section id="artigos">
+  <div class="section-header reveal">
+    <span class="section-tag">Blog & Conteúdo</span>
+    <h2 class="section-title">Artigos sobre <em>Tatuagem</em></h2>
+    <div class="divider"></div>
+    <p style="color:var(--muted);font-size:0.82rem;max-width:480px;margin:1rem auto 0;">Conteúdo exclusivo sobre tatuagem, cuidados, estilos e tudo que você precisa saber antes de marcar sua sessão.</p>
+  </div>
+  <div class="artigos-grid" id="artigos-grid">
+
+    <div class="artigo-card reveal" onclick="window.open('cuidados-tatuagem-15-dias.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Cuidados</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Como cuidar da tatuagem nos primeiros 15 dias</h3>
+        <p class="artigo-resumo">A cicatrização correta define a qualidade final do seu trabalho. Veja o passo a passo completo para não perder nenhum detalhe da sua tattoo.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+    <div class="artigo-card reveal" onclick="window.open('realismo-em-tatuagem.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Estilos</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Realismo em tatuagem: o estilo que desafia os limites da arte</h3>
+        <p class="artigo-resumo">Entenda o que é o realismo, por que é um dos estilos mais exigentes do mercado e como escolher o tatuador certo para esse tipo de trabalho.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+    <div class="artigo-card reveal" onclick="window.open('o-que-perguntar-ao-tatuador.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Planejamento</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">O que perguntar ao tatuador antes de marcar sua sessão</h3>
+        <p class="artigo-resumo">Primeira tatuagem ou não, sempre há dúvidas importantes antes de sentar na cadeira. Veja as perguntas essenciais que todo cliente deveria fazer.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+
+    <div class="artigo-card reveal" onclick="window.open('primeira-tatuagem-guia-completo.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Primeira Tattoo</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Primeira tatuagem: tudo que você precisa saber antes de marcar</h3>
+        <p class="artigo-resumo">Dúvidas, medos e curiosidades sobre a primeira tatuagem são normais. Este guia completo responde as perguntas mais comuns e te ajuda a chegar preparado na cadeira.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+    <div class="artigo-card reveal" onclick="window.open('quanto-doi-tatuagem.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Dor &amp; Preparo</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Quanto dói fazer tatuagem? Ranking das regiões do corpo por nível de dor</h3>
+        <p class="artigo-resumo">Descubra quais regiões doem mais na hora de tatuar. Ranking completo com mapa ilustrativo, explicação anatômica e dicas para aguentar melhor a sessão.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:3rem;">
+    <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">Novos artigos toda semana</p>
+  </div>
+</section>
+    <div class="artigo-modal-cta">
+      <p>Gostou do conteúdo? Que tal dar o próximo passo?</p>
+  <a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar minha sessão</a>
+    </div>
+  </div>
+</div>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
@@ -2098,6 +2152,10 @@
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
         </a>
       </div>
+      <a href="https://www.instagram.com/moatattooo?igsh=cXh1dmFwb3prZzlm&utm_source=qr" target="_blank" rel="noopener" class="footer-ig-cta">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @moatattooo — Ver mais no Instagram
+      </a>
     </div>
     <div>
       <p class="footer-col-title">Navegação</p>
