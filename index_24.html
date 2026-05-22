@@ -1,0 +1,2339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Tatuagem em Recife | Studio Moacir Almeida — Realismo, Blackwork e Fineline</title>
+<meta name="description" content="Studio de tatuagem em Recife com mais de 10 anos de experiência. Especialista em Realismo, Blackwork, Fineline e Anime. Agende pelo WhatsApp. Casa Amarela, Recife-PE." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --deep: #111111;
+    --card: #161616;
+    --border: #2a2a2a;
+    --gold: #c9a96e;
+    --gold-light: #e0c998;
+    --cream: #f5f0e8;
+    --text: #d4cfc7;
+    --muted: #7a7570;
+    --white: #ffffff;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--text);
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* ── NOISE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.4;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.4rem 3rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  .nav-logo span { font-style: italic; color: var(--gold-light); }
+
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 0.55rem 1.6rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .nav-cta:hover {
+    background: var(--gold);
+    color: var(--black);
+  }
+
+  /* HAMBURGER */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 4px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px;
+    height: 1px;
+    background: var(--gold);
+    transition: all 0.3s;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px; left: 0; right: 0;
+    background: rgba(10,10,10,0.98);
+    backdrop-filter: blur(20px);
+    padding: 2rem 3rem;
+    z-index: 99;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 8rem 2rem 4rem;
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to right, rgba(10,10,10,0.92) 0%, rgba(10,10,10,0.72) 45%, rgba(10,10,10,0.35) 100%),
+      linear-gradient(to top, rgba(10,10,10,0.90) 0%, transparent 35%),
+      url('luffy2.jpg') center 20% / cover no-repeat;
+  }
+
+  /* decorative lines */
+  .hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 20%; left: 50%;
+    transform: translateX(-50%);
+    width: 1px;
+    height: 60%;
+    background: linear-gradient(180deg, transparent, rgba(201,169,110,0.15), transparent);
+  }
+
+  .hero-content { position: relative; max-width: 780px; }
+
+  .hero-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.8rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    font-weight: 300;
+    line-height: 1.0;
+    color: var(--cream);
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.4s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-subtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    max-width: 420px;
+    margin: 0 auto 3rem;
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s 0.8s forwards;
+  }
+
+  .hero-scarcity {
+    margin-top: 1.2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    opacity: 0;
+    animation: fadeUp 1s 1s forwards;
+  }
+
+  .hero-scarcity strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.9rem 2.6rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+
+  .btn-primary:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.9rem 2.6rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .btn-instagram {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    border: 1px solid rgba(225,48,108,0.45);
+    color: rgba(255,255,255,0.75);
+    padding: 0.9rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .btn-instagram:hover {
+    border-color: #e1306c;
+    color: #fff;
+    background: rgba(225,48,108,0.08);
+  }
+
+  .btn-instagram svg { flex-shrink: 0; }
+
+  /* Footer Instagram CTA */
+  .footer-ig-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    margin-top: 1.2rem;
+    padding: 0.65rem 1.3rem;
+    border: 1px solid rgba(225,48,108,0.4);
+    color: rgba(255,255,255,0.7);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.3s;
+  }
+
+  .footer-ig-cta:hover {
+    border-color: #e1306c;
+    color: #fff;
+    background: rgba(225,48,108,0.08);
+  }
+
+
+
+  /* ── SECTION COMMON ── */
+  section { padding: 7rem 3rem; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4.5rem;
+  }
+
+  .section-tag {
+    font-size: 0.6rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+  }
+
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .divider {
+    width: 40px;
+    height: 1px;
+    background: var(--gold);
+    margin: 1.5rem auto;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    max-width: 1100px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  .about-image-wrap {
+    position: relative;
+  }
+
+  .about-image {
+    width: 100%;
+    aspect-ratio: 4/5;
+    object-fit: cover;
+    display: block;
+    background: var(--card);
+  }
+
+  .about-img-placeholder {
+    width: 100%;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, #1a1a1a 0%, #222 50%, #1a1a1a 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--border);
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    gap: 1rem;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-img-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 20px;
+    border: 1px solid var(--border);
+  }
+
+  .about-img-placeholder svg {
+    width: 40px;
+    height: 40px;
+    opacity: 0.3;
+  }
+
+  .about-frame {
+    position: absolute;
+    bottom: -16px;
+    right: -16px;
+    width: calc(100% - 20px);
+    height: calc(100% - 20px);
+    border: 1px solid var(--gold);
+    pointer-events: none;
+    opacity: 0.3;
+  }
+
+  .about-text { }
+
+  .about-text h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text h2 em { font-style: italic; color: var(--gold); }
+
+  .about-text p {
+    color: var(--muted);
+    margin-bottom: 1.2rem;
+    line-height: 1.8;
+  }
+
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    font-weight: 300;
+    color: var(--gold);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ── SERVICES ── */
+  #services { background: var(--black); }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--border);
+  }
+
+  .service-card {
+    background: var(--deep);
+    padding: 3rem 2.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,169,110,0.05) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .service-card:hover::before { opacity: 1; }
+  .service-card:hover { background: var(--card); }
+
+  .service-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .service-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.8rem;
+  }
+
+  .service-desc {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-price {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+  }
+
+  .service-arrow {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+    transition: all 0.3s;
+  }
+
+  .service-card:hover .service-arrow {
+    border-color: var(--gold);
+    color: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  /* ── TEAM ── */
+  #team {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .team-card {
+    text-align: center;
+  }
+
+  .team-photo {
+    width: 100%;
+    aspect-ratio: 3/4;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    display: block;
+    background: var(--card);
+  }
+
+  .team-photo-placeholder {
+    width: 100%;
+    aspect-ratio: 3/4;
+    background: linear-gradient(160deg, #1a1a1a, #222);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .team-photo-placeholder svg {
+    width: 36px;
+    height: 36px;
+    opacity: 0.3;
+  }
+
+  .team-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: var(--cream);
+    margin-bottom: 0.3rem;
+  }
+
+  .team-role {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+
+  
+  /* ── CAROUSEL GALLERY ── */
+  #gallery { background: var(--black); padding-bottom: 2rem; }
+
+  .carousel-block {
+    max-width: 1200px;
+    margin: 0 auto 3.5rem;
+    padding: 0 3rem;
+  }
+
+  .carousel-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .carousel-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .carousel-track-wrap {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .carousel-track {
+    display: flex;
+    gap: 8px;
+    transition: transform 0.45s cubic-bezier(.4,0,.2,1);
+    will-change: transform;
+  }
+
+  .carousel-slide {
+    flex: 0 0 calc(33.333% - 6px);
+    aspect-ratio: 3/4;
+    overflow: hidden;
+    position: relative;
+    cursor: zoom-in;
+  }
+
+  .carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s;
+    display: block;
+    pointer-events: none;
+  }
+
+  .carousel-slide:hover img { transform: scale(1.05); }
+
+  .carousel-slide .gallery-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .carousel-slide:hover .gallery-overlay { opacity: 1; }
+
+  .carousel-slide .gallery-overlay-icon {
+    width: 40px; height: 40px;
+    border: 1px solid rgba(201,169,110,0.8);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold); font-size: 1.1rem;
+  }
+
+  /* placeholder */
+  .carousel-slide.placeholder {
+    background: #1a1a1a;
+    border: 1px dashed #2a2a2a;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .carousel-slide.placeholder span {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #3a3a3a;
+  }
+
+  .carousel-slide.placeholder svg {
+    width: 28px; opacity: 0.15;
+  }
+
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 38px; height: 38px;
+    background: rgba(10,10,10,0.85);
+    border: 1px solid var(--border);
+    color: var(--gold);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .carousel-btn:hover { border-color: var(--gold); background: rgba(201,169,110,0.1); }
+  .carousel-btn.prev { left: -18px; }
+  .carousel-btn.next { right: -18px; }
+
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 1rem;
+  }
+
+  .carousel-dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+  }
+
+  .carousel-dot.active {
+    background: var(--gold);
+    transform: scale(1.3);
+  }
+
+   @media (max-width: 500px) {
+  .carousel-block { padding: 0 2rem; }
+  .carousel-slide { flex: 0 0 calc(100% - 80px); }
+  .carousel-btn.prev { left: 5px; }
+  .carousel-btn.next { right: 5px; }
+  }
+
+
+  #lightbox { display: none; }
+  #lightbox.open { display: flex !important; }
+
+  /* ── TESTIMONIALS ── */
+  #testimonials {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+  }
+
+  .testimonials-track {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .google-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+  }
+
+  @media (max-width: 900px) {
+    .testimonials-track {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 580px) {
+    .testimonials-track {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .testimonial {
+    background: var(--card);
+    padding: 2.5rem;
+    border: 1px solid var(--border);
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '"';
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--gold);
+    opacity: 0.15;
+    position: absolute;
+    top: 0.5rem;
+    left: 1.5rem;
+    line-height: 1;
+  }
+
+  .testimonial-text {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+  }
+
+  .testimonial-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.9rem;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+
+  .testimonial-name {
+    font-size: 0.8rem;
+    color: var(--cream);
+    letter-spacing: 0.05em;
+  }
+
+  .testimonial-stars {
+    color: var(--gold);
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CONTACT WA BOX ── */
+  .contact-wa-box {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    padding: 2.5rem;
+  }
+
+  .contact-wa-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-wa-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .contact-wa-btn {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 1.1rem 1.4rem;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.3s, background 0.3s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .contact-wa-btn:hover {
+    border-color: #25d366;
+    background: rgba(37,211,102,0.04);
+    transform: translateX(4px);
+  }
+
+  .contact-wa-icon {
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    width: 36px;
+    text-align: center;
+  }
+
+  .contact-wa-btn-title {
+    font-size: 0.88rem;
+    color: var(--cream);
+    font-weight: 400;
+    margin-bottom: 0.15rem;
+  }
+
+  .contact-wa-btn-sub {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .contact-wa-arrow {
+    margin-left: auto;
+    color: var(--muted);
+    font-size: 1rem;
+    transition: color 0.3s;
+    flex-shrink: 0;
+  }
+
+  .contact-wa-btn:hover .contact-wa-arrow {
+    color: #25d366;
+  }
+
+  .contact-wa-note {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-align: center;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-wa-note strong {
+    color: var(--gold);
+  }
+
+  /* ── CONTACT INFO WHATSAPP LINK ── */
+  .contact-info-wa {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-top: 2rem;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+
+  .contact-info-wa:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(37,211,102,0.35);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+  }
+
+  .contact-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+
+  .contact-info h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.6rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-info h2 em { font-style: italic; color: var(--gold); }
+
+  .contact-info p {
+    color: var(--muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+
+  .contact-details { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .contact-item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    flex-shrink: 0;
+    font-size: 0.9rem;
+  }
+
+  .contact-item-text {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  .contact-item-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 0.2rem;
+  }
+
+  /* FORM */
+  .contact-form { display: flex; flex-direction: column; gap: 1.2rem; }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+  .form-group label {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: var(--deep);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 0.9rem 1.2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 300;
+    outline: none;
+    transition: border-color 0.3s;
+    resize: vertical;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--gold);
+  }
+
+  .form-group select option { background: var(--deep); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-submit {
+    background: var(--gold);
+    color: var(--black);
+    padding: 1rem 2rem;
+    border: none;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 500;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover {
+    background: var(--gold-light);
+    transform: translateY(-2px);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    padding: 4rem 3rem 2rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 4rem;
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem;
+    font-weight: 300;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .footer-brand-name em { font-style: italic; color: var(--gold-light); }
+
+  .footer-desc {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-social { display: flex; gap: 0.8rem; }
+
+  .social-link {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    transition: all 0.3s;
+  }
+
+  .social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  .footer-col-title {
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text);
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-links {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+
+  .footer-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.82rem;
+    transition: color 0.3s;
+  }
+
+  .footer-links a:hover { color: var(--gold); }
+
+  .footer-hours { display: flex; flex-direction: column; gap: 0.6rem; }
+
+  .hour-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .hour-day { color: var(--text); }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .footer-copy {
+    font-size: 0.72rem;
+    color: var(--muted);
+  }
+
+  .footer-legal { display: flex; gap: 1.5rem; }
+
+  .footer-legal a {
+    font-size: 0.72rem;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-legal a:hover { color: var(--gold); }
+
+  /* ── HERO TRUST BAR ── */
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1.8rem 0;
+    border-top: 1px solid rgba(201,169,110,0.15);
+    border-bottom: 1px solid rgba(201,169,110,0.15);
+    opacity: 0;
+    animation: fadeUp 1s 0.6s forwards;
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .hero-trust-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+
+  .hero-trust-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .hero-trust-sep {
+    width: 1px;
+    height: 28px;
+    background: var(--border);
+  }
+
+  /* ── WHATSAPP FLUTUANTE ── */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: #25d366;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.75rem 1.4rem 0.75rem 1rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: transform 0.3s, box-shadow 0.3s;
+    animation: waBounce 2s 3s ease-in-out;
+  }
+
+  .whatsapp-float:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 28px rgba(37,211,102,0.5);
+  }
+
+  .whatsapp-float svg {
+    flex-shrink: 0;
+  }
+
+  @keyframes waBounce {
+    0%,100% { transform: translateY(0); }
+    30% { transform: translateY(-8px); }
+    60% { transform: translateY(-4px); }
+  }
+
+  @media (max-width: 600px) {
+    .whatsapp-float span { display: none; }
+    .whatsapp-float { padding: 0.9rem; border-radius: 50%; bottom: 1.2rem; right: 1.2rem; }
+    .hero-trust { gap: 1.2rem; }
+    .hero-trust-sep { display: none; }
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+      gap: 0.75rem;
+    }
+    .btn-primary, .btn-secondary, .btn-instagram {
+      text-align: center;
+      width: 100%;
+      padding: 1rem 1rem;
+      justify-content: center;
+    }
+  }
+
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s, transform 0.8s;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    nav { padding: 1.2rem 1.5rem; }
+    .nav-links, .nav-cta { display: none; }
+    .hamburger { display: flex; }
+    section { padding: 5rem 1.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-wrap { grid-template-columns: 1fr; gap: 3rem; }
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-top { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 600px) {
+    .gallery-grid { grid-template-columns: repeat(2, 1fr); padding: 0 1rem; }
+
+    section { padding: 4rem 1.2rem; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .form-row { grid-template-columns: 1fr; }
+    .about-stats { grid-template-columns: repeat(3, 1fr); }
+  }
+
+  /* ── ARTIST MOBILE FIX ── */
+  @media (max-width: 900px) {
+    #artist-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    #artist-grid > div:first-child {
+      width: 100% !important;
+    }
+    #artist-grid > div:first-child img {
+      width: 100% !important;
+      height: 75vw !important;
+      max-height: none !important;
+      aspect-ratio: unset !important;
+      object-fit: cover !important;
+      object-position: center top !important;
+      display: block !important;
+    }
+    #artist-grid > div:first-child > div[style*="position:absolute"] {
+      display: none;
+    }
+  }
+
+  /* ── ARTIGOS ── */
+  #artigos {
+    background: var(--deep);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .artigos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .artigo-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    cursor: pointer;
+    transition: border-color 0.3s, transform 0.3s;
+    overflow: hidden;
+  }
+
+  .artigo-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-4px);
+  }
+
+  .artigo-tag-bar {
+    background: var(--gold);
+    height: 3px;
+    width: 100%;
+  }
+
+  .artigo-body { padding: 1.8rem; }
+
+  .artigo-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  .artigo-categoria {
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,169,110,0.08);
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(201,169,110,0.2);
+  }
+
+  .artigo-data {
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .artigo-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--cream);
+    line-height: 1.35;
+    margin-bottom: 0.8rem;
+  }
+
+  .artigo-resumo {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.2rem;
+  }
+
+  .artigo-ler {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: gap 0.3s;
+  }
+
+  .artigo-card:hover .artigo-ler { gap: 0.9rem; }
+
+  /* ── MODAL ARTIGO ── */
+  #artigo-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9990;
+    background: rgba(0,0,0,0.92);
+    overflow-y: auto;
+    padding: 2rem 1rem;
+  }
+
+  #artigo-modal.open { display: block; }
+
+  .artigo-modal-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    background: var(--deep);
+    border: 1px solid var(--border);
+    padding: 3rem;
+    position: relative;
+  }
+
+  .artigo-modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: var(--muted);
+    font-size: 1.6rem;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+  }
+
+  .artigo-modal-close:hover { color: var(--gold); }
+
+  .artigo-modal-cat {
+    font-size: 0.6rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .artigo-modal-titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.25;
+    margin-bottom: 0.6rem;
+  }
+
+  .artigo-modal-data {
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .artigo-modal-conteudo {
+    font-size: 0.9rem;
+    color: var(--text);
+    line-height: 1.9;
+  }
+
+  .artigo-modal-conteudo h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--cream);
+    margin: 2rem 0 0.6rem;
+    font-weight: 400;
+  }
+
+  .artigo-modal-conteudo p { margin-bottom: 1.2rem; }
+
+  .artigo-modal-conteudo strong { color: var(--gold-light); font-weight: 500; }
+
+  .artigo-modal-cta {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+
+  .artigo-modal-cta p {
+    color: var(--muted);
+    font-size: 0.82rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 600px) {
+    .artigo-modal-inner { padding: 2rem 1.2rem; }
+    .artigos-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5319729966048059" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- WHATSAPP FLUTUANTE -->
+<a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="whatsapp-float" aria-label="Falar no WhatsApp">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  <span>Agendar agora</span>
+</a>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">Tatuagem em <em>Recife</em></a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre</a></li>
+    <li><a href="#services">Serviços</a></li>
+    <li><a href="#team">Equipe</a></li>
+    <li><a href="#gallery">Galeria</a></li>
+    <li><a href="#contact">Contato</a></li>
+    <li><a href="#artigos">Artigos</a></li>
+  </ul>
+<a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar</a>  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">Sobre</a>
+  <a href="#services" onclick="closeMobile()">Serviços</a>
+  <a href="#team" onclick="closeMobile()">Equipe</a>
+  <a href="#gallery" onclick="closeMobile()">Galeria</a>
+  <a href="#contact" onclick="closeMobile()">Contato</a>
+  <a href="#artigos" onclick="closeMobile()">Artigos</a>
+  <a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Studio de Tatuagem em Recife</p>
+    <h1 class="hero-title">Realismo, Blackwork<br>e <em>Fineline</em> em Recife</h1>
+    <p class="hero-subtitle">Você merece uma tatuagem feita por quem leva arte a sério.<br>Há 10 anos transformando ideias em obra — com precisão, cuidado e respeito pela sua pele.</p>
+    <div class="hero-trust">
+      <div class="hero-trust-item"><span class="hero-trust-num">10+</span><span class="hero-trust-label">Anos de experiência</span></div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item"><span class="hero-trust-num">★★★★★</span><span class="hero-trust-label">Avaliação dos clientes</span></div>
+      <div class="hero-trust-sep"></div>
+      <div class="hero-trust-item"><span class="hero-trust-num">Casa Amarela</span><span class="hero-trust-label">Recife, PE</span></div>
+    </div>
+    <div class="hero-actions">
+      <a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="btn-primary">Agendar pelo WhatsApp</a>
+      <a href="#gallery" class="btn-secondary">Ver Trabalhos</a>
+      <a href="https://www.instagram.com/moatattooo?igsh=cXh1dmFwb3prZzlm&utm_source=qr" target="_blank" rel="noopener" class="btn-instagram">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        Ver portfólio no Instagram
+      </a>
+    </div>
+    <p class="hero-scarcity">⚡ Apenas <strong>3 vagas</strong> disponíveis em <span id="mes-agenda"></span> — agenda fechando rápido.</p>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-image-wrap reveal">
+      <img src="img/tatuador-realismo-recife-portfolio.webp" "Tatuagem Moacir Almeida" class="about-image" style="width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center;display:block;">
+      <div class="about-frame"></div>
+    </div>
+    <div class="about-text reveal">
+      <span class="section-tag">Sobre o Studio</span>
+      <h2>Criatividade com<br><em>precisão artística</em></h2>
+      <p>Somos um studio dedicado à arte corporal e beleza, onde cada traço e cada cuidado são executados com paixão e técnica refinada.</p>
+      <p>Equipe é formada por artista experiente que buscam entender a história e os desejos de cada cliente, criando obras únicas e duradouras.</p>
+      <p>Trabalhamos com os melhores materiais do mercado e seguimos rigorosos protocolos de higiene para garantir sua segurança e satisfação.</p>
+      <div class="about-stats">
+        <div>
+          <span class="stat-num">10+</span>
+          <span class="stat-label">Anos de experiência</span>
+        </div>
+        <div>
+          <span class="stat-num">987+</span>
+          <span class="stat-label">Clientes felizes</span>
+        </div>
+        <div>
+          <span class="stat-num">100%</span>
+          <span class="stat-label">Dedicação</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-header reveal">
+    <span class="section-tag">O que oferecemos</span>
+    <h2 class="section-title">Nossos <em>Serviços</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="services-grid">
+    <a href="#contact" class="service-card reveal">
+      <div class="service-arrow">→</div>
+      <span class="service-icon">🖊️</span>
+      <h3 class="service-name">Tatuagem Nova</h3>
+      <p class="service-desc">Criamos designs únicos e personalizados ou executamos com perfeição o projeto que você sempre sonhou. Estilos variados: realismo, blackwork, aquarela e mais.</p>
+      <div class="service-price">A partir de R$ 100</div>
+    </a>
+    <a href="#contact" class="service-card reveal">
+      <div class="service-arrow">→</div>
+      <span class="service-icon">🎨</span>
+      <h3 class="service-name">Cobertura</h3>
+      <p class="service-desc">Transformamos uma tatuagem antiga em uma nova obra de arte. Estudamos cada caso individualmente para garantir o melhor resultado possível.</p>
+      <div class="service-price">Consulta gratuita</div>
+    </a>
+    <a href="#contact" class="service-card reveal">
+      <div class="service-arrow">→</div>
+      <span class="service-icon">💉</span>
+      <h3 class="service-name">Reforma</h3>
+      <p class="service-desc">Corrigimos e aprimoramos tatuagens existentes. Retoque de cores, correção de linhas e revitalização de tattoos antigas para um resultado renovado.</p>
+      <div class="service-price">Avaliação gratuita</div>
+    </a>
+  </div>
+</section>
+
+<!-- ARTISTA -->
+<section id="team">
+  <div class="section-header reveal">
+    <span class="section-tag">O Artista</span>
+    <h2 class="section-title">Moacir <em>Almeida</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div id="artist-grid" style="max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:4rem;align-items:center;">
+    <div style="position:relative;">
+      <img src="img/tatuagem-nova-recife-moa-tattoo_.webp" "Moacir Almeida" style="width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center top;display:block;">
+      <div style="position:absolute;bottom:-14px;right:-14px;width:calc(100% - 16px);height:calc(100% - 16px);border:1px solid var(--gold);pointer-events:none;opacity:0.3;"></div>
+    </div>
+    <div class="reveal">
+      <span class="section-tag" style="text-align:left;display:block;margin-bottom:1rem;">Tatuador Profissional</span>
+      <p style="color:var(--text);line-height:1.9;margin-bottom:1.2rem;">Com mais de 10 anos de experiência, Moacir Almeida é especialista em realismo, blackwork e cobertura, criando obras únicas que contam a história de cada cliente.</p>
+      <p style="color:var(--muted);line-height:1.9;margin-bottom:1.2rem;">Cada sessão é tratada com atenção individual — desde o primeiro esboço até o traço final, o cuidado e a precisão são prioridade absoluta.</p>
+      <p style="color:var(--muted);line-height:1.9;margin-bottom:2rem;">Atende exclusivamente por agendamento, garantindo dedicação total a cada cliente.</p>
+<a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar com Moacir</a>    </div>
+  </div>
+</section>
+
+
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="section-header reveal">
+    <span class="section-tag">Portfólio</span>
+    <h2 class="section-title"><em>Galeria</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="carousel-block reveal">
+    <div class="carousel-label">Preto & Cinza</div>
+    <div class="carousel-track-wrap" style="position:relative;">
+      <button class="carousel-btn prev" onclick="moveCarousel('car1',-1)">‹</button>
+      <div class="carousel-track" id="car1">
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="img/tatuagem-personalizada-recife-arte.webp" loading="lazy" "Tatuagem Moacir Almeida">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">⤢</div></div>
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+		  <img src="IMG_20240820_175920.jpg" alt="Tatuagem lobo" loading="lazy">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">⤢</div></div>
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="img/cover-up-tatuagem-recife-moa-tattoo.webp" loading="lazy" alt="Tatuagem Moacir Almeida">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">⤢</div></div>
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+		  <img src="1719792329908.jpg" alt="Tatuagem lobo" loading="lazy">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">⤢</div></div>
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="img/moatattoo-estudio-tatuagem-recife-fine.webp" loading="lazy" alt="Tatuagem Moacir Almeida">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">⤢</div></div>
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="img/studio-tatuagem-recife-ambiente.webp" loading="lazy" alt="Tatuagem Moacir Almeida">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">⤢</div></div>
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveCarousel('car1',1)">›</button>
+    </div>
+    <div class="carousel-dots" id="car1-dots"><div class="carousel-dot active" onclick="goTo('car1',0)"></div><div class="carousel-dot " onclick="goTo('car1',1)"></div></div>
+  </div>
+  <div class="carousel-block reveal">
+    <div class="carousel-label">Delicadas</div>
+    <div class="carousel-track-wrap" style="position:relative;">
+      <button class="carousel-btn prev" onclick="moveCarousel('car2',-1)">‹</button>
+      <div class="carousel-track" id="car2">
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="img/studio-tatuagem-recife-ambiente.webp" loading="lazy" alt="Tatuagem Floral — Moacir Almeida Tattoo" loading="lazy">
+          <div class="gallery-overlay"><div class="gallery-overlay-icon">+</div></div>
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="lais.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="namefinalkatsa.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="retocado.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="31.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="32.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+		<div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="leoas gemini.jpg" alt="Tatuagem delicada" loading="lazy">
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveCarousel('car2',1)">›</button>
+    </div>
+   <div class="carousel-dots" id="car2-dots">
+  <div class="carousel-dot active" onclick="goTo('car2',0)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',1)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',2)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',3)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',4)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',5)"></div>
+  <div class="carousel-dot" onclick="goTo('car2',6)"></div>
+</div>
+  </div>
+  <div class="carousel-block reveal">
+    <div class="carousel-label">Rastelado</div>
+    <div class="carousel-track-wrap" style="position:relative;">
+      <button class="carousel-btn prev" onclick="moveCarousel('car3',-1)">‹</button>
+      <div class="carousel-track" id="car3">
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="luffy2.jpg" alt="Tatuagem anime - Luffy Wanted" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="Luffy_presets1.jpg" alt="Tatuagem anime - Luffy Gear 5" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="01.jpg" alt="Tatuagem anime - One Piece" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="tojifreshbranmco.jpg" alt="Tatuagem anime - Toji" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="1finalmente.jpg" alt="Tatuagem anime - Demon Slayer" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="2.jpg" alt="Tatuagem anime - Nezuko" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="3ichigoclaro.jpg" alt="Tatuagem anime - Ichigo Bleach" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="4hellsinfinalmente.jpg" alt="Tatuagem anime - Hellsing" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="8gaara.jpg" alt="Tatuagem anime - Gaara Naruto" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="9deathpsd.jpg" alt="Tatuagem anime - Death Note" loading="lazy">
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveCarousel('car3',1)">›</button>
+    </div>
+    <div class="carousel-dots" id="car3-dots"><div class="carousel-dot active" onclick="goTo('car3',0)"></div><div class="carousel-dot" onclick="goTo('car3',1)"></div><div class="carousel-dot" onclick="goTo('car3',2)"></div><div class="carousel-dot" onclick="goTo('car3',3)"></div><div class="carousel-dot" onclick="goTo('car3',4)"></div><div class="carousel-dot" onclick="goTo('car3',5)"></div><div class="carousel-dot" onclick="goTo('car3',6)"></div><div class="carousel-dot" onclick="goTo('car3',7)"></div><div class="carousel-dot" onclick="goTo('car3',8)"></div><div class="carousel-dot" onclick="goTo('car3',9)"></div></div>
+  </div>
+  <div class="carousel-block reveal">
+    <div class="carousel-label">Coloridas</div>
+    <div class="carousel-track-wrap" style="position:relative;">
+      <button class="carousel-btn prev" onclick="moveCarousel('car4',-1)">‹</button>
+      <div class="carousel-track" id="car4">
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="0_JINsWOO3.jpg" alt="Tatuagem colorida - Solo Leveling" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="0_IaMG_0646.png" alt="Tatuagem colorida - anime" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="0_17568512x73498.jpg" alt="Tatuagem colorida - Pokemon" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="IMG_20250906_165727s.jpg" alt="Tatuagem colorida - Final Fantasy" loading="lazy">
+        </div>
+        <div class="carousel-slide" onclick="openLightbox(this)">
+          <img src="anya.jpg" "Tatuagem colorida - Anya" loading="lazy">
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveCarousel('car4',1)">›</button>
+    </div>
+    <div class="carousel-dots" id="car4-dots"><div class="carousel-dot active" onclick="goTo('car4',0)"></div><div class="carousel-dot" onclick="goTo('car4',1)"></div><div class="carousel-dot" onclick="goTo('car4',2)"></div><div class="carousel-dot" onclick="goTo('car4',3)"></div></div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" onclick="closeLightbox()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:9998;align-items:center;justify-content:center;cursor:zoom-out;">
+  <img id="lightbox-img" src="" style="max-width:90vw;max-height:90vh;object-fit:contain;">
+  <button onclick="closeLightbox()" style="position:absolute;top:1.5rem;right:2rem;background:none;border:none;color:#c9a96e;font-size:2.2rem;cursor:pointer;line-height:1;z-index:9999;">✕</button>
+</div>
+
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="section-header reveal">
+    <span class="section-tag">Depoimentos</span>
+    <h2 class="section-title">O que nossos <em>clientes</em> dizem</h2>
+    <div class="divider"></div>
+  </div>
+  <div class="google-badge reveal">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+    Avaliações reais do Google — ★★★★★
+  </div>
+  <div class="testimonials-track">
+
+    <div class="testimonial reveal">
+      <p class="testimonial-text">As artes mais bonitas que eu tenho são obra dele. Ótimo atendimento, trabalho impecável, super detalhista. Fui muito bem atendida e tive minhas expectativas superadas. Vão sem medo de ser feliz, pq ele entrega tudo o que promete, desde primeira tatuagem até cobertura.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar" style="background:var(--gold);color:var(--black);">F</div>
+        <div>
+          <div class="testimonial-name">Fernanda Guedes <span style="font-size:0.65rem;color:var(--muted);margin-left:4px;">· Local Guide</span></div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Fiz várias tattoo com Moacir — excelente profissional, ambiente muito organizado, atendimento incrível e um trabalho de alta qualidade.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">R</div>
+        <div>
+          <div class="testimonial-name">Rodolfo Nascimento</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Studio bem localizado, profissional de primeira, vários estilos de tattoo pra quem tem dúvidas do que fazer, pode ir sem medo.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">C</div>
+        <div>
+          <div class="testimonial-name">Cleibson Aciole</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Meu tatuador há muitos anos. Trabalho excelente, muito paciente e esforçado, recomendo a todo mundo!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">A</div>
+        <div>
+          <div class="testimonial-name">Abelha Nacolmeia</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Trabalha muito bem, todas as tatuagens que fiz com ele ficaram bem detalhadas e com um valor justo.</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">D</div>
+        <div>
+          <div class="testimonial-name">Douglas Batista</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial reveal">
+      <p class="testimonial-text">Atendimento de excelência, ótimo profissional e muito dedicado ao trabalho e principalmente no cuidado com os clientes!!</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">L</div>
+        <div>
+          <div class="testimonial-name">Lays Maria</div>
+          <div class="testimonial-stars">★★★★★</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-info reveal">
+      <span class="section-tag">Fale conosco</span>
+      <h2>Agende sua <em>sessão</em></h2>
+      <p>Entre em contato para tirar dúvidas, solicitar orçamento ou marcar seu horário. Resposta em até 1 hora em horário comercial.</p>
+      <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Vim%20pelo%20site%20e%20quero%20agendar%20uma%20tatuagem." target="_blank" class="contact-info-wa">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Falar no WhatsApp agora
+      </a>
+      <div class="contact-details" style="margin-top:1.8rem;">
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-item-title">Endereço</div>
+            <div class="contact-item-text">Rua Bela vista, 261 — Bairro Casa amarela<br>Recife, PE</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">📱</div>
+          <div>
+            <div class="contact-item-title">Telefone / WhatsApp</div>
+            <div class="contact-item-text">(81) 99510-3420</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-item-title">Horário de Funcionamento</div>
+            <div class="contact-item-text">Todos os dias (somente por agendamento)<br>Fale pelo WhatsApp para verificar disponibilidade</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="contact-wa-box">
+        <div class="contact-wa-title">Escolha como prefere falar:</div>
+        <div class="contact-wa-options">
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Quero%20fazer%20uma%20tatuagem%20nova.%20Pode%20me%20passar%20as%20informações%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">🎨</span>
+            <div>
+              <div class="contact-wa-btn-title">Tatuagem Nova</div>
+              <div class="contact-wa-btn-sub">Quero fazer minha primeira tattoo ou uma nova</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Tenho%20uma%20tatuagem%20antiga%20e%20quero%20fazer%20uma%20cobertura.%20Pode%20me%20ajudar%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">🔄</span>
+            <div>
+              <div class="contact-wa-btn-title">Cobertura</div>
+              <div class="contact-wa-btn-sub">Quero cobrir ou transformar uma tattoo antiga</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Tenho%20uma%20tatuagem%20que%20precisa%20de%20reforma%20ou%20retoque.%20Pode%20me%20ajudar%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">✏️</span>
+            <div>
+              <div class="contact-wa-btn-title">Reforma / Retoque</div>
+              <div class="contact-wa-btn-sub">Minha tattoo precisa de retoque ou ajuste</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+          <a href="https://wa.me/5581995103420?text=Olá%20Moacir!%20Tenho%20uma%20dúvida%20sobre%20tatuagem.%20Pode%20me%20ajudar%3F" target="_blank" class="contact-wa-btn">
+            <span class="contact-wa-icon">💬</span>
+            <div>
+              <div class="contact-wa-btn-title">Tirar uma dúvida</div>
+              <div class="contact-wa-btn-sub">Quero saber preço, estilo ou outras informações</div>
+            </div>
+            <span class="contact-wa-arrow">→</span>
+          </a>
+        </div>
+        <p class="contact-wa-note">Tempo médio de resposta: <strong>menos de 1 hora</strong> em horário comercial</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTIGOS -->
+<section id="artigos">
+  <div class="section-header reveal">
+    <span class="section-tag">Blog & Conteúdo</span>
+    <h2 class="section-title">Artigos sobre <em>Tatuagem</em></h2>
+    <div class="divider"></div>
+    <p style="color:var(--muted);font-size:0.82rem;max-width:480px;margin:1rem auto 0;">Conteúdo exclusivo sobre tatuagem, cuidados, estilos e tudo que você precisa saber antes de marcar sua sessão.</p>
+  </div>
+  <div class="artigos-grid" id="artigos-grid">
+
+    <div class="artigo-card reveal" onclick="window.open('cuidados-tatuagem-15-dias.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Cuidados</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Como cuidar da tatuagem nos primeiros 15 dias</h3>
+        <p class="artigo-resumo">A cicatrização correta define a qualidade final do seu trabalho. Veja o passo a passo completo para não perder nenhum detalhe da sua tattoo.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+    <div class="artigo-card reveal" onclick="window.open('realismo-em-tatuagem.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Estilos</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Realismo em tatuagem: o estilo que desafia os limites da arte</h3>
+        <p class="artigo-resumo">Entenda o que é o realismo, por que é um dos estilos mais exigentes do mercado e como escolher o tatuador certo para esse tipo de trabalho.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+    <div class="artigo-card reveal" onclick="window.open('o-que-perguntar-ao-tatuador.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Planejamento</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">O que perguntar ao tatuador antes de marcar sua sessão</h3>
+        <p class="artigo-resumo">Primeira tatuagem ou não, sempre há dúvidas importantes antes de sentar na cadeira. Veja as perguntas essenciais que todo cliente deveria fazer.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+
+    <div class="artigo-card reveal" onclick="window.open('primeira-tatuagem-guia-completo.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Primeira Tattoo</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Primeira tatuagem: tudo que você precisa saber antes de marcar</h3>
+        <p class="artigo-resumo">Dúvidas, medos e curiosidades sobre a primeira tatuagem são normais. Este guia completo responde as perguntas mais comuns e te ajuda a chegar preparado na cadeira.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+    <div class="artigo-card reveal" onclick="window.open('quanto-doi-tatuagem.html', '_blank')">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Dor &amp; Preparo</span>
+          <span class="artigo-data">Abr 2025</span>
+        </div>
+        <h3 class="artigo-titulo">Quanto dói fazer tatuagem? Ranking das regiões do corpo por nível de dor</h3>
+        <p class="artigo-resumo">Descubra quais regiões doem mais na hora de tatuar. Ranking completo com mapa ilustrativo, explicação anatômica e dicas para aguentar melhor a sessão.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;margin-top:3rem;">
+    <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">Novos artigos toda semana</p>
+  </div>
+</section>
+    <div class="artigo-modal-cta">
+      <p>Gostou do conteúdo? Que tal dar o próximo passo?</p>
+  <a href="https://wa.me/5581995103420?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar minha sessão</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <span class="footer-brand-name">Studio <em>Tattoo</em></span>
+      <p class="footer-desc">Arte corporal e beleza realizadas com paixão, técnica e cuidado. Cada pele conta uma história — deixe-nos fazer parte da sua.</p>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/moatattooo?igsh=cXh1dmFwb3prZzlm&utm_source=qr" target="_blank" class="social-link" aria-label="Instagram">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://wa.me/5581995103420?text=Olá, Moacir! Vim pelo site e quero agendar uma sessão." target="_blank" class="social-link" aria-label="WhatsApp">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@moatattoo?_r=1&_t=ZS-95nOltyFuT3" target="_blank" class="social-link" aria-label="TikTok">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </a>
+      </div>
+      <a href="https://www.instagram.com/moatattooo?igsh=cXh1dmFwb3prZzlm&utm_source=qr" target="_blank" rel="noopener" class="footer-ig-cta">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        @moatattooo — Ver mais no Instagram
+      </a>
+    </div>
+    <div>
+      <p class="footer-col-title">Navegação</p>
+      <ul class="footer-links">
+        <li><a href="#about">Sobre o Studio</a></li>
+        <li><a href="#services">Serviços</a></li>
+        <li><a href="#team">Artista</a></li>
+        <li><a href="#gallery">Galeria</a></li>
+        <li><a href="#contact">Contato</a></li>
+        <li><a href="#artigos">Artigos</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-col-title">Horários</p>
+      <div class="footer-hours">
+        <div class="hour-row"><span class="hour-day">Todos os dias</span><span>Por agendamento</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 Studio Moacir Almeida Tattoo — Recife, PE. Todos os direitos reservados.</p>
+    <div class="footer-legal">
+      <a href="#">Política de Privacidade</a>
+      <a href="#">Termos de Uso</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile menu
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  reveals.forEach(el => observer.observe(el));
+
+  // Form submit → email
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const nome    = form.querySelector('input[type="text"]').value || '';
+    const whats   = form.querySelector('input[type="tel"]').value || '';
+    const email   = form.querySelector('input[type="email"]').value || '';
+    const servico = form.querySelector('select').value || '';
+    const msg     = form.querySelector('textarea').value || '';
+    const subject = encodeURIComponent('Agendamento - ' + servico + ' | ' + nome);
+    const body = encodeURIComponent(
+      'Nome: ' + nome + '\n' +
+      'WhatsApp: ' + whats + '\n' +
+      'E-mail: ' + email + '\n' +
+      'Serviço: ' + servico + '\n\nMensagem:\n' + msg
+    );
+    window.location.href = 'mailto:moacirtattoostudio@gmail.com?subject=' + subject + '&body=' + body;
+    const btn = form.querySelector('.form-submit');
+    btn.textContent = 'Abrindo e-mail... ✓';
+    btn.style.background = '#4a7c59';
+    btn.style.color = '#fff';
+    setTimeout(() => {
+      btn.textContent = 'Enviar Mensagem';
+      btn.style.background = '';
+      btn.style.color = '';
+      form.reset();
+    }, 4000);
+  }
+  // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    if (!img) return;
+    document.getElementById('lightbox-img').src = img.src;
+    const lb = document.getElementById('lightbox');
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.getElementById('lightbox-img').src = '';
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+
+
+  // ── CAROUSEL ──
+  const carState = {};
+
+  function initCarousel(id) {
+    if (!carState[id]) carState[id] = { pos: 0 };
+  }
+
+  function getVisible(id) {
+    const track = document.getElementById(id);
+    const wrap = track.parentElement;
+    const slideW = track.children[0]?.offsetWidth || 0;
+    const gap = 8;
+    const visCount = Math.round(wrap.offsetWidth / (slideW + gap));
+    return Math.max(1, visCount);
+  }
+
+  function moveCarousel(id, dir) {
+    initCarousel(id);
+    const track = document.getElementById(id);
+    const total = track.children.length;
+    const vis = getVisible(id);
+    const maxPos = Math.max(0, total - vis);
+    carState[id].pos = Math.min(Math.max(carState[id].pos + dir, 0), maxPos);
+    applyCarousel(id, vis, total);
+  }
+
+  function goTo(id, pageIdx) {
+    initCarousel(id);
+    const track = document.getElementById(id);
+    const total = track.children.length;
+    const vis = getVisible(id);
+    carState[id].pos = Math.min(pageIdx * vis, Math.max(0, total - vis));
+    applyCarousel(id, vis, total);
+  }
+
+  function applyCarousel(id, vis, total) {
+    const track = document.getElementById(id);
+    const slideW = track.children[0]?.offsetWidth || 0;
+    const gap = 8;
+    track.style.transform = `translateX(-${carState[id].pos * (slideW + gap)}px)`;
+    // update dots
+    const dotsEl = document.getElementById(id + '-dots');
+    if (dotsEl) {
+      const pages = Math.ceil(total / vis);
+      const curPage = Math.floor(carState[id].pos / vis);
+      dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === curPage);
+      });
+    }
+  }
+
+  // reinit on resize
+  window.addEventListener('resize', () => {
+    ['car1','car2','car3','car4'].forEach(id => {
+      if (carState[id]) {
+        const track = document.getElementById(id);
+        if (track) applyCarousel(id, getVisible(id), track.children.length);
+      }
+    });
+  });
+
+  // touch swipe support
+  ['car1','car2','car3','car4'].forEach(id => {
+    const track = document.getElementById(id);
+    if (!track) return;
+    let startX = 0;
+    track.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, {passive:true});
+    track.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 40) moveCarousel(id, dx < 0 ? 1 : -1);
+    }, {passive:true});
+  });
+  // Mês da agenda — atualiza automaticamente
+  (function() {
+    const meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+    const hoje = new Date();
+    const mes = hoje.getDate() >= 20 ? hoje.getMonth() + 1 : hoje.getMonth();
+    const el = document.getElementById('mes-agenda');
+    if (el) el.textContent = meses[mes % 12];
+  })();
+
+</script>
+</body>
+</html>
