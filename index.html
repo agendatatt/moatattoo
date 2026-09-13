@@ -1421,6 +1421,7 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
     margin: 0 auto;
   }
 
+  a.artigo-card { display: block; text-decoration: none; color: inherit; }
   .artigo-card {
     background: var(--card);
     border: 1px solid var(--border);
@@ -1594,7 +1595,6 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
   }
 
 </style>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5319729966048059" crossorigin="anonymous"></script>
 
   <link rel="canonical" href="https://agendatatt.github.io/moatattoo/" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -1669,7 +1669,8 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
   <ul class="nav-links">
     <li><a href="#about">Sobre</a></li>
     <li><a href="#services">Serviços</a></li>
-    <li><a href="#team">Equipe</a></li>
+    <li><a href="#team">O Artista</a></li>
+    <li><a href="anime.html">Anime</a></li>
     <li><a href="#gallery">Galeria</a></li>
     <li><a href="#contact">Contato</a></li>
     <li><a href="#artigos">Artigos</a></li>
@@ -1682,7 +1683,8 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
 <div class="mobile-menu" id="mobileMenu">
   <a href="#about" onclick="closeMobile()">Sobre</a>
   <a href="#services" onclick="closeMobile()">Serviços</a>
-  <a href="#team" onclick="closeMobile()">Equipe</a>
+  <a href="#team" onclick="closeMobile()">O Artista</a>
+  <a href="anime.html" onclick="closeMobile()">Anime</a>
   <a href="#gallery" onclick="closeMobile()">Galeria</a>
   <a href="#contact" onclick="closeMobile()">Contato</a>
   <a href="#artigos" onclick="closeMobile()">Artigos</a>
@@ -1695,11 +1697,11 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
   <div class="hero-content">
     <p class="hero-eyebrow">Studio de Tatuagem em Recife</p>
     <h1 class="hero-title">Realismo, Blackwork<br>e <em>Fineline</em> em Recife</h1>
-    <p class="hero-subtitle">Você merece uma tatuagem feita por quem leva arte a sério.<br>Há 10 anos transformando ideias em obra — com precisão, cuidado e respeito pela sua pele.</p>
+    <p class="hero-subtitle">Você merece uma tatuagem feita por quem leva arte a sério.<br>Sua referência adaptada ao seu corpo — com precisão, cuidado e respeito pela sua pele.</p>
     <div class="hero-trust">
       <div class="hero-trust-item"><span class="hero-trust-num">1 por dia</span><span class="hero-trust-label">Atendimento exclusivo</span></div>
       <div class="hero-trust-sep"></div>
-      <div class="hero-trust-item"><span class="hero-trust-num">★★★★★</span><span class="hero-trust-label">Avaliação dos clientes</span></div>
+      <div class="hero-trust-item"><span class="hero-trust-num">1h</span><span class="hero-trust-label">Resposta no WhatsApp</span></div>
       <div class="hero-trust-sep"></div>
       <div class="hero-trust-item"><span class="hero-trust-num">Casa Amarela</span><span class="hero-trust-label">Recife, PE</span></div>
     </div>
@@ -1711,7 +1713,7 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         Ver portfólio no Instagram
       </a>
     </div>
-    <p class="hero-scarcity">⚡ Apenas <strong>3 vagas</strong> disponíveis em <span id="mes-agenda"></span> — agenda fechando rápido.</p>
+    <p class="hero-scarcity">📅 Agenda de <span id="mes-agenda"></span> aberta — atendo <strong>1 cliente por dia</strong>.</p>
   </div>
 
 </section>
@@ -1762,7 +1764,7 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
       <div class="service-arrow">→</div>
       <span class="service-icon">🖊️</span>
       <h3 class="service-name">Tatuagem Nova</h3>
-      <p class="service-desc">Criamos designs únicos e personalizados ou executamos com perfeição o projeto que você sempre sonhou. Estilos variados: realismo, blackwork, aquarela e mais.</p>
+      <p class="service-desc">Você traz a referência que salvou e eu adapto pro seu corpo: tamanho, posição e traço. Realismo, fineline, rastelado, anime e colorido.</p>
       <div class="service-price">A partir de R$ 100</div>
     </a>
     <a href="#contact" class="service-card reveal">
@@ -1959,7 +1961,7 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
           <img src="IMG_20250906_165727s.webp" alt="Tatuagem colorida - Final Fantasy" loading="lazy" width="1600" height="2000" decoding="async">
         </div>
         <div class="carousel-slide" onclick="openLightbox(this)">
-          <img src="anya.webp" "Tatuagem colorida - Anya" loading="lazy" width="896" height="1196" decoding="async" alt="Tatuagem feita no Studio Moacir Almeida, Casa Amarela, Recife">
+          <img src="anya.webp" alt="Tatuagem colorida - Anya" loading="lazy" width="896" height="1196" decoding="async">
         </div>
       </div>
       <button class="carousel-btn next" onclick="moveCarousel('car4',1)">›</button>
@@ -2147,7 +2149,33 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
   </div>
   <div class="artigos-grid" id="artigos-grid">
 
-    <div class="artigo-card reveal" onclick="window.open('cuidados-tatuagem-15-dias.html', '_blank')">
+    <a class="artigo-card reveal" href="quantas-sessoes-tatuagem-grande.html">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Tatuagem Grande</span>
+          <span class="artigo-data">Set 2026</span>
+        </div>
+        <h3 class="artigo-titulo">Quantas sessões leva uma tatuagem grande: o que esperar</h3>
+        <p class="artigo-resumo">Fechamento de coxa, braço ou costas quase nunca sai em um dia. Entenda o que limita, quanto tempo leva de verdade e como funciona o pagamento entre as sessões.</p>
+        <span class="artigo-ler">Ler artigo →</span>
+      </div>
+    </a>
+
+    <a class="artigo-card reveal" href="anime.html">
+      <div class="artigo-tag-bar"></div>
+      <div class="artigo-body">
+        <div class="artigo-meta">
+          <span class="artigo-categoria">Galeria</span>
+          <span class="artigo-data">Set 2026</span>
+        </div>
+        <h3 class="artigo-titulo">Tatuagem de anime em Recife</h3>
+        <p class="artigo-resumo">Luffy, Naruto, Gaara, Toji, Ichigo e mais — em preto e cinza ou colorido. Veja os trabalhos e traga a sua referência.</p>
+        <span class="artigo-ler">Ver galeria →</span>
+      </div>
+    </a>
+
+    <a class="artigo-card reveal" href="cuidados-tatuagem-15-dias.html">
       <div class="artigo-tag-bar"></div>
       <div class="artigo-body">
         <div class="artigo-meta">
@@ -2158,9 +2186,9 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         <p class="artigo-resumo">A cicatrização correta define a qualidade final do seu trabalho. Veja o passo a passo completo para não perder nenhum detalhe da sua tattoo.</p>
         <span class="artigo-ler">Ler artigo →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="artigo-card reveal" onclick="window.open('realismo-em-tatuagem.html', '_blank')">
+    <a class="artigo-card reveal" href="realismo-em-tatuagem.html">
       <div class="artigo-tag-bar"></div>
       <div class="artigo-body">
         <div class="artigo-meta">
@@ -2171,9 +2199,9 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         <p class="artigo-resumo">Entenda o que é o realismo, por que é um dos estilos mais exigentes do mercado e como escolher o tatuador certo para esse tipo de trabalho.</p>
         <span class="artigo-ler">Ler artigo →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="artigo-card reveal" onclick="window.open('o-que-perguntar-ao-tatuador.html', '_blank')">
+    <a class="artigo-card reveal" href="o-que-perguntar-ao-tatuador.html">
       <div class="artigo-tag-bar"></div>
       <div class="artigo-body">
         <div class="artigo-meta">
@@ -2184,10 +2212,10 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         <p class="artigo-resumo">Primeira tatuagem ou não, sempre há dúvidas importantes antes de sentar na cadeira. Veja as perguntas essenciais que todo cliente deveria fazer.</p>
         <span class="artigo-ler">Ler artigo →</span>
       </div>
-    </div>
+    </a>
 
 
-    <div class="artigo-card reveal" onclick="window.open('primeira-tatuagem-guia-completo.html', '_blank')">
+    <a class="artigo-card reveal" href="primeira-tatuagem-guia-completo.html">
       <div class="artigo-tag-bar"></div>
       <div class="artigo-body">
         <div class="artigo-meta">
@@ -2198,9 +2226,9 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         <p class="artigo-resumo">Dúvidas, medos e curiosidades sobre a primeira tatuagem são normais. Este guia completo responde as perguntas mais comuns e te ajuda a chegar preparado na cadeira.</p>
         <span class="artigo-ler">Ler artigo →</span>
       </div>
-    </div>
+    </a>
 
-    <div class="artigo-card reveal" onclick="window.open('quanto-doi-tatuagem.html', '_blank')">
+    <a class="artigo-card reveal" href="quanto-doi-tatuagem.html">
       <div class="artigo-tag-bar"></div>
       <div class="artigo-body">
         <div class="artigo-meta">
@@ -2211,27 +2239,17 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         <p class="artigo-resumo">Descubra quais regiões doem mais na hora de tatuar. Ranking completo com mapa ilustrativo, explicação anatômica e dicas para aguentar melhor a sessão.</p>
         <span class="artigo-ler">Ler artigo →</span>
       </div>
-    </div>
+    </a>
 
-  </div>
-
-  <div style="text-align:center;margin-top:3rem;">
-    <p style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);">Novos artigos toda semana</p>
   </div>
 </section>
-    <div class="artigo-modal-cta">
-      <p>Gostou do conteúdo? Que tal dar o próximo passo?</p>
-  <a href="https://wa.me/5581992244674?text=Olá%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20garantir%20minha%20vaga%20na%20agenda.%20Tenho%20uma%20ideia%20em%20mente%20e%20quero%20fazer%20com%20você." target="_blank" class="nav-cta" style="text-align:center; margin-top:0.5rem" onclick="closeMobile()">Agendar minha sessão</a>
-    </div>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer>
   <div class="footer-top">
     <div>
-      <span class="footer-brand-name">Studio <em>Tattoo</em></span>
-      <p class="footer-desc">Arte corporal e beleza realizadas com paixão, técnica e cuidado. Cada pele conta uma história — deixe-nos fazer parte da sua.</p>
+      <span class="footer-brand-name">Moacir Almeida <em>Tattoo</em></span>
+      <p class="footer-desc">Tatuagem em Casa Amarela, Recife. Um cliente por dia, com a sua referência adaptada ao seu corpo.</p>
       <div class="footer-social">
         <a href="https://www.instagram.com/moatattooink" target="_blank" class="social-link" aria-label="Instagram">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -2254,6 +2272,7 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
         <li><a href="#about">Sobre o Studio</a></li>
         <li><a href="#services">Serviços</a></li>
         <li><a href="#team">Artista</a></li>
+        <li><a href="anime.html">Tatuagem de anime</a></li>
         <li><a href="#gallery">Galeria</a></li>
         <li><a href="#contact">Contato</a></li>
         <li><a href="#artigos">Artigos</a></li>
@@ -2268,10 +2287,6 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
   </div>
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 Studio Moacir Almeida Tattoo — Recife, PE. Todos os direitos reservados.</p>
-    <div class="footer-legal">
-      <a href="#">Política de Privacidade</a>
-      <a href="#">Termos de Uso</a>
-    </div>
   </div>
 </footer>
 
@@ -2300,35 +2315,6 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
   }, { threshold: 0.1 });
 
   reveals.forEach(el => observer.observe(el));
-
-  // Form submit → email
-  function handleSubmit(e) {
-    e.preventDefault();
-    const form = e.target;
-    const nome    = form.querySelector('input[type="text"]').value || '';
-    const whats   = form.querySelector('input[type="tel"]').value || '';
-    const email   = form.querySelector('input[type="email"]').value || '';
-    const servico = form.querySelector('select').value || '';
-    const msg     = form.querySelector('textarea').value || '';
-    const subject = encodeURIComponent('Agendamento - ' + servico + ' | ' + nome);
-    const body = encodeURIComponent(
-      'Nome: ' + nome + '\n' +
-      'WhatsApp: ' + whats + '\n' +
-      'E-mail: ' + email + '\n' +
-      'Serviço: ' + servico + '\n\nMensagem:\n' + msg
-    );
-    window.location.href = 'mailto:moacirtattoostudio@gmail.com?subject=' + subject + '&body=' + body;
-    const btn = form.querySelector('.form-submit');
-    btn.textContent = 'Abrindo e-mail... ✓';
-    btn.style.background = '#4a7c59';
-    btn.style.color = '#fff';
-    setTimeout(() => {
-      btn.textContent = 'Enviar Mensagem';
-      btn.style.background = '';
-      btn.style.color = '';
-      form.reset();
-    }, 4000);
-  }
   // Lightbox
   function openLightbox(el) {
     const img = el.querySelector('img');
@@ -2391,12 +2377,29 @@ src="https://www.facebook.com/tr?id=471547625724751&ev=PageView&noscript=1"
     const dotsEl = document.getElementById(id + '-dots');
     if (dotsEl) {
       const pages = Math.ceil(total / vis);
-      const curPage = Math.floor(carState[id].pos / vis);
+      const curPage = Math.min(pages - 1, Math.floor(carState[id].pos / vis));
+      if (dotsEl.children.length !== pages) {
+        dotsEl.innerHTML = '';
+        for (let i = 0; i < pages; i++) {
+          const d = document.createElement('div');
+          d.className = 'carousel-dot';
+          d.addEventListener('click', () => goTo(id, i));
+          dotsEl.appendChild(d);
+        }
+      }
       dotsEl.querySelectorAll('.carousel-dot').forEach((d, i) => {
         d.classList.toggle('active', i === curPage);
       });
     }
   }
+
+  // bolinhas certas já no carregamento
+  window.addEventListener('load', () => {
+    ['car1','car2','car3','car4'].forEach(id => {
+      const track = document.getElementById(id);
+      if (track) { initCarousel(id); applyCarousel(id, getVisible(id), track.children.length); }
+    });
+  });
 
   // reinit on resize
   window.addEventListener('resize', () => {
