@@ -334,7 +334,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .js .loaded h1 .line:nth-child(2) > span{transition-delay:.12s;}
 
 @media (max-width:980px){
-  .hero{grid-template-columns:1fr; min-height:auto; padding:110px 0 40px; gap:10px;}
+  .hero{grid-template-columns:1fr; min-height:auto; padding:150px 0 40px; gap:10px;}
   .stage{height:460px;}
   .services, .reviews{grid-template-columns:1fr;}
   .studio, .contact{grid-template-columns:1fr; gap:50px;}
@@ -342,7 +342,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   .steps::before, .steps .bar{display:none;}
   .foot{grid-template-columns:1fr 1fr;}
   .foot > div:first-child{grid-column:1 / -1;}
-  .topbar nav a:not(.nav-cta){display:none;}
+  .topbar .wrap nav a:not(.nav-cta){display:none;}
   .scroll-hint{display:none;}
   .rating{grid-template-columns:1fr; gap:18px;}
   .score{font-size:96px; line-height:1;}
@@ -367,6 +367,15 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   .js .reveal{opacity:1; transform:none;}
   .js h1 .line > span{transform:none;}
 }
+
+/* menu de links no celular (o menu principal some abaixo de 980px) */
+.subnav{display:none;}
+@media (max-width:980px){
+  .subnav{display:flex; gap:22px; overflow-x:auto; padding:0 24px 12px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; scrollbar-width:none;}
+  .subnav::-webkit-scrollbar{display:none;}
+  .subnav a{color:var(--muted);}
+  .subnav a[aria-current="page"]{color:var(--gold);}
+}
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -386,6 +395,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
     <a class="brand" href="./">Moacir Almeida <em>Tattoo</em></a>
     <nav aria-label="Principal">
       <a href="#trabalhos">Trabalhos</a>
+      <a href="cobertura.html">Cobertura</a>
       <a href="anime.html">Anime</a>
       <a href="#estudio">Estúdio</a>
       <a href="#avaliacoes">Avaliações</a>
@@ -393,6 +403,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
       <a class="nav-cta" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20ideia%20em%20mente.">Orçamento</a>
     </nav>
   </div>
+  <nav class="subnav" aria-label="Páginas"><a href="./" aria-current="page">Início</a><a href="./#trabalhos">Trabalhos</a><a href="cobertura.html">Cobertura</a><a href="anime.html">Anime</a><a href="./#avaliacoes">Avaliações</a><a href="./#contato">Contato</a></nav>
 </header>
 
 <main>
