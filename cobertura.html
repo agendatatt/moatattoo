@@ -16,20 +16,20 @@
 <meta property="og:url" content="https://agendatatt.github.io/moatattoo/cobertura.html" />
 <meta property="og:title" content="Cobertura de Tatuagem em Recife — Antes e Depois" />
 <meta property="og:description" content="Nome, tatuagem antiga ou cicatriz virando peça nova. Antes e depois reais. Avaliação gratuita pela foto." />
-<meta property="og:image" content="https://agendatatt.github.io/moatattoo/og/cobertura-itachi-depois.jpg" />
+<meta property="og:image" content="https://agendatatt.github.io/moatattoo/og/cobertura-pantera-depois.jpg" />
 <meta property="og:image:type" content="image/jpeg" />
 <meta property="og:image:width" content="960" />
 <meta property="og:image:height" content="1200" />
-<meta property="og:image:alt" content="Cobertura de tatuagem: chibi antigo no antebraço virou Itachi com corvo em realismo" />
+<meta property="og:image:alt" content="Cobertura de tatuagem: tatuagem antiga no antebraço virou uma pantera negra" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Cobertura de Tatuagem em Recife — Antes e Depois" />
 <meta name="twitter:description" content="Nome, tatuagem antiga ou cicatriz virando peça nova. Avaliação gratuita pela foto." />
-<meta name="twitter:image" content="https://agendatatt.github.io/moatattoo/og/cobertura-itachi-depois.jpg" />
+<meta name="twitter:image" content="https://agendatatt.github.io/moatattoo/og/cobertura-pantera-depois.jpg" />
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="cobertura-itachi-depois.webp" fetchpriority="high">
+<link rel="preload" as="image" href="cobertura-pantera-depois.webp" fetchpriority="high">
 
 <script>document.documentElement.classList.add('js');</script>
 
@@ -346,20 +346,20 @@ footer a:hover{color:var(--cream);}
           <li>Avaliação <b>gratuita</b> pela foto</li>
           <li><b>5,0</b> no Google</li>
           <li><b>1</b> cliente por dia</li>
-          <li><b id="nCasos">5</b> coberturas reais</li>
+          <li><b id="nCasos">6</b> coberturas reais</li>
         </ul>
       </div>
 
       <div class="ba-wrap">
         <div class="ba" id="ba">
-          <img class="after" src="cobertura-itachi-depois.webp" width="1200" height="1500" alt="Depois: Itachi com corvo em realismo cobrindo a tatuagem antiga no antebraço" fetchpriority="high">
-          <img class="before" src="cobertura-itachi-antes.webp" width="1200" height="1500" alt="Antes: tatuagem pequena de personagem chibi no antebraço">
+          <img class="after" src="cobertura-pantera-depois.webp" width="1200" height="1500" alt="Depois: pantera negra cobrindo a tatuagem antiga no antebraço" fetchpriority="high">
+          <img class="before" src="cobertura-pantera-antes.webp" width="1200" height="1500" alt="Antes: tatuagem antiga no antebraço">
           <span class="tag a">Antes</span><span class="tag d">Depois</span>
           <span class="line" aria-hidden="true"></span>
           <span class="knob" aria-hidden="true">⇆</span>
           <input type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois">
         </div>
-        <div class="ba-cap"><span>← arraste</span><b id="baCap">Chibi → Itachi · antebraço</b></div>
+        <div class="ba-cap"><span>← arraste</span><b id="baCap">Antiga → pantera negra · antebraço</b></div>
         <div class="ba-thumbs" id="baThumbs" role="group" aria-label="Escolher cobertura para comparar"></div>
       </div>
     </section>
@@ -482,6 +482,7 @@ footer a:hover{color:var(--cream);}
   /* Foto nova: coloque a original (até 1800px) na raiz e uma cópia de 720px com o mesmo nome em mini/
      — a grade e as miniaturas usam mini/, a foto ampliada usa a original. Sem a cópia, cai na original (mais pesada). */
   var PARES = [
+    { tipo:'antiga', nome:'Antiga → pantera negra', sub:'Antebraço · cobertura', a:'cobertura-pantera-antes.webp', d:'cobertura-pantera-depois.webp', altA:'Antes: tatuagem antiga no antebraço', altD:'Depois: pantera negra cobrindo a tatuagem antiga no antebraço' },
     { tipo:'antiga', nome:'Chibi → Itachi', sub:'Antebraço · anime', a:'cobertura-itachi-antes.webp', d:'cobertura-itachi-depois.webp', altA:'Antes: tatuagem pequena de personagem chibi no antebraço', altD:'Depois: Itachi com corvo em realismo cobrindo o chibi' },
     { tipo:'nome', nome:'Nome → rosa', sub:'Clavícula · o nome sumiu', a:'cobertura-rosa-antes.webp', d:'cobertura-rosa-depois.webp', altA:'Antes: rosa com um nome escrito na clavícula (nome borrado na foto)', altD:'Depois: rosa em preto e cinza, sem o nome' },
     { tipo:'cicatriz', nome:'Cicatriz → tigre', sub:'Barriga · cobertura de cicatriz', a:'cobertura-cicatriz-antes.webp', d:'cobertura-cicatriz-depois.webp', altA:'Antes: cicatriz na barriga', altD:'Depois: tigre com flores cobrindo a cicatriz na barriga' },
