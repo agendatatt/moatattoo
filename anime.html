@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="0_JINsWOO3.webp" fetchpriority="high">
+<link rel="preload" as="image" href="mini/0_JINsWOO3.webp" fetchpriority="high">
 
 <script>document.documentElement.classList.add('js');</script>
 
@@ -107,6 +107,8 @@ body::before{
   background-size:5px 5px;
 }
 main, header, footer{position:relative; z-index:1;}
+/* efeitos decorativos (raios, faixa girada) não podem alargar a página no celular */
+main{overflow-x:clip;}
 
 /* ---------- topo ---------- */
 .topbar{
@@ -148,7 +150,7 @@ main, header, footer{position:relative; z-index:1;}
   padding:120px 0 80px; isolation:isolate;
 }
 .speedlines{
-  position:absolute; inset:-20% -30%; z-index:-2; pointer-events:none; opacity:.55;
+  position:absolute; top:-160px; bottom:-160px; left:-30%; right:-30%; z-index:-2; pointer-events:none; opacity:.55;
   background:repeating-conic-gradient(from 0deg at 72% 50%, rgba(201,169,110,.10) 0deg 1.2deg, transparent 1.2deg 7deg);
   -webkit-mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
           mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
@@ -486,9 +488,9 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
 
       <div class="stage" id="stage" aria-hidden="true">
         <div class="stack" id="stack">
-          <figure class="pcard c1"><div class="face"><img src="1finalmente.webp" width="1600" height="2000" alt="" decoding="async"><div class="label"><small>Demon Slayer</small>Kokushibo</div></div></figure>
-          <figure class="pcard c2"><div class="face"><img src="8gaara.webp" width="1566" height="1958" alt="" decoding="async"><div class="label"><small>Naruto</small>Gaara</div></div></figure>
-          <figure class="pcard c3"><div class="face"><img src="0_JINsWOO3.webp" width="1600" height="2000" alt="" decoding="async" fetchpriority="high"><div class="label"><small>Solo Leveling</small>Sung Jin-Woo</div></div></figure>
+          <figure class="pcard c1"><div class="face"><img src="mini/1finalmente.webp" width="1600" height="2000" alt="" decoding="async"><div class="label"><small>Demon Slayer</small>Kokushibo</div></div></figure>
+          <figure class="pcard c2"><div class="face"><img src="mini/8gaara.webp" width="1566" height="1958" alt="" decoding="async"><div class="label"><small>Naruto</small>Gaara</div></div></figure>
+          <figure class="pcard c3"><div class="face"><img src="mini/0_JINsWOO3.webp" width="1600" height="2000" alt="" decoding="async" fetchpriority="high"><div class="label"><small>Solo Leveling</small>Sung Jin-Woo</div></div></figure>
         </div>
       </div>
       <a class="scroll-hint" href="#obras">Role</a>
@@ -542,17 +544,17 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
       </div>
       <div class="styles">
         <article class="style reveal" style="--accent:#cfcfcf">
-          <div class="ex"><img src="Luffy_presets1.webp" alt="" loading="lazy" width="1440" height="1800"><img src="01.webp" alt="" loading="lazy" width="949" height="1186"></div>
+          <div class="ex"><img src="mini/Luffy_presets1.webp" alt="" loading="lazy" width="1440" height="1800"><img src="mini/01.webp" alt="" loading="lazy" width="949" height="1186"></div>
           <h3>Preto e cinza</h3>
           <p>Traço e sombra, como página de mangá. Luffy e Zoro, de One Piece.</p>
         </article>
         <article class="style reveal" style="--accent:var(--red)">
-          <div class="ex"><img src="3ichigoclaro.webp" alt="" loading="lazy" width="1600" height="2000"><img src="2.webp" alt="" loading="lazy" width="1600" height="2000"></div>
+          <div class="ex"><img src="mini/3ichigoclaro.webp" alt="" loading="lazy" width="1600" height="2000"><img src="mini/2.webp" alt="" loading="lazy" width="1600" height="2000"></div>
           <h3>Preto + cor de destaque</h3>
           <p>Uma cor só, onde ela conta: a máscara do Ichigo, o rosa da Nezuko.</p>
         </article>
         <article class="style reveal" style="--accent:linear-gradient(90deg,#7c4dff,#e0457b,#f2b33d)">
-          <div class="ex"><img src="0_JINsWOO3.webp" alt="" loading="lazy" width="1600" height="2000"><img src="0_17568512x73498.webp" alt="" loading="lazy" width="1600" height="2000"></div>
+          <div class="ex"><img src="mini/0_JINsWOO3.webp" alt="" loading="lazy" width="1600" height="2000"><img src="mini/0_17568512x73498.webp" alt="" loading="lazy" width="1600" height="2000"></div>
           <h3>Colorido</h3>
           <p>A paleta inteira do personagem. Jin-Woo, de Solo Leveling, e os iniciais de Pokémon.</p>
         </article>
@@ -703,7 +705,7 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
     t.className = 'tile reveal'; t.dataset.estilo = w.estilo; t.dataset.i = i;
     t.innerHTML =
       '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '">' +
-        '<div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="' + w.img + '" alt="' + w.alt + '">' +
+        '<div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="mini/' + w.img + '" alt="' + w.alt + '">' +
         '<span class="glare"></span><span class="badge" style="--dot:' + ESTILO[w.estilo][1] + '"><i></i>' + ESTILO[w.estilo][0] + '</span></div>' +
         '<div class="meta"><h3>' + w.nome + '</h3><p>' + w.obra + (w.local ? ' · ' + w.local : '') + '</p></div>' +
       '</button>';
@@ -743,7 +745,7 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
   var RING = WORKS.slice(0, 12), N = RING.length, ang = 0, vel = reduce ? 0 : 0.08, dragging = false, lastX = 0, moved = 0;
   RING.forEach(function (w, i) {
     var f = document.createElement('figure');
-    f.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '"><img loading="lazy" decoding="async" src="' + w.img + '" width="' + w.w + '" height="' + w.h + '" alt="' + w.alt + '"></button><figcaption>' + w.nome + '</figcaption>';
+    f.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '"><img loading="lazy" decoding="async" src="mini/' + w.img + '" width="' + w.w + '" height="' + w.h + '" alt="' + w.alt + '"></button><figcaption>' + w.nome + '</figcaption>';
     f.querySelector('button').addEventListener('click', function(){ if (moved < 6) openLb(RING, i); });
     ring.appendChild(f);
   });

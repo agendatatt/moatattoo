@@ -107,6 +107,8 @@ html{scroll-behavior:smooth;}
 body{margin:0; background:var(--black); color:var(--text); font-family:'Jost',sans-serif; font-weight:400; line-height:1.75; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
 body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.03) 1px, transparent 1.2px); background-size:5px 5px;}
 main, header, footer{position:relative; z-index:1;}
+/* efeitos decorativos (raios, faixa girada) não podem alargar a página no celular */
+main{overflow-x:clip;}
 a{color:var(--gold); text-decoration:none;}
 :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
 img{max-width:100%; display:block;}
@@ -353,9 +355,9 @@ footer a{color:var(--muted);} footer a:hover{color:var(--cream);}
   <section class="rel" aria-labelledby="t-rel">
     <h2 id="t-rel">Leia <em>também</em></h2>
     <div class="rel-grid">
-      <a href="primeira-tatuagem-guia-completo.html"><img src="32.webp" alt="" loading="lazy" decoding="async"><span><small>Primeira tattoo</small><strong>Primeira tatuagem: o que saber antes de marcar</strong></span></a>
-      <a href="quantas-sessoes-tatuagem-grande.html"><img src="onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Tatuagem grande</small><strong>Quantas sessões leva uma tatuagem grande</strong></span></a>
-      <a href="cuidados-tatuagem-15-dias.html"><img src="pb-armas-rosas-biceps.webp" alt="" loading="lazy" decoding="async"><span><small>Cuidados</small><strong>Como cuidar da tatuagem nos primeiros 15 dias</strong></span></a>
+      <a href="primeira-tatuagem-guia-completo.html"><img src="mini/32.webp" alt="" loading="lazy" decoding="async"><span><small>Primeira tattoo</small><strong>Primeira tatuagem: o que saber antes de marcar</strong></span></a>
+      <a href="quantas-sessoes-tatuagem-grande.html"><img src="mini/onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Tatuagem grande</small><strong>Quantas sessões leva uma tatuagem grande</strong></span></a>
+      <a href="cuidados-tatuagem-15-dias.html"><img src="mini/pb-armas-rosas-biceps.webp" alt="" loading="lazy" decoding="async"><span><small>Cuidados</small><strong>Como cuidar da tatuagem nos primeiros 15 dias</strong></span></a>
     </div>
   </section>
 </main>

@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="tatuagem-personalizada-recife-arte.webp" fetchpriority="high">
+<link rel="preload" as="image" href="mini/tatuagem-personalizada-recife-arte.webp" fetchpriority="high">
 
 <script>document.documentElement.classList.add('js');</script>
 
@@ -156,6 +156,8 @@ body::before{
   background-size:5px 5px;
 }
 main, header, footer{position:relative; z-index:1;}
+/* efeitos decorativos (raios, faixa girada) não podem alargar a página no celular */
+main{overflow-x:clip;}
 
 /* ---------- topo ---------- */
 .topbar{
@@ -197,7 +199,7 @@ main, header, footer{position:relative; z-index:1;}
   padding:120px 0 80px; isolation:isolate;
 }
 .speedlines{
-  position:absolute; inset:-20% -30%; z-index:-2; pointer-events:none; opacity:.55;
+  position:absolute; top:-160px; bottom:-160px; left:-30%; right:-30%; z-index:-2; pointer-events:none; opacity:.55;
   background:repeating-conic-gradient(from 0deg at 72% 50%, rgba(201,169,110,.10) 0deg 1.2deg, transparent 1.2deg 7deg);
   -webkit-mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
           mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
@@ -548,9 +550,9 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
 
       <div class="stage" id="stage" aria-hidden="true">
         <div class="stack" id="stack">
-          <figure class="pcard c1"><div class="face"><img src="delicada-fenix-costas.webp" width="1350" height="1800" alt="" decoding="async"><div class="label"><small>Costas</small>Fênix</div></div></figure>
-          <figure class="pcard c2"><div class="face"><img src="delicada-ornamental-fechamento-braco.webp" width="742" height="1800" alt="" decoding="async"><div class="label"><small>Fechamento de braço</small>Mandala</div></div></figure>
-          <figure class="pcard c3"><div class="face"><img src="tatuagem-personalizada-recife-arte.webp" width="1161" height="1548" alt="" decoding="async" fetchpriority="high"><div class="label"><small>Braço</small>Água-viva e tartaruga</div></div></figure>
+          <figure class="pcard c1"><div class="face"><img src="mini/delicada-fenix-costas.webp" width="1350" height="1800" alt="" decoding="async"><div class="label"><small>Costas</small>Fênix</div></div></figure>
+          <figure class="pcard c2"><div class="face"><img src="mini/delicada-ornamental-fechamento-braco.webp" width="742" height="1800" alt="" decoding="async"><div class="label"><small>Fechamento de braço</small>Mandala</div></div></figure>
+          <figure class="pcard c3"><div class="face"><img src="mini/tatuagem-personalizada-recife-arte.webp" width="1161" height="1548" alt="" decoding="async" fetchpriority="high"><div class="label"><small>Braço</small>Água-viva e tartaruga</div></div></figure>
         </div>
       </div>
       <a class="scroll-hint" href="#obras">Role</a>
@@ -604,17 +606,17 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
       </div>
       <div class="styles">
         <article class="style reveal" style="--accent:#e8d3a4">
-          <div class="ex"><img src="tatuagem-personalizada-recife-arte.webp" alt="" loading="lazy" width="1161" height="1548"><img src="namefinalkatsa.webp" alt="" loading="lazy" width="811" height="1082"></div>
+          <div class="ex"><img src="mini/tatuagem-personalizada-recife-arte.webp" alt="" loading="lazy" width="1161" height="1548"><img src="mini/namefinalkatsa.webp" alt="" loading="lazy" width="811" height="1082"></div>
           <h3>Traço fino</h3>
           <p>Linha fina e pontilhado leve, sem sombra pesada. Flores, bichos, símbolos e desenhos inteiros.</p>
         </article>
         <article class="style reveal" style="--accent:#cfcfcf">
-          <div class="ex"><img src="delicada-apenas-faca-antebraco.webp" alt="" loading="lazy" width="1350" height="1800"><img src="delicada-frase-pai-braco.webp" alt="" loading="lazy" width="1160" height="1800"></div>
+          <div class="ex"><img src="mini/delicada-apenas-faca-antebraco.webp" alt="" loading="lazy" width="1350" height="1800"><img src="mini/delicada-frase-pai-braco.webp" alt="" loading="lazy" width="1160" height="1800"></div>
           <h3>Frases e nomes</h3>
           <p>Homenagem, data, frase de fé. Eu ajusto a letra e o tamanho pra não embolar com o tempo.</p>
         </article>
         <article class="style reveal" style="--accent:var(--gold)">
-          <div class="ex"><img src="delicada-ornamental-fechamento-braco.webp" alt="" loading="lazy" width="742" height="1800"><img src="delicada-ornamental-antebraco.webp" alt="" loading="lazy" width="1350" height="1800"></div>
+          <div class="ex"><img src="mini/delicada-ornamental-fechamento-braco.webp" alt="" loading="lazy" width="742" height="1800"><img src="mini/delicada-ornamental-antebraco.webp" alt="" loading="lazy" width="1350" height="1800"></div>
           <h3>Ornamental</h3>
           <p>Mandala, lótus e padrões geométricos. Pode ser uma peça no antebraço ou fechar o braço inteiro.</p>
         </article>
@@ -663,9 +665,9 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
         <div><span class="num">06 — Veja também</span><h2 id="t-out">Outros <em>estilos</em></h2></div>
       </div>
       <div class="links-estilo">
-        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Animais e fechamentos</small>Preto e cinza</span></a>
-        <a class="link-estilo reveal" href="anime.html"><img src="luffy2.webp" alt="" loading="lazy" decoding="async"><span><small>Personagens</small>Anime</span></a>
-        <a class="link-estilo reveal" href="cobertura.html"><img src="cobertura-rosa-depois.webp" alt="" loading="lazy" decoding="async"><span><small>Antes e depois</small>Cobertura</span></a>
+        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="mini/onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Animais e fechamentos</small>Preto e cinza</span></a>
+        <a class="link-estilo reveal" href="anime.html"><img src="mini/luffy2.webp" alt="" loading="lazy" decoding="async"><span><small>Personagens</small>Anime</span></a>
+        <a class="link-estilo reveal" href="cobertura.html"><img src="mini/cobertura-rosa-depois.webp" alt="" loading="lazy" decoding="async"><span><small>Antes e depois</small>Cobertura</span></a>
       </div>
     </div>
   </section>
@@ -1057,7 +1059,7 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
     var fs = fotosDe(w); lbFotos.innerHTML = '';
     if (fs.length > 1) fs.forEach(function(f, n){
       var b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', 'Foto ' + (n + 1) + ' de ' + fs.length);
-      b.innerHTML = '<img src="' + f.img + '" alt="">';
+      b.innerHTML = '<img src="mini/' + f.img + '" alt="">';
       b.addEventListener('click', function(e){ e.stopPropagation(); mostrarFoto(n); });
       lbFotos.appendChild(b);
     });
@@ -1101,7 +1103,7 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
     t.className = 'tile reveal'; t.dataset.estilo = w.estilo; t.dataset.i = i;
     t.innerHTML =
       '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '">' +
-        '<div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="' + w.img + '" alt="' + w.alt + '">' +
+        '<div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="mini/' + w.img + '" alt="' + w.alt + '">' +
         '<span class="glare"></span>' + (w.fotos ? '<span class="nfotos">' + (w.fotos.length + 1) + ' fotos</span>' : '') + '<span class="badge" style="--dot:' + ESTILO[w.estilo][1] + '"><i></i>' + ESTILO[w.estilo][0] + '</span></div>' +
         '<div class="meta"><h3>' + w.nome + '</h3><p>' + w.obra + (w.local ? ' · ' + w.local : '') + '</p></div>' +
       '</button>';
@@ -1141,7 +1143,7 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
   var RING = WORKS.slice(0, 12), N = RING.length, ang = 0, vel = reduce ? 0 : 0.08, dragging = false, lastX = 0, moved = 0;
   RING.forEach(function (w, i) {
     var f = document.createElement('figure');
-    f.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '"><img loading="lazy" decoding="async" src="' + w.img + '" width="' + w.w + '" height="' + w.h + '" alt="' + w.alt + '"></button><figcaption>' + w.nome + '</figcaption>';
+    f.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '"><img loading="lazy" decoding="async" src="mini/' + w.img + '" width="' + w.w + '" height="' + w.h + '" alt="' + w.alt + '"></button><figcaption>' + w.nome + '</figcaption>';
     f.querySelector('button').addEventListener('click', function(){ if (moved < 6) openLb(RING, i); });
     ring.appendChild(f);
   });

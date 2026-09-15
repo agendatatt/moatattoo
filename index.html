@@ -28,7 +28,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="onca-peonias-coxa-recife.webp" fetchpriority="high">
+<link rel="preload" as="image" href="mini/onca-peonias-coxa-recife.webp" fetchpriority="high">
 
 <script>document.documentElement.classList.add('js');</script>
 
@@ -101,6 +101,8 @@ img, video{max-width:100%; display:block;}
 .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
 body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.03) 1px, transparent 1.2px); background-size:5px 5px;}
 main, header, footer{position:relative; z-index:1;}
+/* efeitos decorativos (raios, faixa girada) não podem alargar a página no celular */
+main{overflow-x:clip;}
 
 /* topo */
 .topbar{position:fixed; inset:0 0 auto 0; z-index:40; border-bottom:1px solid transparent; transition:background .4s, border-color .4s;}
@@ -125,7 +127,7 @@ main, header, footer{position:relative; z-index:1;}
 
 /* hero */
 .hero{position:relative; min-height:100vh; min-height:100svh; display:grid; grid-template-columns:1.05fr .95fr; align-items:center; gap:40px; padding:120px 0 80px; isolation:isolate;}
-.rays{position:absolute; inset:-20% -30%; z-index:-2; pointer-events:none; opacity:.5;
+.rays{position:absolute; top:-160px; bottom:-160px; left:-30%; right:-30%; z-index:-2; pointer-events:none; opacity:.5;
   background:repeating-conic-gradient(from 0deg at 72% 50%, rgba(201,169,110,.09) 0deg 1deg, transparent 1deg 8deg);
   -webkit-mask-image:radial-gradient(circle at 72% 50%, transparent 14%, #000 36%, transparent 70%); mask-image:radial-gradient(circle at 72% 50%, transparent 14%, #000 36%, transparent 70%);
   animation:spin 110s linear infinite;}
@@ -438,9 +440,9 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 
       <div class="stage" aria-hidden="true">
         <div class="stack" id="stack">
-          <figure class="pcard c1"><div class="face"><img src="tatuagem-personalizada-recife-arte.webp" width="1161" height="1548" alt="" decoding="async"><div class="label"><small>Delicadas</small>Água-viva</div></div></figure>
-          <figure class="pcard c2"><div class="face"><img src="luffy2.webp" width="1600" height="2134" alt="" decoding="async"><div class="label"><small>One Piece · Preto e cinza</small>Luffy</div></div></figure>
-          <figure class="pcard c3"><div class="face"><img src="onca-peonias-coxa-recife.webp" width="1600" height="2134" alt="" decoding="async" fetchpriority="high"><div class="label"><small>Preto e cinza · Coxa</small>Onça com peônias</div></div></figure>
+          <figure class="pcard c1"><div class="face"><img src="mini/tatuagem-personalizada-recife-arte.webp" width="1161" height="1548" alt="" decoding="async"><div class="label"><small>Delicadas</small>Água-viva</div></div></figure>
+          <figure class="pcard c2"><div class="face"><img src="mini/luffy2.webp" width="1600" height="2134" alt="" decoding="async"><div class="label"><small>One Piece · Preto e cinza</small>Luffy</div></div></figure>
+          <figure class="pcard c3"><div class="face"><img src="mini/onca-peonias-coxa-recife.webp" width="1600" height="2134" alt="" decoding="async" fetchpriority="high"><div class="label"><small>Preto e cinza · Coxa</small>Onça com peônias</div></div></figure>
         </div>
       </div>
       <a class="scroll-hint" href="#estilos">Role</a>
@@ -502,7 +504,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
     <div class="wrap studio">
       <div class="vid reveal">
         <div class="vid-frame">
-          <video autoplay muted loop playsinline preload="metadata" poster="hero-poster.webp" aria-label="Moacir tatuando no estúdio">
+          <video id="vidEstudio" muted loop playsinline preload="none" poster="hero-poster.webp" aria-label="Moacir tatuando no estúdio">
             <source src="moa-tattoo-hero.mp4" type="video/mp4">
           </video>
         </div>
@@ -708,6 +710,16 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
   requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
 
+  /* vídeo do estúdio (2 MB): só baixa e toca quando chega perto da tela */
+  var vid = document.getElementById('vidEstudio');
+  if (vid) {
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { var p = vid.play(); if (p && p.catch) p.catch(function(){}); } else { vid.pause(); } });
+      }, { rootMargin:'300px 0px' }).observe(vid);
+    } else { vid.autoplay = true; vid.play(); }
+  }
+
   /* inclinação 3D reutilizável */
   function tilt(el, target, max, glare) {
     if (!fine || reduce) return;
@@ -752,7 +764,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   WORKS.forEach(function (w) {
     var t = document.createElement('article');
     t.className = 'tile reveal'; t.dataset.cat = w.cat;
-    t.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + '"><div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="' + w.img + '" alt="' + w.alt + '"><span class="glare"></span><span class="badge">' + CAT[w.cat] + '</span></div><div class="meta"><h3>' + w.nome + '</h3><p>' + w.sub + '</p></div></button>';
+    t.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + '"><div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="mini/' + w.img + '" alt="' + w.alt + '"><span class="glare"></span><span class="badge">' + CAT[w.cat] + '</span></div><div class="meta"><h3>' + w.nome + '</h3><p>' + w.sub + '</p></div></button>';
     t.querySelector('button').addEventListener('click', function(){
       var vis = WORKS.filter(function(x){ return filtro === 'all' || x.cat === filtro; });
       openLb(vis, vis.indexOf(w));

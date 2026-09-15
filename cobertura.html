@@ -91,6 +91,8 @@ img{max-width:100%; display:block;}
 .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
 body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.03) 1px, transparent 1.2px); background-size:5px 5px;}
 main, header, footer{position:relative; z-index:1;}
+/* efeitos decorativos (raios, faixa girada) não podem alargar a página no celular */
+main{overflow-x:clip;}
 
 .topbar{position:fixed; inset:0 0 auto 0; z-index:40; border-bottom:1px solid transparent; transition:background .4s, border-color .4s;}
 .topbar.solid{background:rgba(7,7,7,.74); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-color:var(--border);}
@@ -140,7 +142,7 @@ h1 em{font-style:italic; color:var(--gold);}
 .ba-cap b{color:var(--cream); font-weight:400;}
 
 /* fundo do hero e faixa */
-.rays{position:absolute; inset:-20% -30%; z-index:-2; pointer-events:none; opacity:.5;
+.rays{position:absolute; top:-160px; bottom:-160px; left:-30%; right:-30%; z-index:-2; pointer-events:none; opacity:.5;
   background:repeating-conic-gradient(from 0deg at 72% 50%, rgba(201,169,110,.09) 0deg 1.2deg, transparent 1.2deg 7deg);
   -webkit-mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
           mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
@@ -439,9 +441,9 @@ footer a:hover{color:var(--cream);}
     <div class="wrap">
       <div class="sec-head reveal"><div><span class="num">05 — Veja também</span><h2 id="t-out">Outros <em>estilos</em></h2></div></div>
       <div class="links-estilo">
-        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Realismo e fechamentos</small>Preto e cinza</span></a>
-        <a class="link-estilo reveal" href="delicadas.html"><img src="tatuagem-personalizada-recife-arte.webp" alt="" loading="lazy" decoding="async"><span><small>Traço fino</small>Delicadas</span></a>
-        <a class="link-estilo reveal" href="anime.html"><img src="luffy2.webp" alt="" loading="lazy" decoding="async"><span><small>Personagens</small>Anime</span></a>
+        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="mini/onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Realismo e fechamentos</small>Preto e cinza</span></a>
+        <a class="link-estilo reveal" href="delicadas.html"><img src="mini/tatuagem-personalizada-recife-arte.webp" alt="" loading="lazy" decoding="async"><span><small>Traço fino</small>Delicadas</span></a>
+        <a class="link-estilo reveal" href="anime.html"><img src="mini/luffy2.webp" alt="" loading="lazy" decoding="async"><span><small>Personagens</small>Anime</span></a>
       </div>
     </div>
   </section>
@@ -510,7 +512,7 @@ footer a:hover{color:var(--cream);}
   PARES.forEach(function(p, i){
     var b = document.createElement('button');
     b.type = 'button'; b.setAttribute('aria-pressed', String(i === 0)); b.setAttribute('aria-label', 'Comparar: ' + p.nome);
-    b.innerHTML = '<img loading="lazy" decoding="async" width="1200" height="1500" src="' + p.d + '" alt="">';
+    b.innerHTML = '<img loading="lazy" decoding="async" width="1200" height="1500" src="mini/' + p.d + '" alt="">';
     b.addEventListener('click', function(){ ba.dataset.touched = '1'; mostrarPar(i); });
     thumbs.appendChild(b);
   });
@@ -544,8 +546,8 @@ footer a:hover{color:var(--cream);}
     el.innerHTML =
       '<button type="button" aria-pressed="false" aria-label="' + p.nome + ': mostrar antes">' +
         '<div class="inner">' +
-          '<div class="face front"><img loading="lazy" decoding="async" width="1200" height="1500" src="' + p.d + '" alt="' + p.altD + '"><span class="tag">Depois</span><span class="hint"><span>Ver o antes</span><span>↻</span></span></div>' +
-          '<div class="face back"><img loading="lazy" decoding="async" width="1200" height="1500" src="' + p.a + '" alt="' + p.altA + '"><span class="tag">Antes</span><span class="hint"><span>Ver o depois</span><span>↻</span></span></div>' +
+          '<div class="face front"><img loading="lazy" decoding="async" width="1200" height="1500" src="mini/' + p.d + '" alt="' + p.altD + '"><span class="tag">Depois</span><span class="hint"><span>Ver o antes</span><span>↻</span></span></div>' +
+          '<div class="face back"><img loading="lazy" decoding="async" width="1200" height="1500" src="mini/' + p.a + '" alt="' + p.altA + '"><span class="tag">Antes</span><span class="hint"><span>Ver o depois</span><span>↻</span></span></div>' +
         '</div>' +
         '<div class="meta"><h3>' + p.nome + '</h3><p>' + p.sub + '</p></div>' +
       '</button>';
