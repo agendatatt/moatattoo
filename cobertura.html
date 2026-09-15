@@ -307,6 +307,7 @@ footer a:hover{color:var(--cream);}
   gtag('config', 'G-WQMT0C0WZ9');
   gtag('config', 'AW-17997961497');
 </script>
+<script>/* miniatura em mini/ não existe? usa a foto original */document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&t.src.indexOf('/mini/')>-1){t.src=t.src.replace('/mini/','/');}},true);</script>
 </head>
 <body>
 
@@ -478,6 +479,8 @@ footer a:hover{color:var(--cream);}
 (function () {
   /* Pra adicionar uma cobertura: coloque as duas fotos (antes e depois, 4:5) na pasta do site
      e acrescente uma linha abaixo. tipo = nome | antiga | cicatriz. O resto da página se ajusta sozinho. */
+  /* Foto nova: coloque a original (até 1800px) na raiz e uma cópia de 720px com o mesmo nome em mini/
+     — a grade e as miniaturas usam mini/, a foto ampliada usa a original. Sem a cópia, cai na original (mais pesada). */
   var PARES = [
     { tipo:'antiga', nome:'Chibi → Itachi', sub:'Antebraço · anime', a:'cobertura-itachi-antes.webp', d:'cobertura-itachi-depois.webp', altA:'Antes: tatuagem pequena de personagem chibi no antebraço', altD:'Depois: Itachi com corvo em realismo cobrindo o chibi' },
     { tipo:'nome', nome:'Nome → rosa', sub:'Clavícula · o nome sumiu', a:'cobertura-rosa-antes.webp', d:'cobertura-rosa-depois.webp', altA:'Antes: rosa com um nome escrito na clavícula (nome borrado na foto)', altD:'Depois: rosa em preto e cinza, sem o nome' },

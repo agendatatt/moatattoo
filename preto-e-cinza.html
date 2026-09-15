@@ -505,6 +505,7 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
   gtag('config', 'G-WQMT0C0WZ9');
   gtag('config', 'AW-17997961497');
 </script>
+<script>/* miniatura em mini/ não existe? usa a foto original */document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&t.src.indexOf('/mini/')>-1){t.src=t.src.replace('/mini/','/');}},true);</script>
 </head>
 <body>
 
@@ -712,6 +713,8 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
 
 <script>
 (function () {
+  /* Foto nova: coloque a original (até 1800px) na raiz e uma cópia de 720px com o mesmo nome em mini/
+     — a grade e as miniaturas usam mini/, a foto ampliada usa a original. Sem a cópia, cai na original (mais pesada). */
   var WORKS = [
    {
     "img": "onca-peonias-coxa-recife.webp",
