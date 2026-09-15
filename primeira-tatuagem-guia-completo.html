@@ -151,7 +151,9 @@ h1 em{font-style:italic; color:var(--gold);}
 .corpo li{margin:0 0 .6em; padding-left:.3em;}
 .corpo li::marker{color:var(--gold);}
 .corpo figure{margin:2em 0;}
-.corpo figure img{width:100%; border:1px solid var(--border);}
+.corpo figure img{width:100%; height:auto; border:1px solid var(--border);}
+/* o height do HTML anulava o aspect-ratio: fotos saiam com 1800px de altura */
+.corpo figure:not(.duas) img{width:auto; max-height:720px; margin:0 auto;}
 .corpo figcaption{font-size:14px; line-height:1.6; color:var(--muted); margin-top:10px;}
 .duas{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
 .duas img{aspect-ratio:4/5; object-fit:cover;}
