@@ -7,7 +7,6 @@
     onca:    { arq:'onca-peonias-coxa',       nome:'Onça com peônias', sub:'Coxa',                      tag:'Preto e cinza', cta:'Quero uma assim', msg:'Olá, Moacir! Vi no site o vídeo da onça com peônias e quero uma tatuagem nesse estilo.' },
     jinwoo:  { arq:'jinwoo-panturrilha',      nome:'Sung Jin-Woo',     sub:'Solo Leveling · Panturrilha', tag:'Colorido',      cta:'Quero uma assim', msg:'Olá, Moacir! Vi no site o vídeo do Jin-Woo e quero uma tatuagem de anime.' },
     pantera: { arq:'pantera-negra-cobertura', nome:'Pantera negra',    sub:'Cobertura · Antebraço',      tag:'Cobertura',     cta:'Cobrir a minha', msg:'Olá, Moacir! Vi no site o vídeo da cobertura da pantera negra e quero cobrir uma tatuagem antiga. Posso mandar a foto?' },
-    agua:    { arq:'agua-viva-braco',         nome:'Água-viva',        sub:'Traço fino · Braço',         tag:'Delicada',      cta:'Quero uma assim', msg:'Olá, Moacir! Vi no site o vídeo da água-viva e quero uma tatuagem delicada.' },
     luffy:   { arq:'luffy-gear5-antebraco',   nome:'Luffy · Gear 5',   sub:'One Piece · Antebraço',      tag:'Preto e cinza', cta:'Quero uma assim', msg:'Olá, Moacir! Vi no site o vídeo do Luffy e quero uma tatuagem de anime em preto e cinza.' }
   };
 
