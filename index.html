@@ -30,6 +30,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="mini/onca-peonias-coxa-recife.webp" fetchpriority="high">
+<link rel="stylesheet" href="reels.css">
+<script src="reels.js" defer></script>
 
 <script>document.documentElement.classList.add('js');</script>
 
@@ -458,11 +460,22 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
     </div>
   </div>
 
-  <!-- PORTFÓLIO -->
-  <section id="trabalhos" aria-labelledby="t-trab">
+  <!-- VÍDEOS -->
+  <section id="videos" aria-labelledby="t-vid">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">01 — Portfólio</span><h2 id="t-trab">Trabalhos <em>recentes</em></h2></div>
+        <div><span class="num">01 — Em vídeo</span><h2 id="t-vid">Veja <em>de perto</em></h2></div>
+        <p>Foto parada não mostra tudo. Aqui a tatuagem aparece com luz, sombra e a pele em movimento.</p>
+      </div>
+      <div class="reveal"><div class="reels" data-reels="onca,jinwoo,pantera,agua,luffy"></div></div>
+    </div>
+  </section>
+
+  <!-- PORTFÓLIO -->
+  <section id="trabalhos" aria-labelledby="t-trab" style="padding-top:40px;">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="num">02 — Portfólio</span><h2 id="t-trab">Trabalhos <em>recentes</em></h2></div>
         <div class="filters" role="group" aria-label="Filtrar por estilo">
           <button type="button" data-f="all" aria-pressed="true">Todos</button>
           <button type="button" data-f="realismo" aria-pressed="false">Preto e cinza</button>
@@ -478,7 +491,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   <section id="servicos" aria-labelledby="t-serv" style="padding-top:40px;">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">02 — Serviços</span><h2 id="t-serv">O que eu <em>faço</em></h2></div>
+        <div><span class="num">03 — Serviços</span><h2 id="t-serv">O que eu <em>faço</em></h2></div>
         <p>Toque no que você precisa — a conversa já abre no WhatsApp com o assunto certo.</p>
       </div>
       <div class="services">
@@ -512,7 +525,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
         </div>
       </div>
       <div class="reveal">
-        <span class="sec-head"><span class="num" style="margin:0">03 — O estúdio</span></span>
+        <span class="sec-head"><span class="num" style="margin:0">04 — O estúdio</span></span>
         <h2 id="t-est">Um cliente <em>por dia</em>. Sem fila, sem pressa.</h2>
         <p>Sou Moacir Almeida, tatuador em Casa Amarela, Recife. Atendo um cliente por dia — o dia inteiro é seu.</p>
         <p class="m">Você traz a referência que já salvou e eu refaço ela pro seu corpo: tamanho, lugar e traço ajustados pra sua pele, não uma cópia impressa.</p>
@@ -533,7 +546,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
       <div class="rating reveal">
         <div class="score" aria-hidden="true">5,0</div>
         <div class="score-side">
-          <span class="num" style="font-family:'Cormorant Garamond',serif;color:var(--gold);letter-spacing:.3em;">04 — Avaliações</span>
+          <span class="num" style="font-family:'Cormorant Garamond',serif;color:var(--gold);letter-spacing:.3em;">05 — Avaliações</span>
           <h2 id="t-av" style="font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.05;color:var(--cream);margin:8px 0 10px;">Nota máxima <em style="color:var(--gold)">no Google</em></h2>
           <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
           <p>23 avaliações no perfil do estúdio no Google.</p>
@@ -555,7 +568,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   <section id="como-funciona" aria-labelledby="t-proc">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">05 — Processo</span><h2 id="t-proc">Do print <em>à pele</em></h2></div>
+        <div><span class="num">06 — Processo</span><h2 id="t-proc">Do print <em>à pele</em></h2></div>
         <p>Do print salvo no celular até a tattoo cicatrizada.</p>
       </div>
       <div class="steps" id="steps">
@@ -571,7 +584,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   <!-- DÚVIDAS -->
   <section id="duvidas" aria-labelledby="t-duv" style="padding-top:40px;">
     <div class="wrap">
-      <div class="sec-head reveal"><div><span class="num">06 — Dúvidas</span><h2 id="t-duv">Antes de <em>chamar</em></h2></div></div>
+      <div class="sec-head reveal"><div><span class="num">07 — Dúvidas</span><h2 id="t-duv">Antes de <em>chamar</em></h2></div></div>
       <div class="faq reveal">
         <details><summary>Quanto custa uma tatuagem?</summary><div class="ans">Depende do tamanho, da região do corpo e do estilo. Os trabalhos começam a partir de R$ 100. Manda a referência, o tamanho aproximado e o local pelo WhatsApp que eu passo o orçamento.</div></details>
         <details><summary>Precisa pagar sinal pra agendar?</summary><div class="ans">Sim. A data fica confirmada com o sinal, e ele é descontado do valor final no dia da sessão.</div></details>
@@ -587,7 +600,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   <section id="artigos" aria-labelledby="t-art">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">07 — Artigos</span><h2 id="t-art">Antes de <em>tatuar</em></h2></div>
+        <div><span class="num">08 — Artigos</span><h2 id="t-art">Antes de <em>tatuar</em></h2></div>
         <p>O que todo mundo pergunta antes de marcar — respondido com calma.</p>
       </div>
       <div class="articles">
@@ -607,7 +620,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   <section id="contato" aria-labelledby="t-cont">
     <div class="wrap contact">
       <div class="reveal">
-        <span class="sec-head" style="margin-bottom:14px"><span class="num" style="margin:0">08 — Contato</span></span>
+        <span class="sec-head" style="margin-bottom:14px"><span class="num" style="margin:0">09 — Contato</span></span>
         <h2 id="t-cont">Agende sua <em>sessão</em></h2>
         <p class="intro">Tira dúvida, pede orçamento ou marca horário. Resposta em até 1 hora em horário comercial.</p>
         <ul class="info">
