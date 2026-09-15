@@ -396,6 +396,9 @@ document.addEventListener('click', function (e) {
   if (!a) return;
   if (typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17997961497/GaaZCJeqsOwcEJmyjIZD' });
   if (typeof fbq === 'function') fbq('track', 'Contact');
+  /* Analytics: de qual página e botão veio o clique */
+  var sec = a.closest('section[id], header, footer');
+  if (typeof gtag === 'function') gtag('event', 'clique_whatsapp', { botao: a.className || 'link', secao: sec ? (sec.id || sec.tagName.toLowerCase()) : '' });
 }, true);
 </script>
 </body>

@@ -441,7 +441,7 @@ footer a:hover{color:var(--cream);}
     <div class="wrap">
       <div class="sec-head reveal"><div><span class="num">05 — Veja também</span><h2 id="t-out">Outros <em>estilos</em></h2></div></div>
       <div class="links-estilo">
-        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="mini/onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Realismo e fechamentos</small>Preto e cinza</span></a>
+        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="mini/onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Animais e fechamentos</small>Preto e cinza</span></a>
         <a class="link-estilo reveal" href="delicadas.html"><img src="mini/tatuagem-personalizada-recife-arte.webp" alt="" loading="lazy" decoding="async"><span><small>Traço fino</small>Delicadas</span></a>
         <a class="link-estilo reveal" href="anime.html"><img src="mini/luffy2.webp" alt="" loading="lazy" decoding="async"><span><small>Personagens</small>Anime</span></a>
       </div>
@@ -478,7 +478,7 @@ footer a:hover{color:var(--cream);}
   /* Pra adicionar uma cobertura: coloque as duas fotos (antes e depois, 4:5) na pasta do site
      e acrescente uma linha abaixo. tipo = nome | antiga | cicatriz. O resto da página se ajusta sozinho. */
   var PARES = [
-    { tipo:'antiga', nome:'Chibi → Itachi', sub:'Antebraço · realismo', a:'cobertura-itachi-antes.webp', d:'cobertura-itachi-depois.webp', altA:'Antes: tatuagem pequena de personagem chibi no antebraço', altD:'Depois: Itachi com corvo em realismo cobrindo o chibi' },
+    { tipo:'antiga', nome:'Chibi → Itachi', sub:'Antebraço · anime', a:'cobertura-itachi-antes.webp', d:'cobertura-itachi-depois.webp', altA:'Antes: tatuagem pequena de personagem chibi no antebraço', altD:'Depois: Itachi com corvo em realismo cobrindo o chibi' },
     { tipo:'nome', nome:'Nome → rosa', sub:'Clavícula · o nome sumiu', a:'cobertura-rosa-antes.webp', d:'cobertura-rosa-depois.webp', altA:'Antes: rosa com um nome escrito na clavícula (nome borrado na foto)', altD:'Depois: rosa em preto e cinza, sem o nome' },
     { tipo:'cicatriz', nome:'Cicatriz → tigre', sub:'Barriga · cobertura de cicatriz', a:'cobertura-cicatriz-antes.webp', d:'cobertura-cicatriz-depois.webp', altA:'Antes: cicatriz na barriga', altD:'Depois: tigre com flores cobrindo a cicatriz na barriga' },
     { tipo:'antiga', nome:'Contorno → Charizard', sub:'Antebraço · em cor', a:'cobertura-charizard-antes.webp', d:'cobertura-charizard-depois.webp', altA:'Antes: contorno antigo de Charizard no antebraço', altD:'Depois: tatuagem colorida cobrindo o contorno antigo no antebraço' },
@@ -604,6 +604,9 @@ footer a:hover{color:var(--cream);}
     if (!a) return;
     if (typeof gtag === 'function') gtag('event', 'conversion', { 'send_to': 'AW-17997961497/GaaZCJeqsOwcEJmyjIZD' });
     if (typeof fbq === 'function') fbq('track', 'Contact');
+    /* Analytics: de qual página e botão veio o clique */
+    var sec = a.closest('section[id], header, footer');
+    if (typeof gtag === 'function') gtag('event', 'clique_whatsapp', { botao: a.className || 'link', secao: sec ? (sec.id || sec.tagName.toLowerCase()) : '' });
   }, true);
 })();
 </script>
