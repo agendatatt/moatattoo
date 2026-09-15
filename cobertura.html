@@ -11,7 +11,7 @@
 <link rel="apple-touch-icon" href="apple-touch-icon.png" />
 
 <meta property="og:type" content="website" />
-<meta property="og:site_name" content="Moacir Almeida Tattoo" />
+<meta property="og:site_name" content="Studio Moacir Almeida Tattoo" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:url" content="https://agendatatt.github.io/moatattoo/cobertura.html" />
 <meta property="og:title" content="Cobertura de Tatuagem em Recife — Antes e Depois" />
@@ -139,6 +139,44 @@ h1 em{font-style:italic; color:var(--gold);}
 .ba-cap{max-width:500px; margin:16px 0 0 auto; display:flex; justify-content:space-between; font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted);}
 .ba-cap b{color:var(--cream); font-weight:400;}
 
+/* fundo do hero e faixa */
+.rays{position:absolute; inset:-20% -30%; z-index:-2; pointer-events:none; opacity:.5;
+  background:repeating-conic-gradient(from 0deg at 72% 50%, rgba(201,169,110,.09) 0deg 1.2deg, transparent 1.2deg 7deg);
+  -webkit-mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
+          mask-image:radial-gradient(circle at 72% 50%, transparent 12%, #000 34%, transparent 70%);
+  animation:spin 90s linear infinite;}
+.marquee{border-block:1px solid var(--border); background:var(--deep); overflow:hidden; padding:18px 0; transform:rotate(-1.2deg); margin:10px -2%; width:104%;}
+.marquee-track{display:flex; width:max-content; animation:slide 38s linear infinite;}
+.marquee span{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(24px,3vw,38px); color:var(--cream); white-space:nowrap; padding:0 28px; display:flex; align-items:center; gap:56px;}
+.marquee span::after{content:"✦"; font-style:normal; color:var(--gold); font-size:.55em;}
+.marquee span:nth-child(3n+2){color:transparent; -webkit-text-stroke:1px var(--gold);}
+@keyframes slide{to{transform:translateX(-50%);}}
+
+/* miniaturas que trocam o comparador */
+.ba-thumbs{max-width:500px; margin:18px 0 0 auto; display:flex; gap:10px; overflow-x:auto; padding-bottom:4px; scrollbar-width:none;}
+.ba-thumbs::-webkit-scrollbar{display:none;}
+.ba-thumbs button{all:unset; flex:0 0 62px; aspect-ratio:4/5; cursor:pointer; border:1px solid var(--border); overflow:hidden; opacity:.55; transition:opacity .25s, border-color .25s, transform .3s var(--ease);}
+.ba-thumbs button:hover{opacity:.9; transform:translateY(-3px);}
+.ba-thumbs button[aria-pressed="true"]{opacity:1; border-color:var(--gold);}
+.ba-thumbs button:focus-visible{outline:2px solid var(--gold); outline-offset:2px;}
+.ba-thumbs img{width:100%; height:100%; object-fit:cover;}
+.ba img{transition:opacity .35s;}
+.ba.trocando img{opacity:0;}
+
+/* filtros */
+.filters{display:flex; flex-wrap:wrap; gap:8px;}
+.filters button{font:inherit; font-size:12px; letter-spacing:.16em; text-transform:uppercase; cursor:pointer; color:var(--muted); background:transparent; border:1px solid var(--border); padding:10px 16px; transition:all .25s;}
+.filters button:hover{color:var(--cream); border-color:var(--muted);}
+.filters button[aria-pressed="true"]{color:var(--black); background:var(--gold); border-color:var(--gold);}
+
+/* veja também */
+.links-estilo{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+.link-estilo{position:relative; display:block; overflow:hidden; aspect-ratio:16/10; border:1px solid var(--border); color:var(--cream);}
+.link-estilo img{width:100%; height:100%; object-fit:cover; opacity:.55; transition:transform .8s var(--ease), opacity .4s;}
+.link-estilo:hover img{transform:scale(1.06); opacity:.75;}
+.link-estilo span{position:absolute; left:20px; bottom:16px; font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1;}
+.link-estilo small{display:block; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
+
 /* seções */
 section{padding:120px 0;}
 .sec-head{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:56px;}
@@ -148,11 +186,13 @@ section{padding:120px 0;}
 .sec-head p{color:var(--muted); max-width:44ch; margin:0;}
 
 /* cards que viram */
-.flips{display:grid; grid-template-columns:repeat(5,1fr); gap:20px;}
+.flips{display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:22px;}
+.flip.hide{display:none;}
 .flip{perspective:1400px;}
 .flip button{all:unset; display:block; width:100%; cursor:pointer;}
-.flip .inner{position:relative; aspect-ratio:4/5; transform-style:preserve-3d; transition:transform .9s var(--ease);}
-.flip.on .inner{transform:rotateY(180deg);}
+.flip .inner{position:relative; aspect-ratio:4/5; transform-style:preserve-3d; transition:transform .9s var(--ease); transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));}
+.flip.on .inner{transform:rotateX(var(--rx,0deg)) rotateY(calc(180deg + var(--ry,0deg)));}
+.flip:hover .face{border-color:rgba(201,169,110,.6);}
 .flip .face{position:absolute; inset:0; overflow:hidden; backface-visibility:hidden; -webkit-backface-visibility:hidden; border:1px solid var(--border); background:var(--card);}
 .flip .face img{width:100%; height:100%; object-fit:cover;}
 .flip .back{transform:rotateY(180deg);}
@@ -222,7 +262,8 @@ footer a:hover{color:var(--cream);}
   .ba, .ba-cap{margin-left:auto; margin-right:auto;}
   .ba{--ry:0deg; --rx:0deg;}
   .kinds{grid-template-columns:1fr 1fr;}
-  .flips{grid-template-columns:repeat(3,1fr);}
+  .links-estilo{grid-template-columns:1fr;}
+  .ba-thumbs{margin-left:auto; margin-right:auto;}
   .steps{grid-template-columns:1fr 1fr; gap:36px 22px;}
   .steps::before, .steps .bar{display:none;}
   .topbar .wrap nav a:not(.nav-cta){display:none;}
@@ -245,9 +286,9 @@ footer a:hover{color:var(--cream);}
 }
 
 /* menu de links no celular (o menu principal some abaixo de 980px) */
-.subnav{display:none;}
+.topbar .subnav{display:none;}
 @media (max-width:980px){
-  .subnav{display:flex; gap:22px; overflow-x:auto; padding:0 24px 12px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; scrollbar-width:none;}
+  .topbar .subnav{display:flex; gap:22px; overflow-x:auto; padding:0 24px 12px; font-size:12px; letter-spacing:.16em; text-transform:uppercase; white-space:nowrap; scrollbar-width:none;}
   .subnav::-webkit-scrollbar{display:none;}
   .subnav a{color:var(--muted);}
   .subnav a[aria-current="page"]{color:var(--gold);}
@@ -277,12 +318,13 @@ footer a:hover{color:var(--cream);}
       <a class="nav-cta" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%20Moacir!%20Vim%20pela%20p%C3%A1gina%20de%20cobertura.%20Quero%20uma%20avalia%C3%A7%C3%A3o%20da%20minha%20tatuagem.">Avaliação</a>
     </nav>
   </div>
-  <nav class="subnav" aria-label="Páginas"><a href="./">Início</a><a href="./#trabalhos">Trabalhos</a><a href="cobertura.html" aria-current="page">Cobertura</a><a href="anime.html">Anime</a><a href="./#avaliacoes">Avaliações</a><a href="./#contato">Contato</a></nav>
+  <nav class="subnav" aria-label="Páginas"><a href="./">Início</a><a href="preto-e-cinza.html">Preto e cinza</a><a href="delicadas.html">Delicadas</a><a href="anime.html">Anime</a><a href="cobertura.html" aria-current="page">Cobertura</a><a href="./#avaliacoes">Avaliações</a><a href="./#contato">Contato</a></nav>
 </header>
 
 <main>
   <div class="wrap">
     <section class="hero" id="hero" aria-labelledby="titulo">
+      <div class="rays" aria-hidden="true"></div>
       <div class="glow" aria-hidden="true"></div>
       <div>
         <p class="eyebrow">Casa Amarela · Recife</p>
@@ -300,6 +342,7 @@ footer a:hover{color:var(--cream);}
           <li>Avaliação <b>gratuita</b> pela foto</li>
           <li><b>5,0</b> no Google</li>
           <li><b>1</b> cliente por dia</li>
+          <li><b id="nCasos">5</b> coberturas reais</li>
         </ul>
       </div>
 
@@ -312,9 +355,18 @@ footer a:hover{color:var(--cream);}
           <span class="knob" aria-hidden="true">⇆</span>
           <input type="range" min="0" max="100" value="50" aria-label="Arraste para comparar antes e depois">
         </div>
-        <div class="ba-cap"><span>← arraste</span><b>Chibi → Itachi e corvo · antebraço</b></div>
+        <div class="ba-cap"><span>← arraste</span><b id="baCap">Chibi → Itachi · antebraço</b></div>
+        <div class="ba-thumbs" id="baThumbs" role="group" aria-label="Escolher cobertura para comparar"></div>
       </div>
     </section>
+  </div>
+
+  <!-- FAIXA -->
+  <div class="marquee" aria-label="O que dá pra cobrir">
+    <div class="marquee-track">
+      <span>Nome</span><span>Tatuagem antiga</span><span>Cicatriz</span><span>Traço estourado</span><span>Desenho apagado</span><span>Preto e cinza</span><span>Colorido</span><span>Blackwork</span>
+      <span aria-hidden="true">Nome</span><span aria-hidden="true">Tatuagem antiga</span><span aria-hidden="true">Cicatriz</span><span aria-hidden="true">Traço estourado</span><span aria-hidden="true">Desenho apagado</span><span aria-hidden="true">Preto e cinza</span><span aria-hidden="true">Colorido</span><span aria-hidden="true">Blackwork</span>
+    </div>
   </div>
 
   <!-- ANTES E DEPOIS -->
@@ -322,8 +374,14 @@ footer a:hover{color:var(--cream);}
     <div class="wrap">
       <div class="sec-head reveal">
         <div><span class="num">01 — Trabalhos reais</span><h2 id="t-ad">Antes <em>e depois</em></h2></div>
-        <p>Toque na foto pra virar e ver como era antes.</p>
+        <div class="filters" role="group" aria-label="Filtrar por tipo de cobertura">
+          <button type="button" data-f="all" aria-pressed="true">Todas</button>
+          <button type="button" data-f="nome" aria-pressed="false">Nome</button>
+          <button type="button" data-f="antiga" aria-pressed="false">Tatuagem antiga</button>
+          <button type="button" data-f="cicatriz" aria-pressed="false">Cicatriz</button>
+        </div>
       </div>
+      <p class="reveal" style="color:var(--muted); margin:-30px 0 34px;">Toque na foto pra virar e ver como era antes.</p>
       <div class="flips" id="flips"></div>
     </div>
   </section>
@@ -376,6 +434,18 @@ footer a:hover{color:var(--cream);}
     </div>
   </section>
 
+  <!-- VEJA TAMBÉM -->
+  <section id="outros" aria-labelledby="t-out" style="padding-top:40px; padding-bottom:0;">
+    <div class="wrap">
+      <div class="sec-head reveal"><div><span class="num">05 — Veja também</span><h2 id="t-out">Outros <em>estilos</em></h2></div></div>
+      <div class="links-estilo">
+        <a class="link-estilo reveal" href="preto-e-cinza.html"><img src="onca-peonias-coxa-recife.webp" alt="" loading="lazy" decoding="async"><span><small>Realismo e fechamentos</small>Preto e cinza</span></a>
+        <a class="link-estilo reveal" href="delicadas.html"><img src="tatuagem-personalizada-recife-arte.webp" alt="" loading="lazy" decoding="async"><span><small>Traço fino</small>Delicadas</span></a>
+        <a class="link-estilo reveal" href="anime.html"><img src="luffy2.webp" alt="" loading="lazy" decoding="async"><span><small>Personagens</small>Anime</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="closer" aria-labelledby="t-fim">
     <div class="wrap closer-wrap">
       <div class="closer-card reveal" id="closer">
@@ -390,7 +460,7 @@ footer a:hover{color:var(--cream);}
 <footer>
   <div class="wrap">
     <span>© 2026 Moacir Almeida Tattoo — Rua Bela Vista, 261, Casa Amarela, Recife/PE</span>
-    <span><a href="./">Início</a> · <a href="anime.html">Anime</a> · <a href="https://www.instagram.com/moatattooink" target="_blank" rel="noopener">@moatattooink</a> · <a href="privacidade.html">Privacidade</a></span>
+    <span><a href="./">Início</a> · <a href="preto-e-cinza.html">Preto e cinza</a> · <a href="delicadas.html">Delicadas</a> · <a href="anime.html">Anime</a> · <a href="https://www.instagram.com/moatattooink" target="_blank" rel="noopener">@moatattooink</a> · <a href="privacidade.html">Privacidade</a></span>
   </div>
 </footer>
 
@@ -403,12 +473,14 @@ footer a:hover{color:var(--cream);}
 
 <script>
 (function () {
+  /* Pra adicionar uma cobertura: coloque as duas fotos (antes e depois, 4:5) na pasta do site
+     e acrescente uma linha abaixo. tipo = nome | antiga | cicatriz. O resto da página se ajusta sozinho. */
   var PARES = [
-    { nome:'Chibi → Itachi', sub:'Antebraço · realismo', a:'cobertura-itachi-antes.webp', d:'cobertura-itachi-depois.webp', altA:'Antes: tatuagem pequena de personagem chibi no antebraço', altD:'Depois: Itachi com corvo em realismo cobrindo o chibi' },
-    { nome:'Nome → rosa', sub:'Clavícula · o nome sumiu', a:'cobertura-rosa-antes.webp', d:'cobertura-rosa-depois.webp', altA:'Antes: rosa com um nome escrito na clavícula (nome borrado na foto)', altD:'Depois: rosa em preto e cinza, sem o nome' },
-    { nome:'Cicatriz → tigre', sub:'Barriga · cobertura de cicatriz', a:'cobertura-cicatriz-antes.webp', d:'cobertura-cicatriz-depois.webp', altA:'Antes: cicatriz na barriga', altD:'Depois: tigre com flores cobrindo a cicatriz na barriga' },
-    { nome:'Contorno → Charizard', sub:'Antebraço · em cor', a:'cobertura-charizard-antes.webp', d:'cobertura-charizard-depois.webp', altA:'Antes: contorno antigo de Charizard no antebraço', altD:'Depois: tatuagem colorida cobrindo o contorno antigo no antebraço' },
-    { nome:'Estrela → sol', sub:'Ombro · blackwork', a:'cobertura-sol-antes.webp', d:'cobertura-sol-depois.webp', altA:'Antes: estrela azul com contorno de sol', altD:'Depois: sol em blackwork cobrindo a estrela' }
+    { tipo:'antiga', nome:'Chibi → Itachi', sub:'Antebraço · realismo', a:'cobertura-itachi-antes.webp', d:'cobertura-itachi-depois.webp', altA:'Antes: tatuagem pequena de personagem chibi no antebraço', altD:'Depois: Itachi com corvo em realismo cobrindo o chibi' },
+    { tipo:'nome', nome:'Nome → rosa', sub:'Clavícula · o nome sumiu', a:'cobertura-rosa-antes.webp', d:'cobertura-rosa-depois.webp', altA:'Antes: rosa com um nome escrito na clavícula (nome borrado na foto)', altD:'Depois: rosa em preto e cinza, sem o nome' },
+    { tipo:'cicatriz', nome:'Cicatriz → tigre', sub:'Barriga · cobertura de cicatriz', a:'cobertura-cicatriz-antes.webp', d:'cobertura-cicatriz-depois.webp', altA:'Antes: cicatriz na barriga', altD:'Depois: tigre com flores cobrindo a cicatriz na barriga' },
+    { tipo:'antiga', nome:'Contorno → Charizard', sub:'Antebraço · em cor', a:'cobertura-charizard-antes.webp', d:'cobertura-charizard-depois.webp', altA:'Antes: contorno antigo de Charizard no antebraço', altD:'Depois: tatuagem colorida cobrindo o contorno antigo no antebraço' },
+    { tipo:'antiga', nome:'Estrela → sol', sub:'Ombro · blackwork', a:'cobertura-sol-antes.webp', d:'cobertura-sol-depois.webp', altA:'Antes: estrela azul com contorno de sol', altD:'Depois: sol em blackwork cobrindo a estrela' }
   ];
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
@@ -418,8 +490,30 @@ footer a:hover{color:var(--cream);}
   window.addEventListener('scroll', onScroll, { passive:true }); onScroll();
   requestAnimationFrame(function(){ document.body.classList.add('loaded'); });
 
+  document.getElementById('nCasos').textContent = PARES.length;
+
   /* comparador */
   var ba = document.getElementById('ba'), range = ba.querySelector('input');
+  var baAfter = ba.querySelector('.after'), baBefore = ba.querySelector('.before'), baCap = document.getElementById('baCap');
+  var thumbs = document.getElementById('baThumbs');
+  function mostrarPar(i){
+    var p = PARES[i];
+    thumbs.querySelectorAll('button').forEach(function(b, k){ b.setAttribute('aria-pressed', String(k === i)); });
+    ba.classList.add('trocando');
+    setTimeout(function(){
+      baAfter.src = p.d; baAfter.alt = p.altD; baBefore.src = p.a; baBefore.alt = p.altA;
+      baCap.textContent = p.nome + ' · ' + p.sub.split(' · ')[0].toLowerCase();
+      ba.style.setProperty('--pos', '50%'); range.value = 50;
+      ba.classList.remove('trocando');
+    }, reduce ? 0 : 250);
+  }
+  PARES.forEach(function(p, i){
+    var b = document.createElement('button');
+    b.type = 'button'; b.setAttribute('aria-pressed', String(i === 0)); b.setAttribute('aria-label', 'Comparar: ' + p.nome);
+    b.innerHTML = '<img loading="lazy" decoding="async" width="1200" height="1500" src="' + p.d + '" alt="">';
+    b.addEventListener('click', function(){ ba.dataset.touched = '1'; mostrarPar(i); });
+    thumbs.appendChild(b);
+  });
   function setPos(v){ ba.style.setProperty('--pos', v + '%'); }
   range.addEventListener('input', function(){ setPos(range.value); });
   if (!reduce) {
@@ -446,7 +540,7 @@ footer a:hover{color:var(--cream);}
   var flips = document.getElementById('flips');
   PARES.forEach(function (p) {
     var el = document.createElement('article');
-    el.className = 'flip reveal';
+    el.className = 'flip reveal'; el.dataset.tipo = p.tipo;
     el.innerHTML =
       '<button type="button" aria-pressed="false" aria-label="' + p.nome + ': mostrar antes">' +
         '<div class="inner">' +
@@ -461,7 +555,27 @@ footer a:hover{color:var(--cream);}
       b.setAttribute('aria-pressed', String(on));
       b.setAttribute('aria-label', p.nome + (on ? ': mostrar depois' : ': mostrar antes'));
     });
+    if (fine && !reduce) {
+      el.addEventListener('pointermove', function (e) {
+        var r = el.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
+        el.style.setProperty('--ry', (x * 14).toFixed(2) + 'deg'); el.style.setProperty('--rx', (-y * 12).toFixed(2) + 'deg');
+      });
+      el.addEventListener('pointerleave', function () { el.style.setProperty('--rx','0deg'); el.style.setProperty('--ry','0deg'); });
+    }
     flips.appendChild(el);
+  });
+
+  /* filtro por tipo */
+  document.querySelectorAll('.filters button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var f = b.dataset.f;
+      document.querySelectorAll('.filters button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
+      flips.querySelectorAll('.flip').forEach(function (el) {
+        var mostra = f === 'all' || el.dataset.tipo === f;
+        el.classList.toggle('hide', !mostra);
+        if (mostra) el.classList.add('in');
+      });
+    });
   });
 
   /* fecho inclina */
