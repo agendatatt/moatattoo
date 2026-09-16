@@ -44,7 +44,7 @@
   "url": "https://agendatatt.github.io/moatattoo/",
   "image": "https://agendatatt.github.io/moatattoo/onca-peonias-coxa-recife.webp",
   "telephone": "+5581992244674",
-  "priceRange": "A partir de R$ 100",
+  "priceRange": "A partir de R$ 200",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Rua Bela Vista, 261",
@@ -69,7 +69,7 @@
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    { "@type": "Question", "name": "Quanto custa uma tatuagem?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do tamanho, da região do corpo e do estilo. Os trabalhos começam a partir de R$ 100. Manda a referência, o tamanho aproximado e o local pelo WhatsApp que eu passo o orçamento." } },
+    { "@type": "Question", "name": "Quanto custa uma tatuagem?", "acceptedAnswer": { "@type": "Answer", "text": "Depende do tamanho, da região do corpo e do estilo. Pequena a partir de R$ 200, média a partir de R$ 400 e dia inteiro a partir de R$ 900. Manda a referência, o tamanho aproximado e o local pelo WhatsApp que eu fecho o valor." } },
     { "@type": "Question", "name": "Precisa pagar sinal pra agendar?", "acceptedAnswer": { "@type": "Answer", "text": "Sim. A data fica confirmada com o sinal, e ele é descontado do valor final no dia da sessão." } },
     { "@type": "Question", "name": "Como dá pra pagar?", "acceptedAnswer": { "@type": "Answer", "text": "Pix, dinheiro ou cartão. No crédito dá pra parcelar em até 12x, com o acréscimo da maquininha, e eu mostro o valor exato antes. O sinal confirma a data e é descontado do total no dia da sessão." } },
     { "@type": "Question", "name": "Você faz cobertura de tatuagem antiga?", "acceptedAnswer": { "@type": "Answer", "text": "Faço. Manda uma foto da tatuagem atual pelo WhatsApp que eu avalio o que dá pra fazer por cima, o tamanho necessário e o valor." } },
@@ -453,6 +453,15 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .datas .rot{color:var(--muted); font-size:12px; letter-spacing:.16em; text-transform:uppercase;}
 .datas b{display:inline-block; color:var(--cream); border:1px solid rgba(201,169,110,.5); background:rgba(20,20,20,.7); padding:7px 12px; font-weight:400;}
 .datas a{border-bottom:1px solid rgba(201,169,110,.4);}
+
+/* faixas de preco (etapa 9) */
+.faixas{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:22px;}
+.faixa{background:var(--deep); padding:20px 18px; display:flex; flex-direction:column; gap:5px;}
+.faixa span{font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold);}
+.faixa b{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:27px; line-height:1.1; color:var(--cream);}
+.faixa small{color:var(--muted); font-size:13px; line-height:1.45;}
+.faixas-nota{margin:14px 0 0; color:var(--muted); font-size:14px; max-width:70ch;}
+@media (max-width:760px){ .faixas{grid-template-columns:1fr;} }
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -510,7 +519,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
         <ul class="chips" aria-label="Como eu atendo">
           <li><b>1</b> cliente por dia</li>
           <li>Resposta em até <b>1h</b></li>
-          <li>A partir de <b>R$ 100</b></li>
+          <li>A partir de <b>R$ 200</b></li>
         </ul>
       </div>
 
@@ -570,7 +579,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
         <a class="service reveal" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%20Moacir!%20Quero%20fazer%20uma%20tatuagem%20nova.%20Tenho%20uma%20refer%C3%AAncia.">
           <span class="n">01</span><h3>Tatuagem nova</h3>
           <p>Você traz a referência que salvou e eu adapto pro seu corpo: tamanho, posição e traço. Preto e cinza, delicadas, rastelado, anime e colorido.</p>
-          <div class="price">A partir de R$ 100</div>
+          <div class="price">A partir de R$ 200</div>
         </a>
         <a class="service reveal" href="cobertura.html">
           <span class="n">02</span><h3>Cobertura</h3>
@@ -583,6 +592,13 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
           <div class="price">Avaliação gratuita</div>
         </a>
       </div>
+<!-- FAIXAS DE PRECO -->
+<div class="faixas reveal">
+<div class="faixa"><span>Pequena</span><b>a partir de R$ 200</b><small>até uns 10 cm — símbolo, frase, desenho simples</small></div>
+<div class="faixa"><span>Média</span><b>a partir de R$ 400</b><small>antebraço, panturrilha, cobertura de peça pequena</small></div>
+<div class="faixa"><span>Dia inteiro</span><b>a partir de R$ 900</b><small>fechamento e peça grande, com a agenda toda sua</small></div>
+</div>
+<p class="faixas-nota">O valor exato sai com a referência, o tamanho e o local do corpo — cada pele e cada desenho pedem um tempo diferente. Pix, dinheiro ou cartão, com crédito em até 12x.</p>
     </div>
   </section>
 
@@ -658,7 +674,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
     <div class="wrap">
       <div class="sec-head reveal"><div><span class="num">07 — Dúvidas</span><h2 id="t-duv">Antes de <em>chamar</em></h2></div></div>
       <div class="faq reveal">
-        <details><summary>Quanto custa uma tatuagem?</summary><div class="ans">Depende do tamanho, da região do corpo e do estilo. Os trabalhos começam a partir de R$ 100. Manda a referência, o tamanho aproximado e o local pelo WhatsApp que eu passo o orçamento.</div></details>
+        <details><summary>Quanto custa uma tatuagem?</summary><div class="ans">Depende do tamanho, da região do corpo e do estilo. Pequena a partir de R$ 200, média a partir de R$ 400 e dia inteiro a partir de R$ 900. Manda a referência, o tamanho aproximado e o local pelo WhatsApp que eu passo o orçamento.</div></details>
         <details><summary>Precisa pagar sinal pra agendar?</summary><div class="ans">Sim. A data fica confirmada com o sinal, e ele é descontado do valor final no dia da sessão.</div></details>
 <details><summary>Como dá pra pagar?</summary><div class="ans">Pix, dinheiro ou cartão. No crédito dá pra parcelar em até <b>12x</b> — o acréscimo é o da maquininha, e eu te mostro o valor exato antes de você decidir. O sinal confirma a data e é descontado do total no dia.</div></details>
         <details><summary>Você faz cobertura de tatuagem antiga?</summary><div class="ans">Faço — e cicatriz também. Manda uma foto da tatuagem atual pelo WhatsApp que eu avalio o que dá pra fazer por cima, o tamanho necessário e o valor. Veja <a href="cobertura.html">antes e depois de coberturas</a>.</div></details>
