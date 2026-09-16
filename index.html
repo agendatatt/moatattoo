@@ -535,9 +535,8 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .portas{display:grid; grid-template-columns:1fr 1fr; gap:22px;}
 .porta{display:flex; flex-direction:column; color:var(--text); background:var(--deep); border:1px solid var(--border); transition:border-color .3s, transform .3s var(--ease);}
 .porta:hover{border-color:rgba(201,169,110,.6); color:var(--text); transform:translateY(-4px);}
-.porta-fotos{display:grid; grid-template-columns:2fr 1fr; grid-template-rows:1fr 1fr; gap:4px; aspect-ratio:4/3; overflow:hidden;}
+.porta-fotos{aspect-ratio:1/1; overflow:hidden;}
 .porta-fotos img{width:100%; height:100%; object-fit:cover; transition:transform .8s var(--ease);}
-.porta-fotos img.grande{grid-row:1 / 3;}
 .porta:hover .porta-fotos img{transform:scale(1.04);}
 .porta-txt{padding:24px 26px 26px;}
 .porta-txt h3{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:clamp(28px,3vw,36px); line-height:1.05; color:var(--cream); margin:0 0 10px;}
@@ -578,6 +577,18 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
   .stage .pcard .label{display:none;}
   .stage .pcard .estilo{display:flex; justify-content:space-between; align-items:flex-end; position:absolute; left:0; right:0; bottom:0; padding:28px 8px 8px; background:linear-gradient(transparent, rgba(0,0,0,.9)); font-size:13px; font-weight:500; line-height:1.1;}
   .stage .pcard .estilo i{font-style:normal; color:var(--gold);}
+}
+
+/* PC: uma tatuagem por vez — fica uns 5 segundos e dissolve devagar na proxima, em loop (etapa 13).
+   As tres ficam carregadas (so transparentes); o script marca a da frente com .ativo. */
+@media (min-width:981px){
+  .stage{perspective:none;}
+  .stack{transform:none !important; transform-style:flat;}
+  .stage .pcard, .stage .pcard.c1, .stage .pcard.c2, .stage .pcard.c3{width:min(400px,76%); transform:translate(-50%,-50%); margin:0; transform-style:flat; animation:none; opacity:0; pointer-events:none; transition:opacity 1.6s ease-in-out;}
+  .stage .pcard.ativo{opacity:1; pointer-events:auto;}
+  .stack:not(:has(.ativo)) .pcard.c3{opacity:1; pointer-events:auto;}   /* sem script: fica o leao */
+  .stage .pcard .face{border-color:var(--gold);}
+  .stage .pcard::after{content:""; position:absolute; inset:-14px; border:1px solid rgba(201,169,110,.5); transform:none; pointer-events:none;}
 }
 </style>
 
@@ -677,11 +688,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
       <!-- duas portas em vez de grade misturada: quem quer delicada nao precisa ver fechamento, e vice-versa -->
       <div class="portas">
         <a class="porta reveal" href="preto-e-cinza.html">
-          <div class="porta-fotos">
-            <img class="grande" src="mini/pb-guerreiro-fechamento-braco.webp" width="720" height="1010" loading="lazy" decoding="async" alt="Fechamento de braço em realismo preto e cinza: guerreiro com espada e leão">
-            <img src="mini/onca-peonias-coxa-recife.webp" width="720" height="960" loading="lazy" decoding="async" alt="Onça com peônias na coxa, preto e cinza">
-            <img src="mini/tatuagem-recife-egito-anubis.webp" width="720" height="960" loading="lazy" decoding="async" alt="Anúbis no antebraço, preto e cinza">
-          </div>
+          <div class="porta-fotos"><img src="porta-realismo.webp" width="900" height="900" loading="lazy" decoding="async" alt="Tatuagem realista de leão com coroa de espinhos no antebraço, preto e cinza"></div>
           <div class="porta-txt">
             <h3>Preto e cinza <em>&amp; realismo</em></h3>
             <p>Animais, retratos, fechamento de braço e costas — sombra, textura e profundidade.</p>
@@ -689,11 +696,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
           </div>
         </a>
         <a class="porta reveal" href="delicadas.html">
-          <div class="porta-fotos">
-            <img class="grande" src="mini/delicada-ornamental-antebraco.webp" width="720" height="960" loading="lazy" decoding="async" alt="Tatuagem ornamental delicada no antebraço">
-            <img src="mini/delicada-borboletas-flores-braco.webp" width="720" height="960" loading="lazy" decoding="async" alt="Borboletas e ramos em traço fino no braço">
-            <img src="mini/tatuagem-personalizada-recife-arte.webp" width="720" height="960" loading="lazy" decoding="async" alt="Água-viva em fineline">
-          </div>
+          <div class="porta-fotos"><img src="porta-delicadas.webp" width="900" height="900" loading="lazy" decoding="async" alt="Tatuagem ornamental delicada em traço fino no antebraço"></div>
           <div class="porta-txt">
             <h3>Delicadas <em>&amp; fineline</em></h3>
             <p>Traço fino, frases, flores e ornamental — leve, limpo e feito pra durar.</p>
@@ -1018,6 +1021,20 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
     window.addEventListener('scroll', chamar, { passive: true });
   }
 
+  /* topo no PC: troca suave entre as tres tatuagens (leao, delicada, anime), 5s cada.
+     No celular as tres ficam lado a lado e a classe nao muda nada. */
+  var cartoes = document.querySelectorAll('.stage .pcard');
+  if (cartoes.length === 3) {
+    var ordemTopo = [2, 0, 1], passoTopo = 0;   // c3 leao, c1 delicada, c2 anime
+    var trocaTopo = function () {
+      cartoes.forEach(function (c) { c.classList.remove('ativo'); });
+      cartoes[ordemTopo[passoTopo % 3]].classList.add('ativo');
+      passoTopo++;
+    };
+    trocaTopo();
+    if (!reduce) setInterval(trocaTopo, 5000);
+  }
+
   /* inclinação 3D reutilizável */
   function tilt(el, target, max, glare) {
     if (!fine || reduce) return;
@@ -1059,15 +1076,6 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
 
   document.querySelectorAll('.service, .review').forEach(function (el) { tilt(el, el, 8, false); });
 
-  /* pilha do hero */
-  var stack = document.getElementById('stack'), hero = document.getElementById('hero');
-  if (fine && !reduce) {
-    hero.addEventListener('pointermove', function (e) {
-      var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      stack.style.transform = 'rotateY(' + (x * 22).toFixed(2) + 'deg) rotateX(' + (-y * 16).toFixed(2) + 'deg)';
-    });
-    hero.addEventListener('pointerleave', function () { stack.style.transform = ''; });
-  }
 
   /* entrada no scroll */
   var io = new IntersectionObserver(function (es) {
