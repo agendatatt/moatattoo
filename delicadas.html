@@ -507,9 +507,11 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
 .lb-fotos img{width:100%; height:100%; object-fit:cover; max-height:none; border:0;}
 
 /* leitura e area de toque (etapa 2) */
-@media (pointer:coarse){
+@media (max-width:980px){
   .topbar nav a:not(.nav-cta), .subnav a, .foot a, .filters button{min-height:44px; display:inline-flex; align-items:center;}
   .topbar nav .nav-cta{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+  .filters button{padding-top:12px; padding-bottom:12px;}
+  .score-side a, .ad-acoes .btn{min-height:44px;}
   .brand{min-height:44px; display:inline-flex; align-items:center;}
 }
 </style>
