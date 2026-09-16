@@ -447,6 +447,12 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   .ad-bloco{grid-template-columns:1fr; gap:26px; padding:20px;}
   .ad-acoes .btn{flex:1 1 100%; justify-content:center;}
 }
+
+/* proximas datas livres (vem do agenda.json) */
+.datas{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:-10px 0 26px; font-size:15px;}
+.datas .rot{color:var(--muted); font-size:12px; letter-spacing:.16em; text-transform:uppercase;}
+.datas b{display:inline-block; color:var(--cream); border:1px solid rgba(201,169,110,.5); background:rgba(20,20,20,.7); padding:7px 12px; font-weight:400;}
+.datas a{border-bottom:1px solid rgba(201,169,110,.4);}
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -725,6 +731,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
         <h2 id="t-cont">Agende sua <em>sessão</em></h2>
         <p class="intro">Tira dúvida, pede orçamento ou marca horário. Resposta em até 1 hora em horário comercial.</p>
 <p class="agenda"><b>Atendo um cliente por dia</b>, então cada data é de uma pessoa só. A data fica sua quando o sinal é confirmado — quanto antes você mandar a referência, mais fácil pegar o dia que você quer.</p>
+<p class="datas" id="datasLivres" hidden></p>
         <ul class="info">
           <li><span>Endereço</span><div>Rua Bela Vista, 261 — Casa Amarela<br>Recife, PE · <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&amp;query=MoaTattoo%20Est%C3%BAdio%20de%20Tatuagem%20em%20Recife">Como chegar</a></div></li>
           <li><span>WhatsApp</span><div><a target="_blank" rel="noopener" href="https://wa.me/5581992244674">(81) 99224-4674</a></div></li>
@@ -937,6 +944,26 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
     });
   }, { threshold:.12 });
   document.querySelectorAll('.reveal, #steps').forEach(function (el) { io.observe(el); });
+
+  /* proximas datas livres: le o agenda.json e some sozinho se estiver velho */
+  (function () {
+    var caixa = document.getElementById('datasLivres');
+    if (!caixa || !window.fetch) return;
+    fetch('agenda.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (a) {
+      if (!a || !a.datas || !a.datas.length) return;
+      var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
+      var geradoEm = new Date(a.atualizado + 'T12:00:00');
+      if ((hoje - geradoEm) / 86400000 > 5) return;                    // informacao velha: melhor nao mostrar
+      var vivas = a.datas.filter(function (d) { return new Date(d.iso + 'T12:00:00') >= hoje; });
+      if (!vivas.length) return;
+      var chips = vivas.map(function (d) { return '<b>' + d.dia.slice(0, 3) + ', ' + d.numero + '</b>'; }).join(' ');
+      var msg = encodeURIComponent('Olá, Moacir! Vi no site que tem data livre em ' + vivas[0].numero + ' de ' + vivas[0].mes + '. Queria fechar uma dessas datas.');
+      caixa.innerHTML = '<span class="rot">Próximas datas livres</span> ' + chips +
+        ' <span style="color:var(--muted)">de ' + vivas[0].mes + '</span>' +
+        ' <a target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=' + msg + '">quero uma dessas →</a>';
+      caixa.hidden = false;
+    }).catch(function () { });
+  })();
 
   /* mapa: so carrega quando a pessoa clica, pra nao pesar a pagina */
   var btMapa = document.getElementById('verMapa');
