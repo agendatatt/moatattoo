@@ -407,14 +407,15 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
    A foto vem logo depois, ainda na primeira tela, com a altura mandando no tamanho
    (antes a largura mandava e a foto passava por cima do texto em telas acima de ~380px). */
 @media (max-width:980px){
-  .hero{display:flex; flex-direction:column; align-items:stretch; padding:104px 0 32px; gap:0; min-height:0;}
+  /* o topo fixo (barra + menu de paginas) ocupa ~110px: o titulo comeca abaixo disso */
+  .hero{display:flex; flex-direction:column; align-items:stretch; padding:120px 0 32px; gap:0; min-height:0;}
   .hero-texto{display:contents;}
   .eyebrow{order:1; margin:0 0 12px;}
   h1{order:2; margin:0 0 8px; font-size:clamp(46px,11.5vw,66px);}
   .styles-line{order:3; margin:0 0 14px; font-size:clamp(19px,4.8vw,26px);}
-  .gbadge{order:4; margin:0 0 12px;}
-  .hero-local{order:5; margin:0 0 14px;}
-  .hero .datas{order:6; margin:0 0 16px;}
+  .gbadge{order:4; margin:0 0 10px;}
+  .hero-local{order:5; margin:0 0 12px;}
+  .hero .datas{order:6; margin:0 0 14px;}
   .cta-row{order:7;}
   .stage{order:8; width:100%; height:42vh; min-height:190px; max-height:320px; margin:22px 0 0; perspective:none;}
   .lede{order:9; margin:18px 0 0;}
@@ -427,7 +428,9 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   .cta-row .btn{flex:1 1 100%; justify-content:center;}
 }
 @media (max-width:560px){
-  .hero{padding-top:98px;}
+  .hero{padding-top:118px;}
+  /* "Casa Amarela · Recife" ja aparece no titulo e na linha do endereco */
+  .hero .eyebrow{display:none;}
 }
 
 /* antes e depois na home + mapa sob demanda (etapa 6) */
@@ -477,6 +480,8 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .hero-local{margin:0 0 22px; font-size:15px; line-height:1.55; color:var(--muted);}
 .hero-local b{color:var(--cream); font-weight:400;}
 .hero-local a{border-bottom:1px solid rgba(201,169,110,.4); white-space:nowrap;}
+.hero-local .fds{display:block; margin-top:4px; font-size:14px;}
+.hero-local .fds b{color:var(--gold-light); font-weight:400;}
 .hero .datas{margin:0 0 22px;}
 
 /* barra fixa no celular: o botao principal fica sempre a um toque */
@@ -552,8 +557,8 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z" fill="#34A853"/><path d="M5.84 14.09a6.6 6.6 0 0 1 0-4.18V7.07H2.18a11 11 0 0 0 0 9.86l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.96 10.96 0 0 0 12 1 11 11 0 0 0 2.18 7.07l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z" fill="#EA4335"/></svg>
           <b>5,0</b><span class="stars" aria-hidden="true">★★★★★</span><small>23 avaliações no Google</small>
         </a>
-        <p class="hero-local"><b>Rua Bela Vista, 261 — Casa Amarela, Recife</b> · <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Bela%20Vista%2C%20261%2C%20Casa%20Amarela%2C%20Recife%2C%20PE">Como chegar</a></p>
-        <p class="datas" id="datasLivresHero" hidden></p>
+        <p class="hero-local"><b>Rua Bela Vista, 261 — Casa Amarela, Recife</b> · <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Bela%20Vista%2C%20261%2C%20Casa%20Amarela%2C%20Recife%2C%20PE">Como chegar</a><span class="fds"><b>Sábado e domingo também</b>, com hora marcada.</span></p>
+        <p class="datas" id="datasLivresHero" data-rot="Atendo 1 cliente por dia — próximas datas" hidden></p>
         <div class="cta-row">
           <a class="btn btn-solid" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20ideia%20em%20mente.">Orçamento pelo WhatsApp →</a>
           <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
@@ -1038,15 +1043,22 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
       var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
       var geradoEm = new Date(a.atualizado + 'T12:00:00');
       if ((hoje - geradoEm) / 86400000 > 5) return;                    // informacao velha: melhor nao mostrar
-      var vivas = a.datas.filter(function (d) { return new Date(d.iso + 'T12:00:00') >= hoje; });
+      /* no maximo 2 datas: lista longa passa a impressao de agenda vazia,
+         e o que fecha e a data concreta, nao a quantidade */
+      var vivas = a.datas.filter(function (d) { return new Date(d.iso + 'T12:00:00') >= hoje; }).slice(0, 2);
       if (!vivas.length) return;
-      /* cada data é um link: abre o WhatsApp com o dia já escrito */
+      /* cada data é um link: abre o WhatsApp com o dia já escrito.
+         O mês só aparece na etiqueta quando a data cai fora do mês corrente. */
+      var mesAtual = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'][hoje.getMonth()];
       var chips = vivas.map(function (d) {
         var m = encodeURIComponent('Olá, Moacir! Vi no site que o dia ' + d.numero + ' de ' + d.mes + ' (' + d.dia + ') está livre. Queria fechar essa data.');
-        return '<a target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=' + m + '">' + d.dia.slice(0, 3) + ', ' + d.numero + '</a>';
+        var rotulo = d.dia.slice(0, 3) + ', ' + d.numero + (d.mes === mesAtual ? '' : ' de ' + d.mes.slice(0, 3));
+        return '<a target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=' + m + '">' + rotulo + '</a>';
       }).join(' ');
-      var html = '<span class="rot">Datas livres em ' + vivas[0].mes + '</span> ' + chips;
-      caixas.forEach(function (c) { c.innerHTML = html; c.hidden = false; });
+      caixas.forEach(function (c) {
+        c.innerHTML = '<span class="rot">' + (c.dataset.rot || 'Próximas datas livres') + '</span> ' + chips;
+        c.hidden = false;
+      });
     }).catch(function () { });
   })();
 
