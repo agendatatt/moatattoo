@@ -403,28 +403,31 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   .brand{min-height:44px; display:inline-flex; align-items:center;}
 }
 
-/* celular: a foto do trabalho entra na primeira tela, logo abaixo do titulo (etapa 4) */
+/* celular: a primeira tela fecha — nota, endereco, data livre e botao antes de rolar (etapa 10).
+   A foto vem logo depois, ainda na primeira tela, com a altura mandando no tamanho
+   (antes a largura mandava e a foto passava por cima do texto em telas acima de ~380px). */
 @media (max-width:980px){
-  .hero{display:flex; flex-direction:column; align-items:stretch; padding:118px 0 40px; gap:0;}
+  .hero{display:flex; flex-direction:column; align-items:stretch; padding:104px 0 32px; gap:0; min-height:0;}
   .hero-texto{display:contents;}
-  .eyebrow{order:1; margin:0 0 14px;}
-  h1{order:2; margin:0 0 10px;}
-  .styles-line{order:3; margin:0 0 16px;}
-  .stage{order:4; width:100%; height:300px; margin:0 0 18px; perspective:none;}
+  .eyebrow{order:1; margin:0 0 12px;}
+  h1{order:2; margin:0 0 8px; font-size:clamp(46px,11.5vw,66px);}
+  .styles-line{order:3; margin:0 0 14px; font-size:clamp(19px,4.8vw,26px);}
+  .gbadge{order:4; margin:0 0 12px;}
+  .hero-local{order:5; margin:0 0 14px;}
+  .hero .datas{order:6; margin:0 0 16px;}
+  .cta-row{order:7;}
+  .stage{order:8; width:100%; height:42vh; min-height:190px; max-height:320px; margin:22px 0 0; perspective:none;}
+  .lede{order:9; margin:18px 0 0;}
+  .chips{order:10; margin-top:18px;}
+  .scroll-hint{display:none;}
   /* no celular, um cartao so: a pilha 3D estourava a caixa e passava por cima do texto */
   .stage .pcard.c1, .stage .pcard.c2{display:none;}
-  .stage .pcard.c3{width:70%; transform:translate(-50%,-50%); animation:none;}
+  .stage .pcard.c3{height:100%; width:auto; max-width:84%; transform:translate(-50%,-50%); animation:none;}
   .stage .pcard.c3::after{inset:-10px;}
-  .lede{order:5; margin:0 0 16px;}
-  .gbadge{order:6; margin:0 0 16px;}
-  .cta-row{order:7;}
-  .chips{order:8; margin-top:26px;}
-  .scroll-hint{order:9;}
+  .cta-row .btn{flex:1 1 100%; justify-content:center;}
 }
 @media (max-width:560px){
-  .hero{padding-top:112px;}
-  .stage{height:290px;}
-  .pcard{width:66%;}
+  .hero{padding-top:98px;}
 }
 
 /* antes e depois na home + mapa sob demanda (etapa 6) */
@@ -452,7 +455,14 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .datas{display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin:-10px 0 26px; font-size:15px;}
 .datas .rot{color:var(--muted); font-size:12px; letter-spacing:.16em; text-transform:uppercase;}
 .datas b{display:inline-block; color:var(--cream); border:1px solid rgba(201,169,110,.5); background:rgba(20,20,20,.7); padding:7px 12px; font-weight:400;}
-.datas a{border-bottom:1px solid rgba(201,169,110,.4);}
+/* cada data é um botão que abre o WhatsApp com o dia escrito */
+.datas a{display:inline-block; color:var(--cream); border:1px solid rgba(201,169,110,.5); background:rgba(20,20,20,.7); padding:9px 13px; min-height:40px; line-height:1.4; transition:border-color .25s, background .25s, color .25s;}
+.datas a:hover{border-color:var(--gold); background:rgba(201,169,110,.12); color:var(--gold-light);}
+@media (max-width:560px){
+  .datas{gap:8px; font-size:14px;}
+  .datas a{padding:8px 11px;}
+  .datas .rot{width:100%;}
+}
 
 /* faixas de preco (etapa 9) */
 .faixas{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); margin-top:22px;}
@@ -462,6 +472,35 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .faixa small{color:var(--muted); font-size:13px; line-height:1.45;}
 .faixas-nota{margin:14px 0 0; color:var(--muted); font-size:14px; max-width:70ch;}
 @media (max-width:760px){ .faixas{grid-template-columns:1fr;} }
+
+/* endereco no topo: quem busca "tatuagem perto de mim" quer ver o bairro antes de tudo (etapa 10) */
+.hero-local{margin:0 0 22px; font-size:15px; line-height:1.55; color:var(--muted);}
+.hero-local b{color:var(--cream); font-weight:400;}
+.hero-local a{border-bottom:1px solid rgba(201,169,110,.4); white-space:nowrap;}
+.hero .datas{margin:0 0 22px;}
+
+/* barra fixa no celular: o botao principal fica sempre a um toque */
+.barra-wa{display:none;}
+@media (max-width:760px){
+  .barra-wa{position:fixed; left:0; right:0; bottom:0; z-index:60; display:flex; align-items:center; gap:14px;
+    padding:10px 16px; padding-bottom:calc(10px + env(safe-area-inset-bottom));
+    background:rgba(7,7,7,.95); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); border-top:1px solid var(--border);}
+  .barra-wa .txt{flex:1 1 auto; min-width:0; font-size:12px; line-height:1.3; color:var(--muted);}
+  .barra-wa .txt b{display:block; color:var(--cream); font-size:14px; font-weight:400;}
+  .barra-wa .btn{flex:0 0 auto; min-height:48px; padding:14px 20px; font-size:12px; letter-spacing:.14em;
+    background:#25d366; border-color:#25d366; color:#06301a;}
+  .wa-float{display:none;}
+  body{padding-bottom:80px;}
+}
+
+/* home mostra 8 trabalhos; o resto abre no botao (quem chega decidido nao precisa de museu) */
+.tile.extra{display:none;}
+.grid.tudo .tile.extra:not(.hide){display:block;}
+.mais-trabalhos{display:flex; justify-content:center; margin-top:30px;}
+.mais-trabalhos button{font:inherit; font-size:12px; letter-spacing:.18em; text-transform:uppercase; cursor:pointer;
+  color:var(--gold); background:transparent; border:1px solid var(--gold); padding:15px 28px; min-height:48px; transition:background .3s, color .3s;}
+.mais-trabalhos button:hover{background:var(--gold); color:var(--black);}
+#precos{scroll-margin-top:130px;}
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -485,12 +524,13 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
       <a href="delicadas.html">Delicadas</a>
       <a href="anime.html">Anime</a>
       <a href="cobertura.html">Cobertura</a>
+      <a href="#precos">Preços</a>
       <a href="#avaliacoes">Avaliações</a>
       <a href="#contato">Contato</a>
       <a class="nav-cta" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20ideia%20em%20mente.">Orçamento</a>
     </nav>
   </div>
-  <nav class="subnav" aria-label="Páginas"><a href="./" aria-current="page">Início</a><a href="preto-e-cinza.html">Preto e cinza</a><a href="delicadas.html">Delicadas</a><a href="anime.html">Anime</a><a href="cobertura.html">Cobertura</a><a href="./#avaliacoes">Avaliações</a><a href="./#contato">Contato</a></nav>
+  <nav class="subnav" aria-label="Páginas"><a href="./" aria-current="page">Início</a><a href="./#precos">Preços</a><a href="preto-e-cinza.html">Preto e cinza</a><a href="delicadas.html">Delicadas</a><a href="anime.html">Anime</a><a href="cobertura.html">Cobertura</a><a href="./#avaliacoes">Avaliações</a><a href="./#contato">Contato</a></nav>
 </header>
 
 <main>
@@ -512,6 +552,8 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
           <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 0 1-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84A11 11 0 0 0 12 23z" fill="#34A853"/><path d="M5.84 14.09a6.6 6.6 0 0 1 0-4.18V7.07H2.18a11 11 0 0 0 0 9.86l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15A10.96 10.96 0 0 0 12 1 11 11 0 0 0 2.18 7.07l3.66 2.84C6.71 7.31 9.14 5.38 12 5.38z" fill="#EA4335"/></svg>
           <b>5,0</b><span class="stars" aria-hidden="true">★★★★★</span><small>23 avaliações no Google</small>
         </a>
+        <p class="hero-local"><b>Rua Bela Vista, 261 — Casa Amarela, Recife</b> · <a target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Bela%20Vista%2C%20261%2C%20Casa%20Amarela%2C%20Recife%2C%20PE">Como chegar</a></p>
+        <p class="datas" id="datasLivresHero" hidden></p>
         <div class="cta-row">
           <a class="btn btn-solid" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20ideia%20em%20mente.">Orçamento pelo WhatsApp →</a>
           <a class="btn btn-ghost" href="#trabalhos">Ver trabalhos</a>
@@ -593,7 +635,7 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
         </a>
       </div>
 <!-- FAIXAS DE PRECO -->
-<div class="faixas reveal">
+<div class="faixas reveal" id="precos">
 <div class="faixa"><span>Pequena</span><b>a partir de R$ 200</b><small>até uns 10 cm — símbolo, frase, desenho simples</small></div>
 <div class="faixa"><span>Média</span><b>a partir de R$ 400</b><small>antebraço, panturrilha, cobertura de peça pequena</small></div>
 <div class="faixa"><span>Dia inteiro</span><b>a partir de R$ 900</b><small>fechamento e peça grande, com a agenda toda sua</small></div>
@@ -804,6 +846,12 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   </div>
 </footer>
 
+<!-- barra fixa do celular: o botao principal sempre a um toque -->
+<div class="barra-wa">
+  <p class="txt"><b>Manda a referência</b>Eu passo o valor — resposta em até 1h</p>
+  <a class="btn btn-solid" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20ideia%20em%20mente.">WhatsApp →</a>
+</div>
+
 <a class="wa-float" target="_blank" rel="noopener" aria-label="Falar no WhatsApp" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20ideia%20em%20mente.">
   <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.16-.17.2-.35.22-.64.07-.3-.15-1.26-.46-2.39-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.07c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35M12.05 21.79h-.01a9.87 9.87 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.89-9.88 2.64 0 5.12 1.03 6.99 2.9a9.83 9.83 0 0 1 2.89 6.99c0 5.45-4.44 9.88-9.88 9.88m8.41-18.3A11.82 11.82 0 0 0 12.05 0C5.5 0 .16 5.34.16 11.89c0 2.1.55 4.14 1.59 5.95L.06 24l6.31-1.65a11.88 11.88 0 0 0 5.68 1.45h.01c6.55 0 11.89-5.34 11.89-11.89 0-3.18-1.24-6.17-3.48-8.41"/></svg>
   <span>Orçamento</span>
@@ -902,15 +950,22 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   lb.addEventListener('touchstart', function(e){ tx = e.touches[0].clientX; }, { passive:true });
   lb.addEventListener('touchend', function(e){ var d = e.changedTouches[0].clientX - tx; if (Math.abs(d) > 50) showLb(lbIdx + (d < 0 ? 1 : -1)); }, { passive:true });
 
-  /* portfólio */
+  /* portfólio — a home abre com 8 trabalhos; o resto vem no botão */
+  var VISIVEIS = 8;
   var grid = document.getElementById('grid'), filtro = 'all';
-  WORKS.forEach(function (w) {
+  function listaVisivel() {
+    return WORKS.filter(function (x, i) {
+      if (filtro !== 'all') return x.cat === filtro;
+      return grid.classList.contains('tudo') || i < VISIVEIS;
+    });
+  }
+  WORKS.forEach(function (w, i) {
     var t = document.createElement('article');
-    t.className = 'tile reveal'; t.dataset.cat = w.cat;
+    t.className = 'tile reveal' + (i >= VISIVEIS ? ' extra' : ''); t.dataset.cat = w.cat;
     t.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + '"><div class="card"><img loading="lazy" decoding="async" width="' + w.w + '" height="' + w.h + '" src="mini/' + w.img + '" alt="' + w.alt + '"><span class="glare"></span><span class="badge">' + CAT[w.cat] + '</span></div><div class="meta"><h3>' + w.nome + '</h3><p>' + w.sub + '</p></div></button>';
     t.querySelector('button').addEventListener('click', function(){
-      var vis = WORKS.filter(function(x){ return filtro === 'all' || x.cat === filtro; });
-      openLb(vis, vis.indexOf(w));
+      var vis = listaVisivel();
+      openLb(vis, Math.max(0, vis.indexOf(w)));
     });
     tilt(t, t, 16, true);
     grid.appendChild(t);
@@ -927,9 +982,22 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
     grid.appendChild(more);
   });
 
+  /* botão que abre o resto dos trabalhos */
+  var caixaMais = document.createElement('div');
+  caixaMais.className = 'mais-trabalhos';
+  caixaMais.innerHTML = '<button type="button">Ver os ' + WORKS.length + ' trabalhos</button>';
+  grid.parentNode.insertBefore(caixaMais, grid.nextSibling);
+  function abrirTudo() {
+    grid.classList.add('tudo');
+    caixaMais.remove();
+    if (typeof gtag === 'function') gtag('event', 'ver_mais_trabalhos');
+  }
+  caixaMais.querySelector('button').addEventListener('click', abrirTudo);
+
   document.querySelectorAll('.filters button').forEach(function (b) {
     b.addEventListener('click', function () {
       filtro = b.dataset.f;
+      if (filtro !== 'all' && caixaMais.parentNode) abrirTudo();
       document.querySelectorAll('.filters button').forEach(function (x) { x.setAttribute('aria-pressed', String(x === b)); });
       grid.querySelectorAll('.tile').forEach(function (t) {
         var mostra = filtro === 'all' || t.dataset.cat === filtro;
@@ -963,8 +1031,8 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 
   /* proximas datas livres: le o agenda.json e some sozinho se estiver velho */
   (function () {
-    var caixa = document.getElementById('datasLivres');
-    if (!caixa || !window.fetch) return;
+    var caixas = [document.getElementById('datasLivresHero'), document.getElementById('datasLivres')].filter(Boolean);
+    if (!caixas.length || !window.fetch) return;
     fetch('agenda.json', { cache: 'no-store' }).then(function (r) { return r.ok ? r.json() : null; }).then(function (a) {
       if (!a || !a.datas || !a.datas.length) return;
       var hoje = new Date(); hoje.setHours(0, 0, 0, 0);
@@ -972,12 +1040,13 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
       if ((hoje - geradoEm) / 86400000 > 5) return;                    // informacao velha: melhor nao mostrar
       var vivas = a.datas.filter(function (d) { return new Date(d.iso + 'T12:00:00') >= hoje; });
       if (!vivas.length) return;
-      var chips = vivas.map(function (d) { return '<b>' + d.dia.slice(0, 3) + ', ' + d.numero + '</b>'; }).join(' ');
-      var msg = encodeURIComponent('Olá, Moacir! Vi no site que tem data livre em ' + vivas[0].numero + ' de ' + vivas[0].mes + '. Queria fechar uma dessas datas.');
-      caixa.innerHTML = '<span class="rot">Próximas datas livres</span> ' + chips +
-        ' <span style="color:var(--muted)">de ' + vivas[0].mes + '</span>' +
-        ' <a target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=' + msg + '">quero uma dessas →</a>';
-      caixa.hidden = false;
+      /* cada data é um link: abre o WhatsApp com o dia já escrito */
+      var chips = vivas.map(function (d) {
+        var m = encodeURIComponent('Olá, Moacir! Vi no site que o dia ' + d.numero + ' de ' + d.mes + ' (' + d.dia + ') está livre. Queria fechar essa data.');
+        return '<a target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=' + m + '">' + d.dia.slice(0, 3) + ', ' + d.numero + '</a>';
+      }).join(' ');
+      var html = '<span class="rot">Datas livres em ' + vivas[0].mes + '</span> ' + chips;
+      caixas.forEach(function (c) { c.innerHTML = html; c.hidden = false; });
     }).catch(function () { });
   })();
 
