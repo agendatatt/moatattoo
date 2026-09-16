@@ -70,22 +70,33 @@
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+f.__pixel=function(){if(f.__pixelOn)return;f.__pixelOn=1;t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);};}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','471547625724751');fbq('track','PageView');
+/* o arquivo do pixel (188 KB) so baixa no primeiro toque ou depois de 3s.
+   O PageView fica na fila e e enviado junto, entao nada se perde. */
+['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
+  addEventListener(ev, window.__pixel, {once:true, passive:true});
+});
+setTimeout(window.__pixel, 3000);
 </script>
 
 <style>
+/* fonte de reserva com a mesma largura da real: sem isso a pagina pula quando a fonte carrega (etapa 3) */
+@font-face{font-family:'Jost reserva'; src:local('Segoe UI'),local('Helvetica Neue'),local('Arial'); size-adjust:95.6%;}
+@font-face{font-family:'Cormorant reserva'; src:local('Georgia'),local('Times New Roman'); size-adjust:89.4%;}
+
 :root{
   --black:#070707; --deep:#0e0e0e; --card:#141414; --border:#262626;
   --gold:#c9a96e; --gold-light:#e8d3a4; --cream:#f5f0e8;
-  --text:#d4cfc7; --muted:#8a847d;
+  --text:#d4cfc7; --muted:#a8a094;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{margin:0; background:var(--black); color:var(--text); font-family:'Jost',sans-serif; font-weight:300; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+body{margin:0; background:var(--black); color:var(--text); font-family:'Jost','Jost reserva',sans-serif; font-weight:400; line-height:1.7; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
 a{color:var(--gold); text-decoration:none;}
 :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
 img{max-width:100%; display:block;}
@@ -98,7 +109,7 @@ main{overflow-x:clip;}
 .topbar{position:fixed; inset:0 0 auto 0; z-index:40; border-bottom:1px solid transparent; transition:background .4s, border-color .4s;}
 .topbar.solid{background:rgba(7,7,7,.74); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-color:var(--border);}
 .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px;}
-.brand{font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--cream); white-space:nowrap;}
+.brand{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:23px; color:var(--cream); white-space:nowrap;}
 .brand em{font-style:italic; color:var(--gold);}
 .topbar nav{display:flex; align-items:center; gap:28px; font-size:13px; letter-spacing:.16em; text-transform:uppercase;}
 .topbar nav a{color:var(--muted); transition:color .2s;}
@@ -119,7 +130,7 @@ main{overflow-x:clip;}
 .glow{position:absolute; z-index:-1; right:2%; top:14%; width:46vw; height:46vw; max-width:640px; max-height:640px; background:radial-gradient(circle, rgba(201,169,110,.15), rgba(120,70,30,.07) 45%, transparent 70%); filter:blur(20px); pointer-events:none;}
 .eyebrow{display:inline-flex; align-items:center; gap:12px; font-size:12px; letter-spacing:.32em; text-transform:uppercase; color:var(--gold); margin:0 0 26px;}
 .eyebrow::before{content:""; width:34px; height:1px; background:var(--gold);}
-h1{font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--cream); font-size:clamp(46px,6.2vw,90px); line-height:.98; margin:0 0 26px;}
+h1{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; color:var(--cream); font-size:clamp(46px,6.2vw,90px); line-height:.98; margin:0 0 26px;}
 h1 .line{display:block; overflow:hidden; padding-bottom:.06em;}
 h1 .line > span{display:inline-block;}
 h1 em{font-style:italic; color:var(--gold);}
@@ -150,7 +161,7 @@ h1 em{font-style:italic; color:var(--gold);}
   animation:spin 90s linear infinite;}
 .marquee{border-block:1px solid var(--border); background:var(--deep); overflow:hidden; padding:18px 0; transform:rotate(-1.2deg); margin:10px -2%; width:104%;}
 .marquee-track{display:flex; width:max-content; animation:slide 38s linear infinite;}
-.marquee span{font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(24px,3vw,38px); color:var(--cream); white-space:nowrap; padding:0 28px; display:flex; align-items:center; gap:56px;}
+.marquee span{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-style:italic; font-size:clamp(24px,3vw,38px); color:var(--cream); white-space:nowrap; padding:0 28px; display:flex; align-items:center; gap:56px;}
 .marquee span::after{content:"✦"; font-style:normal; color:var(--gold); font-size:.55em;}
 .marquee span:nth-child(3n+2){color:transparent; -webkit-text-stroke:1px var(--gold);}
 @keyframes slide{to{transform:translateX(-50%);}}
@@ -177,14 +188,14 @@ h1 em{font-style:italic; color:var(--gold);}
 .link-estilo{position:relative; display:block; overflow:hidden; aspect-ratio:16/10; border:1px solid var(--border); color:var(--cream);}
 .link-estilo img{width:100%; height:100%; object-fit:cover; opacity:.55; transition:transform .8s var(--ease), opacity .4s;}
 .link-estilo:hover img{transform:scale(1.06); opacity:.75;}
-.link-estilo span{position:absolute; left:20px; bottom:16px; font-family:'Cormorant Garamond',serif; font-size:30px; line-height:1;}
-.link-estilo small{display:block; font-family:'Jost',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
+.link-estilo span{position:absolute; left:20px; bottom:16px; font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:30px; line-height:1;}
+.link-estilo small{display:block; font-family:'Jost','Jost reserva',sans-serif; font-size:11px; letter-spacing:.2em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
 
 /* seções */
 section{padding:120px 0;}
 .sec-head{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:56px;}
-.sec-head .num{font-family:'Cormorant Garamond',serif; color:var(--gold); font-size:15px; letter-spacing:.3em; display:block; margin-bottom:14px;}
-.sec-head h2{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(38px,5vw,66px); line-height:1; color:var(--cream); margin:0;}
+.sec-head .num{font-family:'Cormorant Garamond','Cormorant reserva',serif; color:var(--gold); font-size:15px; letter-spacing:.3em; display:block; margin-bottom:14px;}
+.sec-head h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; font-size:clamp(38px,5vw,66px); line-height:1; color:var(--cream); margin:0;}
 .sec-head h2 em{font-style:italic; color:var(--gold);}
 .sec-head p{color:var(--muted); max-width:44ch; margin:0;}
 
@@ -199,18 +210,18 @@ section{padding:120px 0;}
 .flip .face{position:absolute; inset:0; overflow:hidden; backface-visibility:hidden; -webkit-backface-visibility:hidden; border:1px solid var(--border); background:var(--card);}
 .flip .face img{width:100%; height:100%; object-fit:cover;}
 .flip .back{transform:rotateY(180deg);}
-.flip .face .tag{position:absolute; top:12px; left:12px; font-size:10px; letter-spacing:.22em; text-transform:uppercase; padding:5px 9px; background:rgba(7,7,7,.78); border:1px solid var(--border); color:var(--cream);}
+.flip .face .tag{position:absolute; top:12px; left:12px; font-size:11px; letter-spacing:.22em; text-transform:uppercase; padding:5px 9px; background:rgba(7,7,7,.78); border:1px solid var(--border); color:var(--cream);}
 .flip .front .tag{color:var(--gold);}
 .flip .face .hint{position:absolute; left:0; right:0; bottom:0; padding:34px 14px 12px; background:linear-gradient(transparent, rgba(0,0,0,.85)); color:var(--cream); font-size:11px; letter-spacing:.2em; text-transform:uppercase; display:flex; justify-content:space-between;}
 .flip .meta{padding:16px 2px 0;}
-.flip .meta h3{font-family:'Cormorant Garamond',serif; font-weight:400; font-size:26px; line-height:1.1; color:var(--cream); margin:0;}
+.flip .meta h3{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:26px; line-height:1.1; color:var(--cream); margin:0;}
 .flip .meta p{margin:4px 0 0; font-size:14px; color:var(--muted);}
 
 /* o que cobre */
 .kinds{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--border); border:1px solid var(--border);}
 .kind{background:var(--deep); padding:34px 28px;}
-.kind .n{font-family:'Cormorant Garamond',serif; font-size:54px; line-height:1; color:transparent; -webkit-text-stroke:1px var(--gold); display:block; margin-bottom:18px;}
-.kind h3{font-family:'Cormorant Garamond',serif; font-weight:400; font-size:28px; color:var(--cream); margin:0 0 10px; line-height:1.1;}
+.kind .n{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:54px; line-height:1; color:transparent; -webkit-text-stroke:1px var(--gold); display:block; margin-bottom:18px;}
+.kind h3{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:28px; color:var(--cream); margin:0 0 10px; line-height:1.1;}
 .kind p{margin:0; color:var(--muted); font-size:15px;}
 .rule{margin-top:34px; padding:26px 30px; background:linear-gradient(90deg, rgba(201,169,110,.08), transparent); border-left:2px solid var(--gold); max-width:860px;}
 .rule b{color:var(--cream); font-weight:500;}
@@ -220,16 +231,16 @@ section{padding:120px 0;}
 .steps::before{content:""; position:absolute; left:0; right:0; top:34px; height:1px; background:var(--border);}
 .steps .bar{position:absolute; left:0; top:34px; height:1px; width:0; background:var(--gold); transition:width 1.6s var(--ease);}
 .steps.in .bar{width:100%;}
-.step .dot{width:68px; height:68px; border-radius:50%; display:grid; place-items:center; margin-bottom:26px; position:relative; background:var(--black); border:1px solid var(--gold); font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--gold);}
+.step .dot{width:68px; height:68px; border-radius:50%; display:grid; place-items:center; margin-bottom:26px; position:relative; background:var(--black); border:1px solid var(--gold); font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:28px; color:var(--gold);}
 .step h3{font-weight:500; font-size:18px; color:var(--cream); margin:0 0 8px;}
 .step p{margin:0; font-size:15px; color:var(--muted);}
 
 /* dúvidas */
 .faq{max-width:860px;}
 .faq details{border-bottom:1px solid var(--border);}
-.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:26px 0; font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.4vw,28px); color:var(--cream);}
+.faq summary{list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px; padding:26px 0; font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:clamp(22px,2.4vw,28px); color:var(--cream);}
 .faq summary::-webkit-details-marker{display:none;}
-.faq summary::after{content:"+"; font-family:'Jost',sans-serif; font-weight:300; color:var(--gold); font-size:28px; transition:transform .35s var(--ease);}
+.faq summary::after{content:"+"; font-family:'Jost','Jost reserva',sans-serif; font-weight:400; color:var(--gold); font-size:28px; transition:transform .35s var(--ease);}
 .faq details[open] summary::after{transform:rotate(45deg);}
 .faq .ans{padding:0 0 26px; color:var(--muted); max-width:66ch;}
 .faq .ans a{border-bottom:1px solid rgba(201,169,110,.4);}
@@ -241,7 +252,7 @@ section{padding:120px 0;}
 .closer-card::before{content:""; position:absolute; inset:-60%; z-index:-2; background:conic-gradient(from 0deg, transparent 0 70%, var(--gold) 80%, transparent 90%); animation:spin 6s linear infinite;}
 .closer-card::after{content:""; position:absolute; inset:1px; z-index:-1; background:radial-gradient(ellipse at 50% 0%, #1b1712, #0c0c0c 60%);}
 @keyframes spin{to{transform:rotate(360deg);}}
-.closer h2{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(40px,6vw,76px); line-height:1; color:var(--cream); margin:0 0 18px;}
+.closer h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; font-size:clamp(40px,6vw,76px); line-height:1; color:var(--cream); margin:0 0 18px;}
 .closer h2 em{font-style:italic; color:var(--gold);}
 .closer p{color:var(--muted); max-width:48ch; margin:0 auto 34px;}
 
@@ -295,6 +306,13 @@ footer a:hover{color:var(--cream);}
   .subnav::-webkit-scrollbar{display:none;}
   .subnav a{color:var(--muted); padding:11px 0;}
   .subnav a[aria-current="page"]{color:var(--gold);}
+}
+
+/* leitura e area de toque (etapa 2) */
+@media (pointer:coarse){
+  .topbar nav a:not(.nav-cta), .subnav a, .foot a, .filters button{min-height:44px; display:inline-flex; align-items:center;}
+  .topbar nav .nav-cta{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+  .brand{min-height:44px; display:inline-flex; align-items:center;}
 }
 </style>
 

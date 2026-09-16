@@ -90,22 +90,33 @@
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+f.__pixel=function(){if(f.__pixelOn)return;f.__pixelOn=1;t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);};}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','471547625724751');fbq('track','PageView');
+/* o arquivo do pixel (188 KB) so baixa no primeiro toque ou depois de 3s.
+   O PageView fica na fila e e enviado junto, entao nada se perde. */
+['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
+  addEventListener(ev, window.__pixel, {once:true, passive:true});
+});
+setTimeout(window.__pixel, 3000);
 </script>
 
 <style>
+/* fonte de reserva com a mesma largura da real: sem isso a pagina pula quando a fonte carrega (etapa 3) */
+@font-face{font-family:'Jost reserva'; src:local('Segoe UI'),local('Helvetica Neue'),local('Arial'); size-adjust:95.6%;}
+@font-face{font-family:'Cormorant reserva'; src:local('Georgia'),local('Times New Roman'); size-adjust:89.4%;}
+
 :root{
   --black:#070707; --deep:#0e0e0e; --card:#141414; --border:#262626;
   --gold:#c9a96e; --gold-light:#e8d3a4; --cream:#f5f0e8;
-  --text:#d8d3cb; --muted:#8f8982; --ease:cubic-bezier(.2,.8,.2,1);
+  --text:#d8d3cb; --muted:#a8a094; --ease:cubic-bezier(.2,.8,.2,1);
   --p1:#4caf7d; --p2:#8bc34a; --p3:#ffc107; --p4:#ff9800; --p5:#f44336;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{margin:0; background:var(--black); color:var(--text); font-family:'Jost',sans-serif; font-weight:400; line-height:1.75; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
+body{margin:0; background:var(--black); color:var(--text); font-family:'Jost','Jost reserva',sans-serif; font-weight:400; line-height:1.75; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
 body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0; background-image:radial-gradient(rgba(255,255,255,.03) 1px, transparent 1.2px); background-size:5px 5px;}
 main, header, footer{position:relative; z-index:1;}
 /* efeitos decorativos (raios, faixa girada) não podem alargar a página no celular */
@@ -117,7 +128,7 @@ img{max-width:100%; display:block;}
 
 .topbar{position:fixed; inset:0 0 auto 0; z-index:40; background:rgba(7,7,7,.8); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-bottom:1px solid var(--border);}
 .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px;}
-.brand{font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--cream); white-space:nowrap;}
+.brand{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:23px; color:var(--cream); white-space:nowrap;}
 .brand em{font-style:italic; color:var(--gold);}
 .topbar nav{display:flex; align-items:center; gap:28px; font-size:13px; letter-spacing:.16em; text-transform:uppercase;}
 .topbar nav a{color:var(--muted); transition:color .2s;}
@@ -130,7 +141,7 @@ img{max-width:100%; display:block;}
 .crumbs{font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin:0 0 26px;}
 .crumbs a{color:var(--muted);} .crumbs a:hover{color:var(--gold);}
 .cat{display:inline-block; font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:var(--gold); border:1px solid rgba(201,169,110,.35); padding:5px 12px; margin-bottom:22px;}
-h1{font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--cream); font-size:clamp(38px,5.4vw,64px); line-height:1.04; margin:0 0 20px;}
+h1{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; color:var(--cream); font-size:clamp(38px,5.4vw,64px); line-height:1.04; margin:0 0 20px;}
 h1 em{font-style:italic; color:var(--gold);}
 .dek{font-size:clamp(18px,1.6vw,21px); color:var(--text); margin:0 0 26px; font-weight:300;}
 .meta{display:flex; flex-wrap:wrap; gap:6px 18px; font-size:13px; color:var(--muted); padding:18px 0; border-block:1px solid var(--border);}
@@ -142,7 +153,7 @@ h1 em{font-style:italic; color:var(--gold);}
 /* corpo */
 .corpo{max-width:760px; margin:0 auto; padding:40px 24px 20px; font-size:18px;}
 .corpo p{margin:0 0 1.2em;}
-.corpo h2{font-family:'Cormorant Garamond',serif; font-weight:400; color:var(--cream); font-size:clamp(30px,3.4vw,40px); line-height:1.1; margin:2em 0 .6em;}
+.corpo h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; color:var(--cream); font-size:clamp(30px,3.4vw,40px); line-height:1.1; margin:2em 0 .6em;}
 .corpo h3{font-weight:500; color:var(--cream); font-size:20px; margin:1.6em 0 .4em;}
 .corpo strong{color:var(--cream); font-weight:500;}
 .corpo a{border-bottom:1px solid rgba(201,169,110,.45);}
@@ -185,11 +196,11 @@ h1 em{font-style:italic; color:var(--gold);}
 /* autor e CTA */
 .autor{max-width:760px; margin:10px auto 0; padding:0 24px;}
 .autor div{display:flex; gap:18px; align-items:center; padding:22px 0; border-block:1px solid var(--border); font-size:15px; color:var(--muted);}
-.autor .mono{flex:0 0 56px; height:56px; border-radius:50%; display:grid; place-items:center; border:1px solid var(--gold); font-family:'Cormorant Garamond',serif; font-size:24px; color:var(--gold);}
+.autor .mono{flex:0 0 56px; height:56px; border-radius:50%; display:grid; place-items:center; border:1px solid var(--gold); font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:24px; color:var(--gold);}
 .autor strong{color:var(--cream); font-weight:500;}
 .cta{max-width:760px; margin:40px auto 0; padding:0 24px;}
 .cta div{padding:40px 30px; text-align:center; background:radial-gradient(ellipse at 50% 0%, rgba(201,169,110,.14), transparent 65%), var(--deep); border:1px solid rgba(201,169,110,.35);}
-.cta h2{font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--cream); font-size:clamp(30px,4vw,44px); line-height:1.1; margin:0 0 12px;}
+.cta h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; color:var(--cream); font-size:clamp(30px,4vw,44px); line-height:1.1; margin:0 0 12px;}
 .cta h2 em{font-style:italic; color:var(--gold);}
 .cta p{color:var(--muted); margin:0 auto 24px; max-width:46ch;}
 .btn{display:inline-flex; align-items:center; gap:10px; padding:16px 28px; font-size:13px; letter-spacing:.18em; text-transform:uppercase; border:1px solid var(--gold); background:var(--gold); color:var(--black); font-weight:500; transition:background .3s;}
@@ -199,7 +210,7 @@ h1 em{font-style:italic; color:var(--gold);}
 
 /* leia também */
 .rel{max-width:1200px; margin:0 auto; padding:90px 24px 100px;}
-.rel h2{font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--cream); font-size:clamp(32px,4vw,48px); margin:0 0 30px;}
+.rel h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; color:var(--cream); font-size:clamp(32px,4vw,48px); margin:0 0 30px;}
 .rel h2 em{font-style:italic; color:var(--gold);}
 .rel-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
 .rel a{display:block; color:inherit; border:1px solid var(--border); background:var(--card); transition:border-color .3s, transform .4s var(--ease);}
@@ -207,7 +218,7 @@ h1 em{font-style:italic; color:var(--gold);}
 .rel img{width:100%; aspect-ratio:16/10; object-fit:cover; opacity:.8;}
 .rel span{display:block; padding:18px 20px 22px;}
 .rel small{display:block; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--gold); margin-bottom:6px;}
-.rel strong{font-family:'Cormorant Garamond',serif; font-weight:400; font-size:24px; line-height:1.15; color:var(--cream);}
+.rel strong{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:24px; line-height:1.15; color:var(--cream);}
 
 footer{border-top:1px solid var(--border); padding:34px 0; color:var(--muted); font-size:14px;}
 footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-between;}
@@ -232,6 +243,13 @@ footer a{color:var(--muted);} footer a:hover{color:var(--cream);}
   .brand{font-size:19px;}
   .topbar nav .nav-cta{padding:9px 14px; font-size:12px;}
   .wa-float span{display:none;}
+}
+
+/* leitura e area de toque (etapa 2) */
+@media (pointer:coarse){
+  .topbar nav a:not(.nav-cta), .subnav a, .foot a, .filters button{min-height:44px; display:inline-flex; align-items:center;}
+  .topbar nav .nav-cta{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+  .brand{min-height:44px; display:inline-flex; align-items:center;}
 }
 </style>
 

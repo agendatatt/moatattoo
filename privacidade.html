@@ -12,25 +12,36 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--black:#070707; --deep:#0e0e0e; --border:#262626; --gold:#c9a96e; --cream:#f5f0e8; --text:#d4cfc7; --muted:#8a847d;}
+/* fonte de reserva com a mesma largura da real: sem isso a pagina pula quando a fonte carrega (etapa 3) */
+@font-face{font-family:'Jost reserva'; src:local('Segoe UI'),local('Helvetica Neue'),local('Arial'); size-adjust:95.6%;}
+@font-face{font-family:'Cormorant reserva'; src:local('Georgia'),local('Times New Roman'); size-adjust:89.4%;}
+
+:root{--black:#070707; --deep:#0e0e0e; --border:#262626; --gold:#c9a96e; --cream:#f5f0e8; --text:#d4cfc7; --muted:#a8a094;}
 *{box-sizing:border-box;}
-body{margin:0; background:var(--black); color:var(--text); font-family:'Jost',sans-serif; font-weight:300; line-height:1.8; -webkit-font-smoothing:antialiased;}
+body{margin:0; background:var(--black); color:var(--text); font-family:'Jost','Jost reserva',sans-serif; font-weight:400; line-height:1.8; -webkit-font-smoothing:antialiased;}
 a{color:var(--gold);}
 .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
 header{border-bottom:1px solid var(--border);}
 header .wrap{display:flex; justify-content:space-between; align-items:center; height:72px;}
-.brand{font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--cream); text-decoration:none;}
+.brand{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:23px; color:var(--cream); text-decoration:none;}
 .brand em{color:var(--gold);}
 header nav a{font-size:13px; letter-spacing:.16em; text-transform:uppercase; text-decoration:none; color:var(--muted);}
 main{padding:70px 0 90px;}
-h1{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(40px,6vw,64px); line-height:1; color:var(--cream); margin:0 0 12px;}
+h1{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; font-size:clamp(40px,6vw,64px); line-height:1; color:var(--cream); margin:0 0 12px;}
 h1 em{font-style:italic; color:var(--gold);}
 .upd{color:var(--muted); font-size:14px; margin:0 0 44px;}
-h2{font-family:'Cormorant Garamond',serif; font-weight:400; font-size:28px; color:var(--cream); margin:44px 0 10px;}
+h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:28px; color:var(--cream); margin:44px 0 10px;}
 ul{padding-left:20px;}
 li{margin-bottom:8px;}
 .box{background:var(--deep); border:1px solid var(--border); border-left:3px solid var(--gold); padding:22px 24px; margin:24px 0;}
 footer{border-top:1px solid var(--border); padding:30px 0; color:var(--muted); font-size:14px;}
+
+/* leitura e area de toque (etapa 2) */
+@media (pointer:coarse){
+  .topbar nav a:not(.nav-cta), .subnav a, .foot a, .filters button{min-height:44px; display:inline-flex; align-items:center;}
+  .topbar nav .nav-cta{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+  .brand{min-height:44px; display:inline-flex; align-items:center;}
+}
 </style>
 </head>
 <body>

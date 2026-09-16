@@ -10,13 +10,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root{--black:#0a0a0a;--gold:#c9a96e;--gold-light:#e0c998;--cream:#f5f0e8;--text:#d4cfc7;--muted:#7a7570;}
+/* fonte de reserva com a mesma largura da real: sem isso a pagina pula quando a fonte carrega (etapa 3) */
+@font-face{font-family:'Jost reserva'; src:local('Segoe UI'),local('Helvetica Neue'),local('Arial'); size-adjust:95.6%;}
+@font-face{font-family:'Cormorant reserva'; src:local('Georgia'),local('Times New Roman'); size-adjust:89.4%;}
+
+  :root{--black:#0a0a0a;--gold:#c9a96e;--gold-light:#e0c998;--cream:#f5f0e8;--text:#d4cfc7;--muted:#a8a094;}
   *{box-sizing:border-box}
   body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;
-       background:var(--black);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;
+       background:var(--black);color:var(--text);font-family:'Jost','Jost reserva',sans-serif;font-weight:300;
        text-align:center;padding:32px;line-height:1.7;-webkit-font-smoothing:antialiased;}
-  .n{font-family:'Cormorant Garamond',serif;font-size:clamp(72px,16vw,140px);color:var(--gold);line-height:1;margin:0 0 8px;font-style:italic;}
-  h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(26px,5vw,38px);color:var(--cream);margin:0 0 14px;}
+  .n{font-family:'Cormorant Garamond','Cormorant reserva',serif;font-size:clamp(72px,16vw,140px);color:var(--gold);line-height:1;margin:0 0 8px;font-style:italic;}
+  h1{font-family:'Cormorant Garamond','Cormorant reserva',serif;font-weight:300;font-size:clamp(26px,5vw,38px);color:var(--cream);margin:0 0 14px;}
   p{color:var(--muted);max-width:44ch;margin:0 auto 32px;}
   .row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;}
   a.btn{display:inline-block;padding:14px 28px;font-size:14px;letter-spacing:.16em;
@@ -26,6 +30,13 @@
   .ghost{color:var(--gold);}
   .ghost:hover{background:rgba(201,169,110,.12);color:var(--gold-light);}
   :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+/* leitura e area de toque (etapa 2) */
+@media (pointer:coarse){
+  .topbar nav a:not(.nav-cta), .subnav a, .foot a, .filters button{min-height:44px; display:inline-flex; align-items:center;}
+  .topbar nav .nav-cta{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+  .brand{min-height:44px; display:inline-flex; align-items:center;}
+}
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->

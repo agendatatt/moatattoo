@@ -75,31 +75,42 @@
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
+f.__pixel=function(){if(f.__pixelOn)return;f.__pixelOn=1;t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s);};}(window,
 document,'script','https://connect.facebook.net/en_US/fbevents.js');
 fbq('init','471547625724751');fbq('track','PageView');
+/* o arquivo do pixel (188 KB) so baixa no primeiro toque ou depois de 3s.
+   O PageView fica na fila e e enviado junto, entao nada se perde. */
+['pointerdown','keydown','touchstart','scroll'].forEach(function(ev){
+  addEventListener(ev, window.__pixel, {once:true, passive:true});
+});
+setTimeout(window.__pixel, 3000);
 </script>
 
 <style>
+/* fonte de reserva com a mesma largura da real: sem isso a pagina pula quando a fonte carrega (etapa 3) */
+@font-face{font-family:'Jost reserva'; src:local('Segoe UI'),local('Helvetica Neue'),local('Arial'); size-adjust:95.6%;}
+@font-face{font-family:'Cormorant reserva'; src:local('Georgia'),local('Times New Roman'); size-adjust:89.4%;}
+
 :root{
   --black:#070707; --deep:#0e0e0e; --card:#141414; --border:#262626;
   --gold:#c9a96e; --gold-light:#e8d3a4; --cream:#f5f0e8;
-  --text:#d4cfc7; --muted:#8a847d; --red:#d8412f; --pink:#e0457b;
+  --text:#d4cfc7; --muted:#a8a094; --red:#d8412f; --pink:#e0457b;
   --ease:cubic-bezier(.2,.8,.2,1);
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{
   margin:0; background:var(--black); color:var(--text);
-  font-family:'Jost',sans-serif; font-weight:300; line-height:1.7;
+  font-family:'Jost','Jost reserva',sans-serif; font-weight:400; line-height:1.7;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;
 }
 a{color:var(--gold); text-decoration:none;}
 :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
 img{max-width:100%; display:block;}
 .wrap{max-width:1200px; margin:0 auto; padding:0 24px;}
-.serif{font-family:'Cormorant Garamond',serif;}
+.serif{font-family:'Cormorant Garamond','Cormorant reserva',serif;}
 
 /* textura de retícula de mangá sobre a página inteira */
 body::before{
@@ -119,7 +130,7 @@ main{overflow-x:clip;}
 }
 .topbar.solid{background:rgba(7,7,7,.72); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px); border-color:var(--border);}
 .topbar .wrap{display:flex; align-items:center; justify-content:space-between; height:72px; gap:16px;}
-.brand{font-family:'Cormorant Garamond',serif; font-size:23px; color:var(--cream); letter-spacing:.02em;}
+.brand{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:23px; color:var(--cream); letter-spacing:.02em;}
 .brand em{font-style:italic; color:var(--gold);}
 .topbar nav{display:flex; align-items:center; gap:30px; font-size:13px; letter-spacing:.16em; text-transform:uppercase;}
 .topbar nav a{color:var(--muted); transition:color .2s;}
@@ -177,7 +188,7 @@ main{overflow-x:clip;}
   transform:rotate(-8deg); box-shadow:0 0 0 2px rgba(216,65,47,.25);
 }
 h1{
-  font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--cream);
+  font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; color:var(--cream);
   font-size:clamp(46px,6.4vw,92px); line-height:.98; margin:0 0 28px; letter-spacing:-.01em;
 }
 h1 .line{display:block; overflow:hidden; padding-bottom:.06em;}
@@ -230,7 +241,7 @@ h1 .outline{font-style:italic; color:transparent; -webkit-text-stroke:1px var(--
 .marquee{border-block:1px solid var(--border); background:var(--deep); overflow:hidden; padding:18px 0; transform:rotate(-1.2deg); margin:10px -2%; width:104%;}
 .marquee-track{display:flex; width:max-content; animation:slide 38s linear infinite;}
 .marquee span{
-  font-family:'Cormorant Garamond',serif; font-style:italic; font-size:clamp(24px,3vw,38px);
+  font-family:'Cormorant Garamond','Cormorant reserva',serif; font-style:italic; font-size:clamp(24px,3vw,38px);
   color:var(--cream); white-space:nowrap; padding:0 28px; display:flex; align-items:center; gap:56px;
 }
 .marquee span::after{content:"✦"; font-style:normal; color:var(--gold); font-size:.55em;}
@@ -240,8 +251,8 @@ h1 .outline{font-style:italic; color:transparent; -webkit-text-stroke:1px var(--
 /* ---------- seções ---------- */
 section{padding:120px 0;}
 .sec-head{display:flex; flex-wrap:wrap; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:56px;}
-.sec-head .num{font-family:'Cormorant Garamond',serif; color:var(--gold); font-size:15px; letter-spacing:.3em; display:block; margin-bottom:14px;}
-.sec-head h2{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(38px,5vw,66px); line-height:1; color:var(--cream); margin:0;}
+.sec-head .num{font-family:'Cormorant Garamond','Cormorant reserva',serif; color:var(--gold); font-size:15px; letter-spacing:.3em; display:block; margin-bottom:14px;}
+.sec-head h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; font-size:clamp(38px,5vw,66px); line-height:1; color:var(--cream); margin:0;}
 .sec-head h2 em{font-style:italic; color:var(--gold);}
 .sec-head p{color:var(--muted); max-width:44ch; margin:0;}
 
@@ -297,12 +308,12 @@ section{padding:120px 0;}
 .tile:hover .glare{opacity:1;}
 .tile .badge{
   position:absolute; top:12px; left:12px; transform:translateZ(40px);
-  font-size:10px; letter-spacing:.2em; text-transform:uppercase; padding:5px 9px;
+  font-size:11px; letter-spacing:.2em; text-transform:uppercase; padding:5px 9px;
   background:rgba(7,7,7,.75); border:1px solid var(--border); color:var(--cream); backdrop-filter:blur(6px);
 }
 .tile .badge i{display:inline-block; width:7px; height:7px; border-radius:50%; margin-right:6px; vertical-align:1px; background:var(--dot,#bbb);}
 .tile .meta{padding:16px 2px 4px; transform:translateZ(20px);}
-.tile .meta h3{font-family:'Cormorant Garamond',serif; font-weight:400; font-size:26px; line-height:1.1; color:var(--cream); margin:0;}
+.tile .meta h3{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:26px; line-height:1.1; color:var(--cream); margin:0;}
 .tile .meta p{margin:4px 0 0; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted);}
 
 /* ---------- estilos ---------- */
@@ -314,7 +325,7 @@ section{padding:120px 0;}
 .style::before{content:""; position:absolute; inset:0 0 auto 0; height:2px; background:var(--accent);}
 .style .ex{display:flex; gap:10px; margin-bottom:26px;}
 .style .ex img{width:64px; height:80px; object-fit:cover; border:1px solid var(--border);}
-.style h3{font-family:'Cormorant Garamond',serif; font-weight:400; font-size:30px; color:var(--cream); margin:0 0 10px; line-height:1.1;}
+.style h3{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:30px; color:var(--cream); margin:0 0 10px; line-height:1.1;}
 .style p{margin:0; color:var(--muted); font-size:15px;}
 
 /* ---------- passos ---------- */
@@ -325,7 +336,7 @@ section{padding:120px 0;}
 .step{position:relative; padding-top:0;}
 .step .dot{
   width:68px; height:68px; border-radius:50%; display:grid; place-items:center; margin-bottom:26px; position:relative;
-  background:var(--black); border:1px solid var(--gold); font-family:'Cormorant Garamond',serif; font-size:28px; color:var(--gold);
+  background:var(--black); border:1px solid var(--gold); font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:28px; color:var(--gold);
 }
 .step h3{font-weight:500; font-size:18px; color:var(--cream); margin:0 0 8px;}
 .step p{margin:0; font-size:15px; color:var(--muted);}
@@ -335,10 +346,10 @@ section{padding:120px 0;}
 .faq details{border-bottom:1px solid var(--border);}
 .faq summary{
   list-style:none; cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:20px;
-  padding:26px 0; font-family:'Cormorant Garamond',serif; font-size:clamp(22px,2.4vw,28px); color:var(--cream);
+  padding:26px 0; font-family:'Cormorant Garamond','Cormorant reserva',serif; font-size:clamp(22px,2.4vw,28px); color:var(--cream);
 }
 .faq summary::-webkit-details-marker{display:none;}
-.faq summary::after{content:"+"; font-family:'Jost',sans-serif; font-weight:300; color:var(--gold); font-size:28px; transition:transform .35s var(--ease);}
+.faq summary::after{content:"+"; font-family:'Jost','Jost reserva',sans-serif; font-weight:400; color:var(--gold); font-size:28px; transition:transform .35s var(--ease);}
 .faq details[open] summary::after{transform:rotate(45deg);}
 .faq .ans{padding:0 0 26px; color:var(--muted); max-width:66ch;}
 .faq .ans a{border-bottom:1px solid rgba(201,169,110,.4);}
@@ -357,7 +368,7 @@ section{padding:120px 0;}
   animation:spin 6s linear infinite;
 }
 .closer-card::after{content:""; position:absolute; inset:1px; z-index:-1; background:inherit; background:radial-gradient(ellipse at 50% 0%, #1b1712, #0c0c0c 60%);}
-.closer h2{font-family:'Cormorant Garamond',serif; font-weight:300; font-size:clamp(40px,6vw,76px); line-height:1; color:var(--cream); margin:0 0 18px;}
+.closer h2{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:300; font-size:clamp(40px,6vw,76px); line-height:1; color:var(--cream); margin:0 0 18px;}
 .closer h2 em{font-style:italic; color:var(--gold);}
 .closer p{color:var(--muted); max-width:46ch; margin:0 auto 34px;}
 
@@ -429,6 +440,13 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
   .subnav::-webkit-scrollbar{display:none;}
   .subnav a{color:var(--muted); padding:11px 0;}
   .subnav a[aria-current="page"]{color:var(--gold);}
+}
+
+/* leitura e area de toque (etapa 2) */
+@media (pointer:coarse){
+  .topbar nav a:not(.nav-cta), .subnav a, .foot a, .filters button{min-height:44px; display:inline-flex; align-items:center;}
+  .topbar nav .nav-cta{min-height:44px; display:inline-flex; align-items:center; justify-content:center;}
+  .brand{min-height:44px; display:inline-flex; align-items:center;}
 }
 </style>
 
