@@ -595,6 +595,11 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
 #trabalhos .sec-head{margin-bottom:26px; gap:10px;}
 #trabalhos .sec-head h2{font-size:clamp(26px,2.8vw,34px);}
 #trabalhos .sec-head p{font-size:14px;}
+
+/* bloco de uma foto so (cicatrizado) */
+.ad-fotos.um{grid-template-columns:1fr;}
+.ad-fotos.um img{aspect-ratio:1/1;}
+#cicatrizado{padding-bottom:120px;}
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -672,28 +677,18 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
     </section>
   </div>
 
-  <!-- VÍDEOS -->
-  <section id="videos" aria-labelledby="t-vid">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div><span class="num">01 — Em vídeo</span><h2 id="t-vid">Veja <em>de perto</em></h2></div>
-        <p>Foto parada não mostra tudo. Aqui a tatuagem aparece com luz, sombra e a pele em movimento.</p>
-      </div>
-      <div class="reveal"><div class="reels" data-reels="onca,jinwoo,pantera,luffy"></div></div>
-    </div>
-  </section>
 
   <!-- PORTFÓLIO -->
   <section id="trabalhos" aria-labelledby="t-trab" style="padding-top:40px;">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">02 — Portfólio</span><h2 id="t-trab">Qual é o <em>seu estilo</em>?</h2></div>
+        <div><span class="num">01 — Portfólio</span><h2 id="t-trab">Qual é o <em>seu estilo</em>?</h2></div>
         <p>Cada estilo tem a sua galeria. Escolha o seu e veja só o que interessa.</p>
       </div>
       <!-- duas portas em vez de grade misturada: quem quer delicada nao precisa ver fechamento, e vice-versa -->
       <div class="portas">
         <a class="porta reveal" href="preto-e-cinza.html">
-          <div class="porta-fotos"><img src="porta-realismo.webp" width="900" height="900" loading="lazy" decoding="async" alt="Tatuagem de onça com peônias na coxa, realismo em preto e cinza"></div>
+          <div class="porta-fotos"><img src="porta-sereia.webp" width="900" height="900" loading="lazy" decoding="async" alt="Tatuagem de sereia na perna em preto e cinza, com a cauda em rastelado"></div>
           <div class="porta-txt">
             <h3>Preto e cinza <em>&amp; realismo</em></h3>
             <p>Animais, retratos, fechamento de braço e costas — sombra, textura e profundidade.</p>
@@ -701,7 +696,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
           </div>
         </a>
         <a class="porta reveal" href="delicadas.html">
-          <div class="porta-fotos"><img src="porta-delicadas.webp" width="900" height="900" loading="lazy" decoding="async" alt="Tatuagem ornamental delicada em traço fino no antebraço"></div>
+          <div class="porta-fotos"><img src="porta-borboleta.webp" width="900" height="900" loading="lazy" decoding="async" alt="Tatuagem delicada de borboleta em traço fino no antebraço"></div>
           <div class="porta-txt">
             <h3>Delicadas <em>&amp; fineline</em></h3>
             <p>Traço fino, frases, flores e ornamental — leve, limpo e feito pra durar.</p>
@@ -719,7 +714,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
       <div class="rating reveal">
         <div class="score" aria-hidden="true">5,0</div>
         <div class="score-side">
-          <span class="num" style="font-family:'Cormorant Garamond','Cormorant reserva',serif;color:var(--gold);letter-spacing:.3em;">03 — Avaliações</span>
+          <span class="num" style="font-family:'Cormorant Garamond','Cormorant reserva',serif;color:var(--gold);letter-spacing:.3em;">02 — Avaliações</span>
           <h2 id="t-av" style="font-family:'Cormorant Garamond','Cormorant reserva',serif;font-weight:300;font-size:clamp(34px,4vw,52px);line-height:1.05;color:var(--cream);margin:8px 0 10px;">Nota máxima <em style="color:var(--gold)">no Google</em></h2>
           <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
           <p>23 avaliações no perfil do estúdio no Google.</p>
@@ -741,7 +736,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
   <section id="servicos" aria-labelledby="t-serv" style="padding-top:40px;">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">04 — Serviços</span><h2 id="t-serv">O que eu <em>faço</em></h2></div>
+        <div><span class="num">03 — Serviços</span><h2 id="t-serv">O que eu <em>faço</em></h2></div>
         <p>Toque no que você precisa — a conversa já abre no WhatsApp com o assunto certo.</p>
       </div>
       <div class="services">
@@ -788,7 +783,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
         </div>
       </div>
       <div class="reveal">
-        <span class="sec-head"><span class="num" style="margin:0">05 — O estúdio</span></span>
+        <span class="sec-head"><span class="num" style="margin:0">04 — O estúdio</span></span>
         <h2 id="t-est">Um cliente <em>por dia</em>. Sem fila, sem pressa.</h2>
         <p>Sou Moacir Almeida, tatuador desde 2016, em Casa Amarela, Recife. Atendo um cliente por dia — o dia inteiro é seu.</p>
         <p class="m">Você traz a referência que já salvou e eu refaço ela pro seu corpo: tamanho, lugar e traço ajustados pra sua pele, não uma cópia impressa.</p>
@@ -808,7 +803,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
   <section id="como-funciona" aria-labelledby="t-proc">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div><span class="num">06 — Processo</span><h2 id="t-proc">Do print <em>à pele</em></h2></div>
+        <div><span class="num">05 — Processo</span><h2 id="t-proc">Do print <em>à pele</em></h2></div>
         <p>Do print salvo no celular até a tattoo cicatrizada.</p>
       </div>
       <div class="steps" id="steps">
@@ -824,7 +819,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
   <!-- DÚVIDAS -->
   <section id="duvidas" aria-labelledby="t-duv" style="padding-top:40px;">
     <div class="wrap">
-      <div class="sec-head reveal"><div><span class="num">07 — Dúvidas</span><h2 id="t-duv">Antes de <em>chamar</em></h2></div></div>
+      <div class="sec-head reveal"><div><span class="num">06 — Dúvidas</span><h2 id="t-duv">Antes de <em>chamar</em></h2></div></div>
       <div class="faq reveal">
         <details><summary>Quanto custa uma tatuagem?</summary><div class="ans">Depende do tamanho, da região do corpo e do estilo. Pequena a partir de R$ 200, média a partir de R$ 400, e a sessão de dia inteiro sai a partir de R$&nbsp;600. Manda a referência, o tamanho aproximado e o local pelo WhatsApp que eu passo o orçamento.</div></details>
         <details><summary>Uma sessão é quanto tempo e quanto custa?</summary><div class="ans">A sessão dura em média <b>10 horas</b>, e você é o único cliente do dia — sem fila e sem pressa. Sai a partir de <b>R$&nbsp;600</b>. Tatuagem pequena ou média não precisa do dia todo: sai pelo valor da peça.</div></details>
@@ -836,6 +831,17 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
         <details><summary>Dói muito? É minha primeira tatuagem.</summary><div class="ans">Depende da região do corpo. Escrevi sobre isso: <a href="quanto-doi-tatuagem.html">ranking de dor por região</a> e <a href="primeira-tatuagem-guia-completo.html">guia da primeira tatuagem</a>.</div></details>
         <details><summary>Onde fica o estúdio?</summary><div class="ans">Em Casa Amarela, zona norte do Recife — pertinho de Parnamirim, Casa Forte, Jaqueira e Vasco da Gama. Recebo clientes de todo o Recife, de Olinda e da região. É estúdio particular, com hora marcada e um cliente por dia: o endereço exato eu passo quando a data é confirmada.</div></details>
       </div>
+    </div>
+  </section>
+
+  <!-- VÍDEOS -->
+  <section id="videos" aria-labelledby="t-vid">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div><span class="num">07 — Em vídeo</span><h2 id="t-vid">Ainda na <em>dúvida</em>?</h2></div>
+        <p>Veja de perto: a tatuagem com luz, sombra e a pele em movimento.</p>
+      </div>
+      <div class="reveal"><div class="reels" data-reels="onca,jinwoo,pantera,luffy"></div></div>
     </div>
   </section>
 
@@ -855,6 +861,25 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
 <div class="ad-acoes">
 <a class="btn btn-solid" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%20Moacir!%20Tenho%20uma%20tatuagem%20antiga%20e%20quero%20fazer%20uma%20cobertura.%20Pode%20me%20ajudar%3F">Mandar foto da minha tattoo →</a>
 <a class="btn btn-ghost" href="cobertura.html">Ver seis coberturas</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CICATRIZADO: prova de como o trabalho fica depois que sara -->
+<section id="cicatrizado" aria-labelledby="t-cic" style="padding-top:0;">
+<div class="wrap">
+<div class="ad-bloco reveal">
+<div class="ad-fotos um">
+<figure><img src="cicatrizado-onca-lobo-coxas.webp" width="1000" height="1000" loading="lazy" decoding="async" alt="Tatuagens de lobo e de onça com peônias nas coxas, em preto e cinza: o lobo já cicatrizado e a onça finalizada, com a maior parte curada"><figcaption>Depois de sarar</figcaption></figure>
+</div>
+<div class="ad-texto">
+<span class="num">Cicatrizado</span>
+<h2 id="t-cic">Como fica <em>depois que sara</em></h2>
+<p>O lobo já cicatrizado e a onça finalizada, com a maior parte curada. Foto saindo da sessão todo mundo tem — o que mostra o trabalho é como a tatuagem fica depois que a pele sara.</p>
+<div class="ad-acoes">
+<a class="btn btn-solid" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vi%20no%20site%20o%20lobo%20e%20a%20on%C3%A7a%20cicatrizados%20e%20quero%20uma%20tatuagem%20em%20preto%20e%20cinza.">Quero uma assim →</a>
+<a class="btn btn-ghost" href="cuidados-tatuagem-15-dias.html">Como cuidar da cicatrização</a>
 </div>
 </div>
 </div>
