@@ -29,7 +29,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="mini/pb-leao-antebraco.webp" fetchpriority="high">
+<link rel="preload" as="image" href="mini/pb-leao-olhos-azuis-braco.webp" fetchpriority="high">
 <link rel="stylesheet" href="reels.css">
 <script src="reels.js" defer></script>
 
@@ -185,8 +185,8 @@ h1 em{font-style:italic; color:var(--gold);}
 .pcard.c3::after{content:""; position:absolute; inset:-14px; border:1px solid rgba(201,169,110,.5); transform:translateZ(-30px); pointer-events:none;}
 /* a onca do topo enquadrada mais perto: a foto original e larga demais pro cartao,
    e o rosto ficava pequeno. Zoom no proprio cartao, a foto inteira continua na galeria. */
-/* leao do topo: aproxima no braco e corta parte da parede branca da direita */
-.pcard.c3 .face img{object-position:50% 40%; transform:scale(1.2); transform-origin:34% 42%;}
+/* leao do topo: a foto ja vem recortada em 4:5, centrada nos olhos */
+.pcard.c3 .face img{object-position:50% 40%;}
 @keyframes f1{50%{margin-top:-14px;}}
 @keyframes f2{50%{margin-top:12px;}}
 @keyframes f3{50%{margin-top:-8px;}}
@@ -630,7 +630,7 @@ h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;
         <div class="stack" id="stack">
           <figure class="pcard c1"><div class="face"><img src="mini/tatuagem-personalizada-recife-arte.webp" width="1161" height="1548" alt="Tatuagem delicada de agua-viva em fineline, feita em Recife" decoding="async"><div class="label"><small>Delicadas</small>Água-viva</div></div></figure>
           <figure class="pcard c2"><div class="face"><img src="mini/luffy2.webp" width="1600" height="2134" alt="Tatuagem do Luffy de One Piece em preto e cinza, feita em Recife" decoding="async"><div class="label"><small>One Piece · Preto e cinza</small>Luffy</div></div></figure>
-          <figure class="pcard c3"><div class="face"><img src="mini/pb-leao-antebraco.webp" width="720" height="960" alt="Tatuagem realista de leão com coroa de espinhos no antebraço, preto e cinza, feita em Recife" decoding="async" fetchpriority="high"><div class="label"><small>Realismo · Antebraço</small>Leão</div></div></figure>
+          <figure class="pcard c3"><div class="face"><img src="mini/pb-leao-olhos-azuis-braco.webp" width="720" height="900" alt="Tatuagem realista de leão com olhos azuis e cruz no braço, preto e cinza, feita em Recife" decoding="async" fetchpriority="high"><div class="label"><small>Realismo · Braço</small>Leão de olhos azuis</div></div></figure>
         </div>
       </div>
       <a class="scroll-hint" href="#videos">Role</a>
