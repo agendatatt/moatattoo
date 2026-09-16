@@ -548,6 +548,20 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .portas-mais{margin:26px 0 0; text-align:center; color:var(--muted); font-size:15px;}
 .portas-mais a{border-bottom:1px solid rgba(201,169,110,.4);}
 @media (max-width:760px){ .portas{grid-template-columns:1fr;} .porta-txt{padding:20px;} }
+
+/* leitura (etapa 11): titulos saem do peso light (300), que some em tela de celular barata
+   e no sol, e os rotulos pequenos em caixa alta ganham tamanho e perdem espacamento */
+h1, .sec-head h2, .studio h2, .contact h2, .ad-texto h2, .score{font-weight:400;}
+.chips li, .pcard .label, .service .price, .stats span, .article .cat, .article .go,
+.info li span, .foot h4, .ad-fotos figcaption, .faixa span, .porta-ir{font-size:13px; letter-spacing:.08em;}
+.eyebrow, .sec-head .num, .ad-texto .num{letter-spacing:.18em;}
+.barra-wa .btn{letter-spacing:.08em;}
+@media (max-width:980px){ .barra-wa .btn{font-size:13px;} }
+
+/* o botao do WhatsApp chama atencao uma vez, quando a pessoa ja rolou a primeira tela e nao clicou */
+@keyframes chama{0%,100%{transform:scale(1); box-shadow:0 0 0 0 rgba(37,211,102,.55);} 50%{transform:scale(1.06); box-shadow:0 0 0 12px rgba(37,211,102,0);}}
+.barra-wa .btn.chama, .wa-float.chama{animation:chama 1.1s ease-in-out 3;}
+@media (prefers-reduced-motion:reduce){ .barra-wa .btn.chama, .wa-float.chama{animation:none;} }
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -983,6 +997,18 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
   /* faixa dos estilos: no celular o toque para a faixa, senao o link foge do dedo */
   var faixa = document.getElementById('estilos');
   if (faixa) faixa.addEventListener('touchstart', function () { faixa.classList.add('parada'); }, { passive: true });
+
+  /* quando o botao principal do topo sai da tela (a pessoa passou por ele e nao clicou),
+     o botao do WhatsApp da barra pulsa 3 vezes — so uma vez por visita */
+  var ctaTopo = document.querySelector('.hero .cta-row');
+  if (ctaTopo) {
+    var chamar = function () {
+      if (ctaTopo.getBoundingClientRect().bottom > 0) return;   // botao do topo ainda aparece
+      window.removeEventListener('scroll', chamar);
+      document.querySelectorAll('.barra-wa .btn, .wa-float').forEach(function (b) { b.classList.add('chama'); });
+    };
+    window.addEventListener('scroll', chamar, { passive: true });
+  }
 
   /* inclinação 3D reutilizável */
   function tilt(el, target, max, glare) {
