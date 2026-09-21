@@ -479,7 +479,13 @@ h2,h3{text-wrap:balance;}
 .review,.service,.article,.sessoes,.gbadge,.info,.datas{border-radius:var(--r);}
 /* fotos e video: o recorte precisa de overflow no pai */
 .pcard .face,.tile .card,.ad-fotos figure,.vid-frame{border-radius:var(--r);overflow:hidden;}
-.pcard img,.tile img,.ad-fotos img,.corpo figure img,.reels video,.reels img{border-radius:var(--r-img);}
+.pcard img,.tile img,.ad-fotos img,.corpo figure img{border-radius:var(--r-img);}
+/* video: o arredondado vai na .reel-v, que e quem desenha a borda (ela fica
+   dourada no hover). No video em si sobraria um canto quadrado por baixo. */
+.reel-v{border-radius:var(--r);}
+.reel video{border-radius:0;}
+.reel-cta{border-radius:var(--r-img);}
+.reel-tag{border-radius:999px;}
 .ad-fotos figure img,.pcard .face img,.tile .card img{border-radius:0;}
 /* botoes */
 .btn,.filters button,.mais-trabalhos button,.topbar nav .nav-cta{border-radius:var(--r-img);}
