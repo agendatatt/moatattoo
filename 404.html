@@ -97,6 +97,8 @@ h2,h3{text-wrap:balance;}
     --muted:#6b6459;
   }
   body{background:#fbf9f6;}
+  /* a trama de pontinhos e branca a 3%: no claro ela some, entao vira escura */
+  body::before{background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1.2px);}
   /* barras translucidas eram pretas. Nos artigos e .topbar; na home, .topbar.solid */
   .topbar,.topbar.solid{background:rgba(251,249,246,.85);}
   /* a barra fixa do WhatsApp e redefinida num <style> no fim das paginas
