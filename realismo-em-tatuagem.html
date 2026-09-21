@@ -334,6 +334,12 @@ h2,h3{text-wrap:balance;}
 .btn,.filters button,.mais-trabalhos button,.topbar nav .nav-cta{border-radius:var(--r-img);}
 .chips li,.tile .badge{border-radius:999px;}
 /* === FIM CANTOS ARREDONDADOS 21-09-2026 === */
+
+/* === INICIO SEM TEXTURA DE FUNDO 21-09-2026 === */
+/* O fundo tinha uma trama de pontinhos (body::before, radial-gradient de
+   1px). Ele pediu para tirar: fundo limpo. */
+body::before{display:none;}
+/* === FIM SEM TEXTURA DE FUNDO 21-09-2026 === */
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
