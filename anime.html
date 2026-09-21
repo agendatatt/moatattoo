@@ -471,6 +471,19 @@ h2,h3{text-wrap:balance;}
   .article .cat{font-size:13px;}
 }
 /* === FIM AJUSTES DE LEITURA 21-09-2026 === */
+
+/* === INICIO CANTOS ARREDONDADOS 21-09-2026 === */
+:root{--r:14px;--r-img:12px;}
+/* caixas */
+.review,.service,.article,.sessoes,.gbadge,.info,.datas{border-radius:var(--r);}
+/* fotos e video: o recorte precisa de overflow no pai */
+.pcard .face,.tile .card,.ad-fotos figure,.vid-frame{border-radius:var(--r);overflow:hidden;}
+.pcard img,.tile img,.ad-fotos img,.corpo figure img,.reels video,.reels img{border-radius:var(--r-img);}
+.ad-fotos figure img,.pcard .face img,.tile .card img{border-radius:0;}
+/* botoes */
+.btn,.filters button,.mais-trabalhos button,.topbar nav .nav-cta{border-radius:var(--r-img);}
+.chips li,.tile .badge{border-radius:999px;}
+/* === FIM CANTOS ARREDONDADOS 21-09-2026 === */
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
