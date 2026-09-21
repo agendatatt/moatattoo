@@ -6,7 +6,8 @@
 <title>Política de privacidade | Moacir Almeida Tattoo</title>
 <meta name="description" content="Como o site da Moacir Almeida Tattoo usa dados de navegação, cookies e o contato pelo WhatsApp." />
 <link rel="canonical" href="https://agendatatt.github.io/moatattoo/privacidade.html" />
-<meta name="theme-color" content="#070707" />
+<meta name="theme-color" content="#070707" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbf9f6" media="(prefers-color-scheme: light)">
 <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -87,6 +88,67 @@ h2,h3{text-wrap:balance;}
 .btn,.filters button,.mais-trabalhos button,.topbar nav .nav-cta{border-radius:var(--r-img);}
 .chips li,.tile .badge{border-radius:999px;}
 /* === FIM CANTOS ARREDONDADOS 21-09-2026 === */
+
+/* === INICIO TEMA CLARO 21-09-2026 === */
+@media (prefers-color-scheme: light){
+  :root{
+    --black:#17140f;   /* NAO e o fundo no claro: e o texto do botao dourado */
+    --deep:#f6f3ee;
+    --card:#ffffff;
+    --border:#e4ded3;
+    --gold:#7a6033;         /* escurecido: aqui ele e texto e borda (4,9:1) */
+    --gold-light:#63491f;
+    --cream:#1a1613;        /* era o branco dos titulos */
+    --text:#34302a;
+    --muted:#6b6459;
+  }
+  body{background:#fbf9f6;}
+  /* barras translucidas eram pretas. Nos artigos e .topbar; na home, .topbar.solid */
+  .topbar,.topbar.solid{background:rgba(251,249,246,.85);}
+  /* a barra fixa do WhatsApp e redefinida num <style> no fim das paginas
+     internas, com cor literal; por isso as regras dela vem repetidas aqui */
+  .barra-wa{background:rgba(251,249,246,.96);border-top-color:#e4ded3;}
+  .barra-wa .txt{color:#6b6459;}
+  .barra-wa .txt b{color:#1a1613;}
+  .chips li{background:#f2eee6;}
+  /* Botoes dourados: mantem o dourado original, com texto escuro em cima.
+     O --gold escurecido serve pra texto, mas como FUNDO perderia contraste.
+     Nos artigos o botao e .btn puro; na home e .btn-solid. O ghost (borda,
+     sem fundo) e a barra verde do WhatsApp ficam de fora. */
+  .btn:not(.btn-ghost):not(.ghost),.topbar nav .nav-cta,.btn-ghost:hover,
+  .filters button[aria-pressed="true"],.mais-trabalhos button:hover{
+    background:#c9a96e;border-color:#c9a96e;color:#17140f;
+  }
+  .barra-wa .btn{background:#25d366;border-color:#25d366;color:#062e16;}
+  /* escala de dor dos artigos: as duas pontas sobre fundo claro */
+  :root{--p1:#2e7d52;--p5:#c62828;}
+  .gbadge .stars,.rating .stars,.review .stars{color:#b8860b;}
+  /* os raios e o brilho do hero sao luz sobre preto */
+  .rays{opacity:.18;}
+  .glow{opacity:.30;}
+  /* a bolinha do passo era escura sobre escuro */
+  .step .dot{background:#17140f;color:#fbf9f6;}
+  /* Texto POR CIMA de foto ou video continua claro: ali o fundo e a imagem,
+     nao a pagina. Sem isso o rotulo escurece e some dentro da foto. */
+  .pcard .label,.stage .pcard .estilo,.tile .badge,.ad-fotos figcaption,
+  .lb figcaption,.lb button,.ba .tag,.flip .face .tag,.tile .nfotos{color:#f5f0e8;}
+  .ba .tag.d,.flip .front .tag{color:#e8d3a4;}
+  /* .reel-tag vem do reels.css, que carrega depois deste <style>:
+     precisa de seletor mais especifico pra ganhar dele */
+  .reels .reel-tag{color:#f5f0e8;}
+  .lb figcaption span{color:#cec7bb;}
+  .reel-play{color:#e8d3a4;}
+  /* o selo do Google tinha fundo escuro proprio: vira cartao branco */
+  .gbadge{background:#fff;}
+  .gbadge:hover{color:var(--cream);}
+  /* Cards cujo fundo e gradiente com hex fixo (nao usavam var, entao o tema
+     nao os alcancava e ficavam cinza-escuro com texto escuro em cima). */
+  .service,.ad-bloco,.style{background:linear-gradient(160deg,#ffffff,#f4f1ea);}
+  .closer-card::after{background:radial-gradient(ellipse at 50% 0%,#fffdf9,#f2eee6 60%);}
+  .wa-opt:hover{background:#f2eee6;}
+  .review .av{background:#efeae1;}
+}
+/* === FIM TEMA CLARO 21-09-2026 === */
 </style>
 </head>
 <body>
