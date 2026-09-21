@@ -1130,7 +1130,9 @@ h2,h3{text-wrap:balance;}
   window.addEventListener('resize', function(){ layoutRing(); renderRing(); });
 
   var ringVisible = false;
-  new IntersectionObserver(function (es) { ringVisible = es[0].isIntersecting; }, { rootMargin:'100px' }).observe(stage);
+  new IntersectionObserver(function (es) { ringVisible = es[0].isIntersecting; if (ringVisible) carregaRing(); }, { rootMargin:'100px' }).observe(stage);
+  /* lazy nao dispara nos cartoes virados de costas: ao aparecer o anel, forca o que faltou */
+  function carregaRing(){ ring.querySelectorAll('img').forEach(function(im){ if (im.currentSrc) return; im.loading = 'eager'; var s = im.getAttribute('src'); im.removeAttribute('src'); im.setAttribute('src', s); }); }
   function tick(){
     if (ringVisible && !dragging) { ang -= vel; vel += ((reduce ? 0 : 0.08) - vel) * 0.02; renderRing(); }
     requestAnimationFrame(tick);

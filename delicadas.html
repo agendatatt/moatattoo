@@ -630,14 +630,14 @@ h2,h3{text-wrap:balance;}
         </div>
         <ul class="chips" aria-label="Como eu atendo">
           <li><b>1</b> cliente por dia</li>
-          <li><b>32</b> trabalhos nesta página</li>
+          <li><b>30</b> trabalhos nesta página</li>
           <li>Resposta em até <b>1h</b></li>
         </ul>
       </div>
 
       <div class="stage" id="stage" aria-hidden="true">
         <div class="stack" id="stack">
-          <figure class="pcard c1"><div class="face"><img src="mini/delicada-fenix-costas.webp" width="1350" height="1800" alt="Fênix, tatuagem em traço fino nas costas, feita em Recife" decoding="async"><div class="label"><small>Costas</small>Fênix</div></div></figure>
+          <figure class="pcard c1"><div class="face"><img src="mini/32.webp" width="1600" height="2134" alt="Borboleta, tatuagem em traço fino no antebraço, feita em Recife" decoding="async"><div class="label"><small>Antebraço</small>Borboleta</div></div></figure>
           <figure class="pcard c2"><div class="face"><img src="mini/delicada-ornamental-fechamento-braco.webp" width="742" height="1800" alt="Mandala, tatuagem em traço fino, fechamento de braço, feita em Recife" decoding="async"><div class="label"><small>Fechamento de braço</small>Mandala</div></div></figure>
           <figure class="pcard c3"><div class="face"><img src="mini/tatuagem-personalizada-recife-arte.webp" width="1161" height="1548" alt="Água-viva e tartaruga, tatuagem em traço fino no braço, feita em Recife" decoding="async" fetchpriority="high"><div class="label"><small>Braço</small>Água-viva e tartaruga</div></div></figure>
         </div>
@@ -910,16 +910,6 @@ h2,h3{text-wrap:balance;}
     "alt": "Tatuagem de cobra em traço fino no antebraço"
    },
    {
-    "img": "delicada-nomes-filhos-antebraco.webp",
-    "w": 1350,
-    "h": 1800,
-    "nome": "Nomes dos filhos",
-    "obra": "Homenagem · Antebraço",
-    "estilo": "frase",
-    "local": "",
-    "alt": "Tatuagem de homenagem com dois nomes e bonequinhos no antebraço"
-   },
-   {
     "img": "retocado.webp",
     "w": 1092,
     "h": 1456,
@@ -1048,16 +1038,6 @@ h2,h3{text-wrap:balance;}
     "estilo": "fino",
     "local": "",
     "alt": "Tatuagem de coração em chamas em traço fino vermelho no quadril"
-   },
-   {
-    "img": "delicada-casal-antebraco.webp",
-    "w": 900,
-    "h": 1800,
-    "nome": "Tatuagem de casal",
-    "obra": "Antebraço",
-    "estilo": "fino",
-    "local": "",
-    "alt": "Tatuagem de casal com desenhos que se completam nos antebraços"
    },
    {
     "img": "delicada-frase-costas.webp",
@@ -1228,7 +1208,9 @@ h2,h3{text-wrap:balance;}
   window.addEventListener('resize', function(){ layoutRing(); renderRing(); });
 
   var ringVisible = false;
-  new IntersectionObserver(function (es) { ringVisible = es[0].isIntersecting; }, { rootMargin:'100px' }).observe(stage);
+  new IntersectionObserver(function (es) { ringVisible = es[0].isIntersecting; if (ringVisible) carregaRing(); }, { rootMargin:'100px' }).observe(stage);
+  /* lazy nao dispara nos cartoes virados de costas: ao aparecer o anel, forca o que faltou */
+  function carregaRing(){ ring.querySelectorAll('img').forEach(function(im){ if (im.currentSrc) return; im.loading = 'eager'; var s = im.getAttribute('src'); im.removeAttribute('src'); im.setAttribute('src', s); }); }
   function tick(){
     if (ringVisible && !dragging) { ang -= vel; vel += ((reduce ? 0 : 0.08) - vel) * 0.02; renderRing(); }
     requestAnimationFrame(tick);
