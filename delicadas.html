@@ -549,6 +549,34 @@ h2,h3{text-wrap:balance;}
 .btn,.filters button,.mais-trabalhos button,.topbar nav .nav-cta{border-radius:var(--r-img);}
 .chips li,.tile .badge{border-radius:999px;}
 /* === FIM CANTOS ARREDONDADOS 21-09-2026 === */
+
+/* === INICIO BOTAO DE TEMA 21-09-2026 === */
+/* botao de tema: discreto, ao lado do Orcamento */
+.tema-bt{flex:0 0 auto;display:inline-flex;align-items:center;justify-content:center;
+  width:44px;height:44px;padding:0;background:none;border:1px solid var(--border);
+  border-radius:999px;color:var(--muted);cursor:pointer;
+  transition:color .2s,border-color .2s;}
+.tema-bt:hover{color:var(--gold);border-color:var(--gold);}
+.tema-bt svg{width:17px;height:17px;display:block;}
+/* o botao ocupa espaco no topo: sem isso "Preto e cinza" quebra em duas
+   linhas no desktop e o Orcamento encosta na borda no celular */
+.topbar nav a{white-space:nowrap;}
+@media (max-width:1320px){.topbar nav{gap:20px;}}
+@media (max-width:1120px){.topbar nav{gap:15px;} .topbar nav{font-size:12px;}}
+@media (max-width:980px){
+  .tema-bt{width:38px;height:38px;}
+  .tema-bt svg{width:15px;height:15px;}
+  .topbar nav{gap:10px;}
+}
+/* telas estreitas (360px): sem isso o Orcamento passa da borda */
+@media (max-width:400px){
+  .tema-bt{width:34px;height:34px;margin-left:-2px;}
+  .tema-bt svg{width:14px;height:14px;}
+  .topbar nav{gap:7px;}
+  .topbar nav .nav-cta{padding:9px 10px;letter-spacing:.08em;}
+  .topbar .brand{font-size:19px;}
+}
+/* === FIM BOTAO DE TEMA 21-09-2026 === */
 </style>
 
 <!-- Google tag (gtag.js) — um loader, dois destinos: Analytics + Google Ads -->
@@ -561,6 +589,7 @@ h2,h3{text-wrap:balance;}
   gtag('config', 'AW-17997961497');
 </script>
 <script>/* miniatura em mini/ não existe? usa a foto original */document.addEventListener('error',function(e){var t=e.target;if(t&&t.tagName==='IMG'&&t.src.indexOf('/mini/')>-1){t.src=t.src.replace('/mini/','/');}},true);</script>
+<script>/* aplica o tema salvo antes de pintar, pra nao piscar */try{var _t=localStorage.getItem('tema');if(_t)document.documentElement.setAttribute('data-tema',_t);}catch(e){}</script>
 </head>
 <body>
 
@@ -572,6 +601,7 @@ h2,h3{text-wrap:balance;}
       <a href="#trabalhos">Trabalhos</a>
       <a href="#como-funciona">Como funciona</a>
       <a href="#duvidas">Dúvidas</a>
+      <button class="tema-bt" type="button" aria-label="Alternar entre tema claro e escuro" title="Tema claro ou escuro"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 3a9 9 0 0 1 0 18z" fill="currentColor"/></svg></button>
       <a class="nav-cta" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pela%20p%C3%A1gina%20de%20tatuagens%20delicadas%20e%20quero%20um%20or%C3%A7amento.%20Tenho%20uma%20refer%C3%AAncia%20em%20mente.">Orçamento</a>
     </nav>
   </div>
@@ -1272,66 +1302,81 @@ h2,h3{text-wrap:balance;}
 }
 
 /* === INICIO TEMA CLARO 21-09-2026 === */
+/* Tema claro. Vale quando o aparelho esta no modo claro e o visitante nao
+   escolheu nada, ou quando ele escolhe "claro" no botao do topo. */
 @media (prefers-color-scheme: light){
-  :root{
-    --black:#17140f;   /* NAO e o fundo no claro: e o texto do botao dourado */
-    --deep:#f6f3ee;
-    --card:#ffffff;
-    --border:#e4ded3;
-    --gold:#7a6033;         /* escurecido: aqui ele e texto e borda (4,9:1) */
-    --gold-light:#63491f;
-    --cream:#1a1613;        /* era o branco dos titulos */
-    --text:#34302a;
-    --muted:#6b6459;
-  }
-  body{background:#fbf9f6;}
-  /* a trama de pontinhos e branca a 3%: no claro ela some, entao vira escura */
-  body::before{background-image:radial-gradient(rgba(0,0,0,.05) 1px, transparent 1.2px);}
-  /* barras translucidas eram pretas. Nos artigos e .topbar; na home, .topbar.solid */
-  .topbar,.topbar.solid{background:rgba(251,249,246,.85);}
-  /* a barra fixa do WhatsApp e redefinida num <style> no fim das paginas
-     internas, com cor literal; por isso as regras dela vem repetidas aqui */
-  .barra-wa{background:rgba(251,249,246,.96);border-top-color:#e4ded3;}
-  .barra-wa .txt{color:#6b6459;}
-  .barra-wa .txt b{color:#1a1613;}
-  .chips li{background:#f2eee6;}
-  /* Botoes dourados: mantem o dourado original, com texto escuro em cima.
-     O --gold escurecido serve pra texto, mas como FUNDO perderia contraste.
-     Nos artigos o botao e .btn puro; na home e .btn-solid. O ghost (borda,
-     sem fundo) e a barra verde do WhatsApp ficam de fora. */
-  .btn:not(.btn-ghost):not(.ghost),.topbar nav .nav-cta,.btn-ghost:hover,
-  .filters button[aria-pressed="true"],.mais-trabalhos button:hover{
-    background:#c9a96e;border-color:#c9a96e;color:#17140f;
-  }
-  .barra-wa .btn{background:#25d366;border-color:#25d366;color:#062e16;}
-  /* escala de dor dos artigos: as duas pontas sobre fundo claro */
-  :root{--p1:#2e7d52;--p5:#c62828;}
-  .gbadge .stars,.rating .stars,.review .stars{color:#b8860b;}
-  /* os raios e o brilho do hero sao luz sobre preto */
-  .rays{opacity:.18;}
-  .glow{opacity:.30;}
-  /* a bolinha do passo era escura sobre escuro */
-  .step .dot{background:#17140f;color:#fbf9f6;}
-  /* Texto POR CIMA de foto ou video continua claro: ali o fundo e a imagem,
-     nao a pagina. Sem isso o rotulo escurece e some dentro da foto. */
-  .pcard .label,.stage .pcard .estilo,.tile .badge,.ad-fotos figcaption,
-  .lb figcaption,.lb button,.ba .tag,.flip .face .tag,.tile .nfotos{color:#f5f0e8;}
-  .ba .tag.d,.flip .front .tag{color:#e8d3a4;}
-  /* .reel-tag vem do reels.css, que carrega depois deste <style>:
-     precisa de seletor mais especifico pra ganhar dele */
-  .reels .reel-tag{color:#f5f0e8;}
-  .lb figcaption span{color:#cec7bb;}
-  .reel-play{color:#e8d3a4;}
-  /* o selo do Google tinha fundo escuro proprio: vira cartao branco */
-  .gbadge{background:#fff;}
-  .gbadge:hover{color:var(--cream);}
-  /* Cards cujo fundo e gradiente com hex fixo (nao usavam var, entao o tema
-     nao os alcancava e ficavam cinza-escuro com texto escuro em cima). */
-  .service,.ad-bloco,.style{background:linear-gradient(160deg,#ffffff,#f4f1ea);}
-  .closer-card::after{background:radial-gradient(ellipse at 50% 0%,#fffdf9,#f2eee6 60%);}
-  .wa-opt:hover{background:#f2eee6;}
-  .review .av{background:#efeae1;}
+  /* --black segue ESCURO: e a cor do texto dentro dos botoes dourados */
+  html:not([data-tema="escuro"]){--black:#17140f;--deep:#f6f3ee;--card:#ffffff;--border:#e4ded3;--gold:#7a6033;--gold-light:#63491f;--cream:#1a1613;--text:#34302a;--muted:#6b6459;--p1:#2e7d52;--p5:#c62828;}
+  html:not([data-tema="escuro"]) body{background:#fbf9f6;}
+  /* a trama e branca a 3%: no claro sumiria, entao vira escura -- mas bem leve, senao fica mais marcada que no escuro */
+  html:not([data-tema="escuro"]) body::before{background-image:radial-gradient(rgba(0,0,0,.032) 1px, transparent 1.2px);}
+  /* barras translucidas eram pretas */
+  html:not([data-tema="escuro"]) .topbar,html:not([data-tema="escuro"]) .topbar.solid{background:rgba(251,249,246,.85);}
+  html:not([data-tema="escuro"]) .barra-wa{background:rgba(251,249,246,.96);border-top-color:#e4ded3;}
+  html:not([data-tema="escuro"]) .barra-wa .txt{color:#6b6459;}
+  html:not([data-tema="escuro"]) .barra-wa .txt b{color:#1a1613;}
+  html:not([data-tema="escuro"]) .chips li{background:#f2eee6;}
+  /* o dourado escurecido serve pra texto, nao como fundo de botao */
+  html:not([data-tema="escuro"]) .btn:not(.btn-ghost):not(.ghost),html:not([data-tema="escuro"]) .topbar nav .nav-cta,html:not([data-tema="escuro"]) .btn-ghost:hover,html:not([data-tema="escuro"]) .filters button[aria-pressed="true"],html:not([data-tema="escuro"]) .mais-trabalhos button:hover{background:#c9a96e;border-color:#c9a96e;color:#17140f;}
+  html:not([data-tema="escuro"]) .barra-wa .btn{background:#25d366;border-color:#25d366;color:#062e16;}
+  html:not([data-tema="escuro"]) .gbadge .stars,html:not([data-tema="escuro"]) .rating .stars,html:not([data-tema="escuro"]) .review .stars{color:#b8860b;}
+  /* raios e brilho do hero sao luz sobre preto */
+  html:not([data-tema="escuro"]) .rays{opacity:.18;}
+  html:not([data-tema="escuro"]) .glow{opacity:.30;}
+  html:not([data-tema="escuro"]) .step .dot{background:#17140f;color:#fbf9f6;}
+  /* texto POR CIMA de foto ou video: ali o fundo e a imagem */
+  html:not([data-tema="escuro"]) .pcard .label,html:not([data-tema="escuro"]) .stage .pcard .estilo,html:not([data-tema="escuro"]) .tile .badge,html:not([data-tema="escuro"]) .ad-fotos figcaption,html:not([data-tema="escuro"]) .lb figcaption,html:not([data-tema="escuro"]) .lb button,html:not([data-tema="escuro"]) .ba .tag,html:not([data-tema="escuro"]) .flip .face .tag,html:not([data-tema="escuro"]) .tile .nfotos{color:#f5f0e8;}
+  html:not([data-tema="escuro"]) .ba .tag.d,html:not([data-tema="escuro"]) .flip .front .tag{color:#e8d3a4;}
+  html:not([data-tema="escuro"]) .lb figcaption span{color:#cec7bb;}
+  html:not([data-tema="escuro"]) .reel-play{color:#e8d3a4;}
+  /* .reel-tag vem do reels.css, que carrega depois */
+  html:not([data-tema="escuro"]) .reels .reel-tag{color:#f5f0e8;}
+  /* o selo do Google tinha fundo escuro proprio */
+  html:not([data-tema="escuro"]) .gbadge{background:#fff;}
+  html:not([data-tema="escuro"]) .gbadge:hover{color:var(--cream);}
+  /* cards com gradiente de hex fixo, que o tema nao alcancava */
+  html:not([data-tema="escuro"]) .service,html:not([data-tema="escuro"]) .ad-bloco,html:not([data-tema="escuro"]) .style{background:linear-gradient(160deg,#ffffff,#f4f1ea);}
+  html:not([data-tema="escuro"]) .closer-card::after{background:radial-gradient(ellipse at 50% 0%,#fffdf9,#f2eee6 60%);}
+  html:not([data-tema="escuro"]) .wa-opt:hover{background:#f2eee6;}
+  html:not([data-tema="escuro"]) .review .av{background:#efeae1;}
+  html:not([data-tema="escuro"]) .tema-bt{border-color:#e4ded3;}
 }
+/* escolha manual pelo botao, mesmo com o aparelho no modo escuro */
+  /* --black segue ESCURO: e a cor do texto dentro dos botoes dourados */
+  html[data-tema="claro"]{--black:#17140f;--deep:#f6f3ee;--card:#ffffff;--border:#e4ded3;--gold:#7a6033;--gold-light:#63491f;--cream:#1a1613;--text:#34302a;--muted:#6b6459;--p1:#2e7d52;--p5:#c62828;}
+  html[data-tema="claro"] body{background:#fbf9f6;}
+  /* a trama e branca a 3%: no claro sumiria, entao vira escura -- mas bem leve, senao fica mais marcada que no escuro */
+  html[data-tema="claro"] body::before{background-image:radial-gradient(rgba(0,0,0,.032) 1px, transparent 1.2px);}
+  /* barras translucidas eram pretas */
+  html[data-tema="claro"] .topbar,html[data-tema="claro"] .topbar.solid{background:rgba(251,249,246,.85);}
+  html[data-tema="claro"] .barra-wa{background:rgba(251,249,246,.96);border-top-color:#e4ded3;}
+  html[data-tema="claro"] .barra-wa .txt{color:#6b6459;}
+  html[data-tema="claro"] .barra-wa .txt b{color:#1a1613;}
+  html[data-tema="claro"] .chips li{background:#f2eee6;}
+  /* o dourado escurecido serve pra texto, nao como fundo de botao */
+  html[data-tema="claro"] .btn:not(.btn-ghost):not(.ghost),html[data-tema="claro"] .topbar nav .nav-cta,html[data-tema="claro"] .btn-ghost:hover,html[data-tema="claro"] .filters button[aria-pressed="true"],html[data-tema="claro"] .mais-trabalhos button:hover{background:#c9a96e;border-color:#c9a96e;color:#17140f;}
+  html[data-tema="claro"] .barra-wa .btn{background:#25d366;border-color:#25d366;color:#062e16;}
+  html[data-tema="claro"] .gbadge .stars,html[data-tema="claro"] .rating .stars,html[data-tema="claro"] .review .stars{color:#b8860b;}
+  /* raios e brilho do hero sao luz sobre preto */
+  html[data-tema="claro"] .rays{opacity:.18;}
+  html[data-tema="claro"] .glow{opacity:.30;}
+  html[data-tema="claro"] .step .dot{background:#17140f;color:#fbf9f6;}
+  /* texto POR CIMA de foto ou video: ali o fundo e a imagem */
+  html[data-tema="claro"] .pcard .label,html[data-tema="claro"] .stage .pcard .estilo,html[data-tema="claro"] .tile .badge,html[data-tema="claro"] .ad-fotos figcaption,html[data-tema="claro"] .lb figcaption,html[data-tema="claro"] .lb button,html[data-tema="claro"] .ba .tag,html[data-tema="claro"] .flip .face .tag,html[data-tema="claro"] .tile .nfotos{color:#f5f0e8;}
+  html[data-tema="claro"] .ba .tag.d,html[data-tema="claro"] .flip .front .tag{color:#e8d3a4;}
+  html[data-tema="claro"] .lb figcaption span{color:#cec7bb;}
+  html[data-tema="claro"] .reel-play{color:#e8d3a4;}
+  /* .reel-tag vem do reels.css, que carrega depois */
+  html[data-tema="claro"] .reels .reel-tag{color:#f5f0e8;}
+  /* o selo do Google tinha fundo escuro proprio */
+  html[data-tema="claro"] .gbadge{background:#fff;}
+  html[data-tema="claro"] .gbadge:hover{color:var(--cream);}
+  /* cards com gradiente de hex fixo, que o tema nao alcancava */
+  html[data-tema="claro"] .service,html[data-tema="claro"] .ad-bloco,html[data-tema="claro"] .style{background:linear-gradient(160deg,#ffffff,#f4f1ea);}
+  html[data-tema="claro"] .closer-card::after{background:radial-gradient(ellipse at 50% 0%,#fffdf9,#f2eee6 60%);}
+  html[data-tema="claro"] .wa-opt:hover{background:#f2eee6;}
+  html[data-tema="claro"] .review .av{background:#efeae1;}
+  html[data-tema="claro"] .tema-bt{border-color:#e4ded3;}
 /* === FIM TEMA CLARO 21-09-2026 === */
 
 /* === INICIO SEM MOLDURA DOURADA 21-09-2026 === */
@@ -1345,5 +1390,29 @@ h2,h3{text-wrap:balance;}
   <a class="bt" target="_blank" rel="noopener" href="https://wa.me/5581992244674?text=Ol%C3%A1%2C%20Moacir!%20Vim%20pelo%20site%20e%20quero%20uma%20tatuagem%20delicada.%20Tenho%20a%20refer%C3%AAncia.">WhatsApp →</a>
 </div>
 
+
+<script>
+/* botao de tema: alterna e guarda a escolha */
+(function () {
+  var bt = document.querySelector('.tema-bt');
+  if (!bt) return;
+  var raiz = document.documentElement;
+  function efetivo() {
+    var a = raiz.getAttribute('data-tema');
+    if (a === 'claro' || a === 'escuro') return a;
+    return (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) ? 'claro' : 'escuro';
+  }
+  function rotula() {
+    bt.setAttribute('aria-label', efetivo() === 'claro' ? 'Mudar para o tema escuro' : 'Mudar para o tema claro');
+  }
+  rotula();
+  bt.addEventListener('click', function () {
+    var novo = efetivo() === 'claro' ? 'escuro' : 'claro';
+    raiz.setAttribute('data-tema', novo);
+    try { localStorage.setItem('tema', novo); } catch (e) {}
+    rotula();
+  });
+})();
+</script>
 </body>
 </html>
