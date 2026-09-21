@@ -265,12 +265,13 @@ footer a{color:var(--muted);} footer a:hover{color:var(--cream);}
 .sessoes p.m{font-size:15px;}
 /* Piso de 12px nos rotulos minusculos (havia 11px). Nao mexe nos que ja sobem
    pra 13px no celular -- esses estao no @media abaixo. */
-.scroll-hint,.tile .badge,.stats span,.lb figcaption span,.article .cat{font-size:12px;}
+.scroll-hint,.tile .badge,.stats span,.lb figcaption span,.article .cat,
+.reels-dica,.reel-tag,.pcard .label small,.tile .meta small{font-size:12px;}
 /* Sem palavra orfa no fim do paragrafo e titulo quebrado em linhas parelhas */
 p,li{text-wrap:pretty;}
 h2,h3{text-wrap:balance;}
-/* Area de toque dos links de rodape */
-.legal a,.foot a{display:inline-block;padding-block:6px;}
+/* Area de toque: links de contato e rodape tinham 22-23px de altura */
+.legal a,.foot a,.info a,.info li a,.contact a:not(.btn){display:inline-block;padding-block:10px;}
 @media (max-width:980px){
   .service p,.step p,.article p,.porta-txt p,.faq .ans,.review blockquote p{font-size:17px;}
   .article .cat{font-size:13px;}
