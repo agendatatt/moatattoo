@@ -218,8 +218,8 @@ h1 .outline{font-style:italic; color:transparent; -webkit-text-stroke:1px var(--
   font-size:12px; letter-spacing:.16em; text-transform:uppercase;
 }
 .pcard .label small{display:block; color:var(--gold); letter-spacing:.2em;}
-.pcard.c1{transform:translate(-50%,-50%) translate3d(-62%, 10%, -220px) rotateY(24deg) rotateZ(-7deg); animation:float1 7s ease-in-out infinite;}
-.pcard.c2{transform:translate(-50%,-50%) translate3d(62%, -9%, -150px) rotateY(-22deg) rotateZ(6deg); animation:float2 8s ease-in-out infinite;}
+.pcard.c1{transform:translate(-50%,-50%) translate3d(-70%, -7%, -220px) rotateY(24deg) rotateZ(-7deg); animation:float1 7s ease-in-out infinite;}
+.pcard.c2{transform:translate(-50%,-50%) translate3d(70%, -9%, -150px) rotateY(-22deg) rotateZ(6deg); animation:float2 8s ease-in-out infinite;}
 .pcard.c3{transform:translate(-50%,-50%) translate3d(0, 0, 40px); animation:float3 6s ease-in-out infinite;}
 .pcard.c3 .face{border-color:var(--gold);}
 .pcard.c3::after{
@@ -407,6 +407,9 @@ footer .wrap{display:flex; flex-wrap:wrap; gap:12px 28px; justify-content:space-
 @media (max-width:980px){
   .hero{grid-template-columns:1fr; min-height:auto; padding:150px 0 40px; gap:10px;}
   .stage{height:460px;}
+  /* na tela estreita os cartoes laterais ja encostam na borda: mantem o afastamento antigo */
+  .pcard.c1{transform:translate(-50%,-50%) translate3d(-62%, 10%, -220px) rotateY(24deg) rotateZ(-7deg);}
+  .pcard.c2{transform:translate(-50%,-50%) translate3d(62%, -9%, -150px) rotateY(-22deg) rotateZ(6deg);}
   .styles{grid-template-columns:1fr;}
   .steps{grid-template-columns:1fr 1fr; gap:36px 22px;}
   .steps::before, .steps .bar{display:none;}
