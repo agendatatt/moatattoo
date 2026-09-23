@@ -834,7 +834,8 @@ h2,h3{text-wrap:balance;}
 
   /* ---------- anel 3D ---------- */
   var ring = document.getElementById('ring'), stage = document.getElementById('ringStage');
-  var RING = WORKS.slice(0, 12), N = RING.length, ang = 0, vel = reduce ? 0 : 0.08, dragging = false, lastX = 0, moved = 0;
+  var FORA_DO_RING = ['Zoro'];
+  var RING = WORKS.filter(function (w) { return FORA_DO_RING.indexOf(w.nome) < 0; }), N = RING.length, ang = 0, vel = reduce ? 0 : 0.08, dragging = false, lastX = 0, moved = 0;
   RING.forEach(function (w, i) {
     var f = document.createElement('figure');
     f.innerHTML = '<button type="button" aria-label="Ampliar: ' + w.nome + ', ' + w.obra + '"><img loading="lazy" decoding="async" src="mini/' + w.img + '" width="' + w.w + '" height="' + w.h + '" alt="' + w.alt + '"></button><figcaption>' + w.nome + '</figcaption>';
