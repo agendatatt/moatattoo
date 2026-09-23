@@ -218,16 +218,13 @@ h1 .outline{font-style:italic; color:transparent; -webkit-text-stroke:1px var(--
   font-size:12px; letter-spacing:.16em; text-transform:uppercase;
 }
 .pcard .label small{display:block; color:var(--gold); letter-spacing:.2em;}
-.pcard.c1{transform:translate(-50%,-50%) translate3d(-62%, 10%, -220px) rotateY(24deg) rotateZ(-7deg); animation:float1 7s ease-in-out infinite;}
-.pcard.c2{transform:translate(-50%,-50%) translate3d(62%, -9%, -150px) rotateY(-22deg) rotateZ(6deg); animation:float2 8s ease-in-out infinite;}
-.pcard.c3{transform:translate(-50%,-50%) translate3d(0, 0, 40px); animation:float3 6s ease-in-out infinite;}
+.pcard.c1{transform:translate(-50%,-50%) translate3d(-62%, 10%, -220px) rotateY(24deg) rotateZ(-7deg);}
+.pcard.c2{transform:translate(-50%,-50%) translate3d(62%, -9%, -150px) rotateY(-22deg) rotateZ(6deg);}
+.pcard.c3{transform:translate(-50%,-50%) translate3d(0, 0, 40px);}
 .pcard.c3 .face{border-color:var(--gold);}
 .pcard.c3::after{
   content:""; position:absolute; inset:-14px; border:1px solid rgba(201,169,110,.5); transform:translateZ(-30px); pointer-events:none;
 }
-@keyframes float1{50%{margin-top:-14px;}}
-@keyframes float2{50%{margin-top:12px;}}
-@keyframes float3{50%{margin-top:-8px;}}
 .scroll-hint{
   position:absolute; left:50%; bottom:26px; transform:translateX(-50%);
   font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted);
@@ -585,7 +582,7 @@ h2,h3{text-wrap:balance;}
       <div class="stage" id="stage" aria-hidden="true">
         <div class="stack" id="stack">
           <figure class="pcard c1"><div class="face"><img src="mini/jinwoo-cartao.webp" width="720" height="900" alt="Sung Jin-Woo, tatuagem de anime (Solo Leveling), feita em Recife" decoding="async"><div class="label"><small>Solo Leveling</small>Sung Jin-Woo</div></div></figure>
-          <figure class="pcard c2"><div class="face"><img src="mini/8gaara.webp" width="1566" height="1958" alt="Gaara, tatuagem de anime (Naruto), feita em Recife" decoding="async"><div class="label"><small>Naruto</small>Gaara</div></div></figure>
+          <figure class="pcard c2"><div class="face"><img src="mini/gaara-cartao.webp" width="720" height="900" alt="Gaara, tatuagem de anime (Naruto), feita em Recife" decoding="async"><div class="label"><small>Naruto</small>Gaara</div></div></figure>
           <figure class="pcard c3"><div class="face"><img src="mini/luffy-cartao.webp" width="720" height="960" alt="Luffy com o cartaz de procurado, tatuagem de anime (One Piece) em preto e cinza, feita em Recife" decoding="async" fetchpriority="high"><div class="label"><small>One Piece</small>Luffy · Wanted</div></div></figure>
         </div>
       </div>
@@ -874,15 +871,7 @@ h2,h3{text-wrap:balance;}
   });
   window.addEventListener('pointerup', function () { dragging = false; vel = Math.max(-3, Math.min(3, vel)); });
 
-  /* ---------- pilha do hero acompanha o mouse ---------- */
-  var stack = document.getElementById('stack'), hero = document.getElementById('hero');
-  if (fine && !reduce) {
-    hero.addEventListener('pointermove', function (e) {
-      var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      stack.style.transform = 'rotateY(' + (x * 22).toFixed(2) + 'deg) rotateX(' + (-y * 16).toFixed(2) + 'deg)';
-    });
-    hero.addEventListener('pointerleave', function () { stack.style.transform = ''; });
-  }
+  /* a pilha do hero nao acompanha mais o mouse: girando, os cartoes passavam por cima do texto */
 
   /* ---------- fecho inclina ---------- */
   var closer = document.getElementById('closer');
