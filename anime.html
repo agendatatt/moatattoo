@@ -834,7 +834,7 @@ h2,h3{text-wrap:balance;}
 
   /* ---------- anel 3D ---------- */
   var ring = document.getElementById('ring'), stage = document.getElementById('ringStage');
-  var FORA_DO_RING = ['Zoro'];
+  var FORA_DO_RING = ['Zoro', 'Hiei'];
   var RING = WORKS.filter(function (w) { return FORA_DO_RING.indexOf(w.nome) < 0; }), N = RING.length, ang = 0, vel = reduce ? 0 : 0.08, dragging = false, lastX = 0, moved = 0;
   RING.forEach(function (w, i) {
     var f = document.createElement('figure');
