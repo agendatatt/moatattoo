@@ -260,16 +260,13 @@ h1 .outline{font-style:italic; color:transparent; -webkit-text-stroke:1px var(--
   font-size:12px; letter-spacing:.16em; text-transform:uppercase;
 }
 .pcard .label small{display:block; color:var(--gold); letter-spacing:.2em;}
-.pcard.c1{transform:translate(-50%,-50%) translate3d(-62%, 10%, -220px) rotateY(24deg) rotateZ(-7deg); animation:float1 7s ease-in-out infinite;}
-.pcard.c2{transform:translate(-50%,-50%) translate3d(62%, -9%, -150px) rotateY(-22deg) rotateZ(6deg); animation:float2 8s ease-in-out infinite;}
-.pcard.c3{transform:translate(-50%,-50%) translate3d(0, 0, 40px); animation:float3 6s ease-in-out infinite;}
+.pcard.c1{transform:translate(-50%,-50%) translate3d(-62%, 10%, -220px) rotateY(24deg) rotateZ(-7deg);}
+.pcard.c2{transform:translate(-50%,-50%) translate3d(62%, -9%, -150px) rotateY(-22deg) rotateZ(6deg);}
+.pcard.c3{transform:translate(-50%,-50%) translate3d(0, 0, 40px);}
 .pcard.c3 .face{border-color:var(--gold);}
 .pcard.c3::after{
   content:""; position:absolute; inset:-14px; border:1px solid rgba(201,169,110,.5); transform:translateZ(-30px); pointer-events:none;
 }
-@keyframes float1{50%{margin-top:-14px;}}
-@keyframes float2{50%{margin-top:12px;}}
-@keyframes float3{50%{margin-top:-8px;}}
 .scroll-hint{
   position:absolute; left:50%; bottom:26px; transform:translateX(-50%);
   font-size:11px; letter-spacing:.3em; text-transform:uppercase; color:var(--muted);
@@ -632,28 +629,20 @@ h2,h3{text-wrap:balance;}
         </div>
         <ul class="chips" aria-label="Como eu atendo">
           <li><b>1</b> cliente por dia</li>
-          <li><b>20</b> trabalhos nesta página</li>
+          <li><b>21</b> trabalhos nesta página</li>
           <li>Resposta em até <b>1h</b></li>
         </ul>
       </div>
 
       <div class="stage" id="stage" aria-hidden="true">
         <div class="stack" id="stack">
-          <figure class="pcard c1"><div class="face"><img src="mini/pb-leao-antebraco.webp" width="1350" height="1800" alt="Leão, tatuagem em preto e cinza no antebraço, feita em Recife" decoding="async"><div class="label"><small>Antebraço</small>Leão</div></div></figure>
+          <figure class="pcard c1"><div class="face"><img src="mini/aguia-cartao.webp" width="720" height="900" alt="Águia com montanha, tatuagem em preto e cinza no antebraço, feita em Recife" decoding="async"><div class="label"><small>Antebraço</small>Águia</div></div></figure>
           <figure class="pcard c2"><div class="face"><img src="mini/1719792329908.webp" width="1600" height="2000" alt="Lobo e lua, tatuagem em preto e cinza na panturrilha, feita em Recife" decoding="async"><div class="label"><small>Panturrilha</small>Lobo e lua</div></div></figure>
           <figure class="pcard c3"><div class="face"><img src="mini/onca-peonias-coxa-recife.webp" width="1600" height="2134" alt="Onça com peônias, tatuagem em preto e cinza na coxa, feita em Recife" decoding="async" fetchpriority="high"><div class="label"><small>Coxa</small>Onça com peônias</div></div></figure>
         </div>
       </div>
-      <a class="scroll-hint" href="#obras">Role</a>
+      <a class="scroll-hint" href="#galeria-360">Role</a>
     </section>
-  </div>
-
-  <!-- FAIXA -->
-  <div class="marquee" id="obras" aria-label="Temas que já tatuei em preto e cinza">
-    <div class="marquee-track">
-      <span>Onça</span><span>Leão</span><span>Lobo</span><span>Retrato</span><span>Egito</span><span>Fechamento de braço</span><span>Costas</span><span>Rosas</span><span>Rastelado</span><span>Pantera</span>
-      <span aria-hidden="true">Onça</span><span aria-hidden="true">Leão</span><span aria-hidden="true">Lobo</span><span aria-hidden="true">Retrato</span><span aria-hidden="true">Egito</span><span aria-hidden="true">Fechamento de braço</span><span aria-hidden="true">Costas</span><span aria-hidden="true">Rosas</span><span aria-hidden="true">Rastelado</span><span aria-hidden="true">Pantera</span>
-    </div>
   </div>
 
   <!-- ANEL 3D -->
@@ -802,6 +791,24 @@ h2,h3{text-wrap:balance;}
     "estilo": "anim",
     "local": "",
     "alt": "Tatuagem de onça com peônias na lateral da coxa, realismo em preto e cinza"
+   },
+   {
+    "img": "pb-aguia-montanha-antebraco.webp",
+    "w": 1600,
+    "h": 2134,
+    "nome": "Águia",
+    "obra": "Antebraço",
+    "estilo": "anim",
+    "local": "",
+    "alt": "Tatuagem de águia com montanha e penas no antebraço, preto e cinza",
+    "fotos": [
+     {
+      "img": "pb-aguia-montanha-antebraco-2.webp",
+      "w": 1600,
+      "h": 2134,
+      "alt": "Águia com montanha no antebraço, outro ângulo, preto e cinza"
+     }
+    ]
    },
    {
     "img": "pb-leao-antebraco.webp",
@@ -1146,15 +1153,6 @@ h2,h3{text-wrap:balance;}
   });
   window.addEventListener('pointerup', function () { dragging = false; vel = Math.max(-3, Math.min(3, vel)); });
 
-  /* ---------- pilha do hero acompanha o mouse ---------- */
-  var stack = document.getElementById('stack'), hero = document.getElementById('hero');
-  if (fine && !reduce) {
-    hero.addEventListener('pointermove', function (e) {
-      var r = hero.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5;
-      stack.style.transform = 'rotateY(' + (x * 22).toFixed(2) + 'deg) rotateX(' + (-y * 16).toFixed(2) + 'deg)';
-    });
-    hero.addEventListener('pointerleave', function () { stack.style.transform = ''; });
-  }
 
   /* ---------- fecho inclina ---------- */
   var closer = document.getElementById('closer');
