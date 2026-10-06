@@ -497,6 +497,12 @@ footer{border-top:1px solid var(--border); padding:60px 0 34px; color:var(--mute
 .sessoes b{color:var(--cream); font-weight:500;}
 .sessoes .sessoes-tit{font-family:'Cormorant Garamond','Cormorant reserva',serif; font-weight:400; font-size:clamp(24px,2.6vw,30px); line-height:1.15; color:var(--cream); margin-bottom:10px;}
 .sessoes .sessoes-tit em{font-style:italic; color:var(--gold);}
+.sessoes-mais{margin-top:6px}
+.sessoes-mais summary{cursor:pointer;list-style:none;display:inline-flex;align-items:center;gap:10px;min-height:44px;color:var(--gold);font-size:13px;letter-spacing:.14em;text-transform:uppercase}
+.sessoes-mais summary::-webkit-details-marker{display:none}
+.sessoes-mais summary::after{content:"+";font-size:20px;line-height:1;transition:transform .3s}
+.sessoes-mais[open] summary::after{transform:rotate(45deg)}
+.sessoes-mais p{margin-top:8px}
 .sessoes a{border-bottom:1px solid rgba(201,169,110,.4); white-space:nowrap;}
 @media (max-width:560px){ .sessoes{padding:18px;} .sessoes p{font-size:15px;} }
 @media (max-width:760px){ .faixas{grid-template-columns:1fr;} }
@@ -908,9 +914,11 @@ html[data-tema="claro"] .prog-leitura{background:linear-gradient(90deg,#7a6033,#
 <!-- peca grande: responde "quanto e a sessao" e "quantas sessoes vou precisar" antes do cliente imaginar um valor absurdo -->
 <div class="sessoes reveal">
 <p class="sessoes-tit">Peça grande se paga <em>por sessão</em></p>
-<p>Um <b>fechamento de braço externo</b> — a tatuagem que cobre o braço todo — costuma levar de <b>3 a 5 sessões</b>. Na maioria dos casos, fica entre <b>R$&nbsp;1.800 e R$&nbsp;3.000</b> — pagos sessão a sessão, conforme a tatuagem avança. Você não precisa ter o valor inteiro pra começar.</p>
-<p>Se a ideia era <b>resolver tudo numa sentada só</b>, vale saber por que eu divido: a pele tem limite. Depois de algumas horas sendo tatuada ela incha, avermelha e para de receber tinta direito — e isso aparece no traço depois que cicatriza. Dividir deixa o dia <b>mais confortável</b> pra você e o resultado melhor no fim: você volta com a pele descansada e cada parte sai como tem que sair. Dia inteiro eu faço; o braço todo numa sentada só é a pele que não acompanha.</p>
+<p>Um <b>fechamento de braço</b> leva de <b>3 a 5 sessões</b>, entre <b>R$&nbsp;1.800 e R$&nbsp;3.000</b> no total. Você paga sessão a sessão — não precisa ter o valor inteiro pra começar.</p>
+<details class="sessoes-mais"><summary>Por que dividir em sessões?</summary>
+<p>A pele tem limite. Depois de algumas horas sendo tatuada ela incha, avermelha e para de receber tinta direito — e isso aparece no traço depois que cicatriza. Dividir deixa o dia <b>mais confortável</b> pra você e o resultado melhor no fim: você volta com a pele descansada e cada parte sai como tem que sair. Dia inteiro eu faço; o braço todo numa sentada só é a pele que não acompanha.</p>
 <p class="m">O número exato de sessões eu passo no orçamento, depois de ver a referência, o tamanho e o lugar. <a href="quantas-sessoes-tatuagem-grande.html">Como funcionam as sessões →</a></p>
+</details>
 </div>
 <p class="faixas-nota">O valor exato sai com a referência, o tamanho e o local do corpo — cada pele e cada desenho pedem um tempo diferente. Pix, dinheiro ou cartão, com crédito em até 12x.</p>
     </div>
